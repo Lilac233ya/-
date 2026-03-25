@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密行业热点早报 · 2026年3月25日</title>
+<style>
+  /* ─── Reset & Base ─── */
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { font-size: 15px; }
+  body {
+    background: #000;
+    color: #FFFFFF;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+  a { color: #BCFF2F; text-decoration: none; }
+  a:active { opacity: 0.7; }
+
+  /* ─── Sticky Header ─── */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.92);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1A1A1A;
+    padding: 14px 16px 12px;
+  }
+  .header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+  }
+  .date-badge {
+    background: #BCFF2F;
+    color: #000;
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 9px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  .time-badge {
+    background: #111;
+    color: #777;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid #222;
+  }
+  .header h1 {
+    font-size: 20px;
+    font-weight: 800;
+    letter-spacing: -0.3px;
+    line-height: 1.2;
+  }
+  .header h1 .accent { color: #BCFF2F; }
+  .header-sub {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 6px;
+  }
+  .header-sub .subtitle { color: #555; font-size: 11px; }
+  .source-pills {
+    display: flex;
+    gap: 5px;
+    overflow-x: auto;
+    padding: 8px 16px 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .source-pill {
+    flex-shrink: 0;
+    background: #111;
+    border: 1px solid #222;
+    color: #888;
+    font-size: 10px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    white-space: nowrap;
+  }
+
+  /* ─── Banner ─── */
+  .banner {
+    margin: 12px 12px 0;
+    background: #0D0D0D;
+    border: 1px solid #2A0000;
+    border-left: 3px solid #FF3B3B;
+    border-radius: 10px;
+    padding: 14px 14px;
+  }
+  .banner-label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 8px;
+  }
+  .banner-dot {
+    width: 7px; height: 7px;
+    background: #FF3B3B;
+    border-radius: 50%;
+    animation: pulse 1.5s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.3} }
+  .banner-label span { color: #FF3B3B; font-size: 10px; font-weight: 700; letter-spacing: 0.8px; }
+  .banner-title { font-size: 14px; font-weight: 700; line-height: 1.4; margin-bottom: 7px; }
+  .banner-desc { color: #999; font-size: 12px; line-height: 1.6; margin-bottom: 10px; }
+  .banner-chips { display: flex; flex-wrap: wrap; gap: 5px; }
+  .banner-chip {
+    background: #1A0000;
+    border: 1px solid #3A1010;
+    color: #FF6B6B;
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 3px;
+  }
+
+  /* ─── Market Bar ─── */
+  .market-wrap {
+    margin: 10px 12px 0;
+    background: #0A0A0A;
+    border: 1px solid #1A1A1A;
+    border-radius: 10px;
+    padding: 10px 12px;
+  }
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px 4px;
+  }
+  .market-item { text-align: center; }
+  .m-label { color: #555; font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; }
+  .m-price { font-size: 13px; font-weight: 700; margin: 1px 0; }
+  .m-change { font-size: 10px; }
+  .up { color: #BCFF2F; }
+  .down { color: #FF4444; }
+  .neutral { color: #888; }
+
+  /* ─── Content ─── */
+  .content { padding: 0 12px 20px; }
+
+  /* ─── Section ─── */
+  .section { margin-top: 20px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1A1A1A;
+    margin-bottom: 10px;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 14px; font-weight: 700; }
+  .section-count {
+    background: #BCFF2F;
+    color: #000;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 1px 6px;
+    border-radius: 8px;
+    margin-left: auto;
+  }
+
+  /* ─── News Item ─── */
+  .news-item {
+    background: #0C0C0C;
+    border: 1px solid #1A1A1A;
+    border-radius: 10px;
+    padding: 13px 14px;
+    margin-bottom: 8px;
+    /* touch-friendly active state */
+  }
+  .news-item:active { background: #111; }
+  .news-item-top {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+    margin-bottom: 7px;
+  }
+  .ptag {
+    flex-shrink: 0;
+    font-size: 9px;
+    font-weight: 800;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 2px;
+    letter-spacing: 0.3px;
+  }
+  .ptag.high { background: #0F2B0A; color: #BCFF2F; border: 1px solid #2A5A14; }
+  .ptag.mid  { background: #1A1500; color: #FFD600; border: 1px solid #3A3000; }
+  .ptag.low  { background: #141414; color: #666;    border: 1px solid #222; }
+  .news-title { font-size: 13.5px; font-weight: 600; line-height: 1.5; color: #EEE; }
+  .news-desc { color: #777; font-size: 12px; line-height: 1.6; margin-bottom: 8px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 5px; margin-bottom: 8px; }
+  .itag {
+    background: #0D1520;
+    border: 1px solid #1A2A3A;
+    color: #5A8BBB;
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 3px;
+  }
+  .news-footer-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 8px;
+    border-top: 1px solid #181818;
+  }
+  .news-source-txt { color: #444; font-size: 11px; }
+  .news-source-txt a { color: #BCFF2F; opacity: 0.8; font-size: 11px; }
+  .news-time { color: #383838; font-size: 10px; white-space: nowrap; margin-left: 8px; flex-shrink: 0; }
+
+  /* ─── Keywords ─── */
+  .keywords-wrap {
+    margin-top: 20px;
+    padding: 14px;
+    background: #0A0A0A;
+    border: 1px solid #1A1A1A;
+    border-radius: 10px;
+  }
+  .kw-title { color: #555; font-size: 10px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 10px; }
+  .kw-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .kw {
+    background: #111;
+    border: 1px solid #1E1E1E;
+    color: #BCFF2F;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 16px;
+  }
+
+  /* ─── Footer ─── */
+  .footer {
+    margin: 12px 12px 0;
+    padding: 14px;
+    border-top: 1px solid #111;
+    color: #2E2E2E;
+    font-size: 10.5px;
+    line-height: 1.7;
+  }
+  .okx-brand { display: flex; align-items: center; gap: 7px; margin-top: 10px; }
+  .okx-logo { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 800; padding: 2px 7px; border-radius: 3px; letter-spacing: 1px; }
+  .okx-brand span { color: #2E2E2E; font-size: 10px; }
+</style>
+</head>
+<body>
+
+<!-- ══ STICKY HEADER ══ -->
+<div class="header">
+  <div class="header-top">
+    <span class="date-badge">2026 · 03 · 25</span>
+    <span class="time-badge">03/24 20:00 — 03/25 09:30</span>
+  </div>
+  <h1>加密行业热点<span class="accent">早报</span></h1>
+  <div class="header-sub">
+    <span class="subtitle">共 19 条 · 宏观/链上/监管/行业</span>
+  </div>
+</div>
+<div class="source-pills">
+  <span class="source-pill">Odaily星球日报</span>
+  <span class="source-pill">吴说区块链</span>
+  <span class="source-pill">CoinDesk</span>
+  <span class="source-pill">FinTech Weekly</span>
+  <span class="source-pill">The Block</span>
+  <span class="source-pill">MEXC News</span>
+</div>
+
+<!-- ══ BANNER ══ -->
+<div class="banner">
+  <div class="banner-label">
+    <div class="banner-dot"></div>
+    <span>⚡ 重大事件 · 以色列电视台：美伊停火协议即将宣布</span>
+  </div>
+  <div class="banner-title">以色列TV报道美伊一个月停火协议将宣布，布伦特原油暴跌6.6%，BTC收复$71K</div>
+  <div class="banner-desc">以色列12频道报道，美国特使Witkoff与Kushner正斡旋一项停火方案，条件包括伊朗拆除现有核能力、永不谋求核武器，霍尔木兹海峡随之重开。消息刺激WTI原油单日跌5.9%、布伦特跌6.6%，BTC从$69K急速回升至$71K。日韩股市同步高开，日经+1.56%，KOSPI+2.31%，现货黄金企稳回升至$4,550。</div>
+  <div class="banner-chips">
+    <span class="banner-chip">停火协议1个月</span>
+    <span class="banner-chip">布伦特 ▼ 6.6%</span>
+    <span class="banner-chip">BTC ▲ 至 $71K</span>
+    <span class="banner-chip">KOSPI ▲ 2.31%</span>
+    <span class="banner-chip">黄金 $4,550</span>
+  </div>
+</div>
+
+<!-- ══ MARKET BAR ══ -->
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-item">
+      <div class="m-label">BTC</div>
+      <div class="m-price">$71,006</div>
+      <div class="m-change up">▲ +0.5%</div>
+    </div>
+    <div class="market-item">
+      <div class="m-label">ETH</div>
+      <div class="m-price">$2,150</div>
+      <div class="m-change up">▲ 巨鲸增持</div>
+    </div>
+    <div class="market-item">
+      <div class="m-label">黄金</div>
+      <div class="m-price">$4,550</div>
+      <div class="m-change up">▲ +1.69%</div>
+    </div>
+    <div class="market-item">
+      <div class="m-label">WTI原油</div>
+      <div class="m-price">~$83</div>
+      <div class="m-change down">▼ −5.9%</div>
+    </div>
+    <div class="market-item">
+      <div class="m-label">日经225</div>
+      <div class="m-price">反弹</div>
+      <div class="m-change up">▲ +1.56%</div>
+    </div>
+    <div class="market-item">
+      <div class="m-label">恐惧指数</div>
+      <div class="m-price">34</div>
+      <div class="m-change neutral">恐惧区间</div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ CONTENT ══ -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">以色列TV报道：美伊一个月停火协议将宣布，条件含拆核 + 霍尔木兹开放；油价单日暴跌6.6%</span>
+      </div>
+      <div class="news-desc">以色列12频道报道，白宫特使Witkoff与Kushner正斡旋停火方案：伊朗须拆除现有核能力并承诺永不谋求核武，霍尔木兹海峡恢复通航。布伦特原油从$104急跌至$100以下，WTI跌5.9%。BTC跌至$69K后迅速反弹至$71K，Polymarket链上数据显示10个新建钱包共下注$16万赌月内停火，潜在盈利逾$100万，异常押注引发内幕关注。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时-周级</span>
+        <span class="itag">影响：能源价格</span>
+        <span class="itag">影响：加密市场反弹</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.coindesk.com/markets/2026/03/24/bitcoin-jolted-modestly-higher-on-iran-ceasefire-report-oil-tumbles-4" target="_blank">CoinDesk</a> · <a href="https://sputniknews.cn/20260324/1070397090.html" target="_blank">卫星通讯社</a></span>
+        <span class="news-time">03/24 深夜</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">沙特、UAE允许美军使用基地对抗伊朗，海湾联盟扩大；日韩股市高开，KOSPI+2.31%</span>
+      </div>
+      <div class="news-desc">有报道指沙特阿拉伯和阿联酋将允许美国军队使用其领土基地对抗伊朗，意味着冲突规模进一步扩大，但停火谈判信号部分对冲了市场恐慌情绪。亚太股市延续反弹：日经225涨1.56%，韩国KOSPI涨2.31%，与油价急跌相互印证，整体风险情绪偏修复。</div>
+      <div class="news-tags">
+        <span class="itag">周期：周级</span>
+        <span class="itag">影响：地缘政治</span>
+        <span class="itag">影响：亚太市场</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473756" target="_blank">Odaily（亚太股市）</a></span>
+        <span class="news-time">03/25 00:09</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">国会代币化听证会今日开幕（3/25 10AM）：Nasdaq、DTCC、SIFMA出席，RWA市场$264亿</span>
+      </div>
+      <div class="news-desc">众议院金融服务委员会今日召开"代币化与证券的未来：现代化资本市场"听证会，为迄今最高规格的代币化专题审查。审议两项草案法案：一项要求SEC/CFTC联合研究代币化产品，另一项允许受监管机构保存区块链记录。传统金融机构Nasdaq、DTCC、SIFMA代表出席，标志着代币化从原生加密诉求转变为华尔街主流议题。链上RWA市值已达$264.8亿，30天涨5.25%。</div>
+      <div class="news-tags">
+        <span class="itag">周期：长期</span>
+        <span class="itag">影响：RWA立法</span>
+        <span class="itag">影响：资本市场结构</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.fintechweekly.com/news/congress-tokenization-hearing-march-25-2026-rwa-securities-capital-markets" target="_blank">FinTech Weekly</a> · <a href="https://decrypt.co/361976/what-to-expect-this-weeks-house-committee-tokenization" target="_blank">Decrypt</a></span>
+        <span class="news-time">今日 3/25</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">贝莱德CEO：加密业务5年内或带来$5亿年收入，管理数字资产相关资产近$1500亿</span>
+      </div>
+      <div class="news-desc">贝莱德CEO Larry Fink在年报电话会中披露，公司当前管理数字资产相关资产（含IBIT、ETHA、代币化基金）近1500亿美元，预计未来5年加密相关业务线年收入将突破5亿美元。此前IBIT持有超$550亿BTC，ETHA持有$65亿ETH，两只ETF均为细分市场规模第一。</div>
+      <div class="news-tags">
+        <span class="itag">周期：长期</span>
+        <span class="itag">影响：机构信心</span>
+        <span class="itag">影响：ETF规模</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473772" target="_blank">Odaily星球日报</a></span>
+        <span class="news-time">03/25 01:02</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">SpaceX本周计划提交IPO申请，目标筹资逾$750亿；GameStop 2025财年BTC相关资产$3.68亿，全年盈利$4.18亿</span>
+      </div>
+      <div class="news-desc">SpaceX据报将于本周提交IPO申请，上市后市值有望超$3500亿，成为史上最大科技IPO之一，市场关注其与加密市场风险偏好的联动。同时GameStop公布2025财年业绩：营收$36.3亿，净利润$4.18亿，BTC储备相关资产价值约$3.68亿，自采用BTC储备策略以来首次实现全年盈利，成为企业BTC储备标杆之一。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：市场风险情绪</span>
+        <span class="itag">影响：企业BTC储备</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473764" target="_blank">Odaily（SpaceX）</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58598" target="_blank">吴说（GameStop）</a></span>
+        <span class="news-time">03/25 00:18</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">Bitmine（BMNR）单周购入65,341枚ETH（$1.38亿），总持仓达460万枚（3.86%总供应量），目标5%</span>
+      </div>
+      <div class="news-desc">Tom Lee旗下Bitmine Immersion Technologies公告：3月15-22日新购65,341枚ETH，是2026年单次最大ETH购买记录，当前持仓4,660,903枚ETH（约$96亿），占ETH总供应量3.86%。目标持仓5%（约600万枚），现已质押约70%持仓（314万枚）年化质押收益约$1.8亿。Tom Lee直言："加密迷你寒冬即将结束"。两个关联新建钱包同日从Kraken提取67,111枚ETH（$1.45亿），市场解读为继续建仓。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：ETH供应减少</span>
+        <span class="itag">影响：机构持仓格局</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.coindesk.com/business/2026/03/23/tom-lee-s-bitmine-extends-buying-streak-with-usd138-million-eth-purchase-betting-on-crypto-slump-ending" target="_blank">CoinDesk</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58597" target="_blank">吴说区块链</a></span>
+        <span class="news-time">03/24 — 03/25 00:33</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">7个新建钱包从币安大规模提走74,959枚ETH（$1.61亿），同日贝莱德从Coinbase提取2,267枚BTC（$1.58亿）</span>
+      </div>
+      <div class="news-desc">链上数据显示，7个新创建钱包在16小时内合计从币安提取74,959枚ETH（约$1.61亿）；几乎同一时段，贝莱德（IBIT相关地址）从Coinbase机构托管账户提取2,267枚BTC（约$1.58亿）。两笔大额链上转移同日发生，显示机构在停火信号释放后积极进行链上资产调整，是今日链上最大规模移动事件。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时</span>
+        <span class="itag">影响：BTC/ETH供需</span>
+        <span class="itag">影响：机构链上动向</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473774" target="_blank">Odaily（ETH提取）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/473771" target="_blank">Odaily（贝莱德BTC）</a></span>
+        <span class="news-time">03/25 00:56 — 01:14</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">litellm遭PyPI供应链攻击：月下载量9700万次的AI网关库被植入恶意代码，仅需pip安装即可窃取API密钥</span>
+      </div>
+      <div class="news-desc">慢雾首席信息安全官披露，Python AI网关库litellm遭受PyPI供应链攻击，攻击者在发布包中植入恶意代码，用户仅需执行`pip install litellm`即可导致OpenAI、Anthropic、Cohere等主流AI服务API密钥被窃取。litellm月下载量高达9700万次，影响范围涵盖大量AI应用开发者，建议立即审查依赖版本并轮换密钥。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时</span>
+        <span class="itag">影响：AI开发者安全</span>
+        <span class="itag">影响：加密API密钥</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473762" target="_blank">Odaily星球日报</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58596" target="_blank">吴说（慢雾）</a></span>
+        <span class="news-time">03/25 00:13</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">Jump Trading回应Terraform Labs $44亿诉讼：指控为"转嫁责任"，是逃避SEC罚款的企图</span>
+      </div>
+      <div class="news-desc">Terraform Labs在LUNA/UST崩盘清算诉讼中对Jump Trading提起$44亿索赔，Jump Trading正式回应，称诉讼属于"责任转嫁"，是Terraform在面对SEC高额罚款时寻求其他当事方分担的策略性诉讼，并否认对LUNA/UST崩盘承担主要责任。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：Terraform清算</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473773" target="_blank">Odaily星球日报</a></span>
+        <span class="news-time">03/25 01:12</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🚀</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">OpenAI关闭Sora视频应用及全部API，与Disney的$10亿合作协议随之终止</span>
+      </div>
+      <div class="news-desc">OpenAI宣布将正式关闭AI视频生成平台Sora及相关API，此前与迪士尼签署的约$10亿合作协议同步告终。OpenAI将资源集中于GPT-5及Codex新产品线，Sora被视为商业化失败案例。此消息对AI+视频赛道及相关加密代币叙事构成短期压力。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：AI+Crypto叙事</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473766" target="_blank">Odaily星球日报</a></span>
+        <span class="news-time">03/25 00:28</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">摩根士丹利数字资产负责人：华尔街进入加密是多年金融深思熟虑，并非FOMO驱动</span>
+      </div>
+      <div class="news-desc">摩根士丹利数字资产战略负责人在行业论坛表示，华尔街机构对加密资产的参与经过多年合规、风险与产品框架的深度研究，并非追涨或情绪驱动。此言论与贝莱德CEO同期表态一同向市场传递信号：传统金融机构的加密布局具备战略持续性而非短期投机。</div>
+      <div class="news-tags">
+        <span class="itag">周期：长期</span>
+        <span class="itag">影响：机构采用叙事</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58600" target="_blank">吴说区块链</a></span>
+        <span class="news-time">03/25</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">21Shares总裁：主动管理型加密ETF/ETP将是下一发展方向；Coinbase宣布上线路线图新增CHECK和SIGN</span>
+      </div>
+      <div class="news-desc">21Shares总裁在媒体采访中预判，随着被动指数追踪型加密ETF市场趋于成熟，主动管理策略型加密ETF/ETP将成为下一轮产品创新重心，并可提供更优化的风险调整收益。与此同时Coinbase宣布上线路线图新增CHECK（Checkmate）和SIGN两种资产，上线时间视做市支持和技术准备情况而定。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：加密ETF产品创新</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58593" target="_blank">吴说（21Shares）</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58595" target="_blank">吴说（Coinbase）</a></span>
+        <span class="news-time">03/25</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag low">LOW</span>
+        <span class="news-title">超50%的Pump.fun代币交易钱包处于亏损：Dune数据显示仅45.6%钱包盈利，多数利润不足$500</span>
+      </div>
+      <div class="news-desc">Dune Analytics数据显示，在Pump.fun平台参与过Meme代币交易的钱包中，超过50%处于净亏损状态，仅45.6%实现盈利，且盈利钱包中大多数利润不超过$500。数据揭示Meme Launchpad赛道收益极度集中在少数早期参与者手中，散户整体获利困难。</div>
+      <div class="news-tags">
+        <span class="itag">影响：Meme生态风险</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58594" target="_blank">吴说区块链</a></span>
+        <span class="news-time">03/25</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">BTC突破$71,000，24H涨0.5%；ETH鲸鱼盈利比率转正，历史上此信号后3个月均涨逾25%</span>
+      </div>
+      <div class="news-desc">BTC在停火消息推动下突破$71,000，市值重回$1.33万亿，总加密市值升至$2.44万亿（+3.06%）。以太坊巨鲸盈利比率（持有10万枚以上ETH地址的未实现盈利率）近期转回正值，分析机构指出历史数据显示此指标转正后3个月内ETH均涨逾25%，最大涨幅曾达300%。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：市场情绪</span>
+        <span class="itag">影响：ETH技术面</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473770" target="_blank">Odaily（BTC）</a> · <a href="https://www.analyticsinsight.net/cryptocurrency-analytics-insight/ethereum-whale-profit-turns-positive-signals-possible-rally" target="_blank">Analytics Insight</a></span>
+        <span class="news-time">03/25 00:42</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">现货黄金站上$4,550（+1.69%）强势回弹；美司法部确认无证据支持对美联储主席Powell翻修项目展开调查</span>
+      </div>
+      <div class="news-desc">在前一日暴跌逾5%后，现货黄金今日迅速回升至$4,550/盎司，日内涨1.69%，停火消息并未令黄金回调，反而随风险情绪改善继续上涨。另外，美国司法部在闭门听证中向国会确认，目前无证据表明美联储主席Jerome Powell的官邸翻修项目存在违规行为，消除了特朗普派系对Powell动手的部分法律依据，间接为美联储独立性提供支撑。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时</span>
+        <span class="itag">影响：黄金/避险资产</span>
+        <span class="itag">影响：美联储独立性</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473761" target="_blank">Odaily（黄金）</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58592" target="_blank">吴说（Powell）</a></span>
+        <span class="news-time">03/25 00:12</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 观点研报 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔬</span>
+      <span class="section-title">观点研报</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">Bitcoin转正3月涨幅：全球29大顶级投顾（$146万亿AUM）均已持有BTC，花旗将在今年内整合BTC</span>
+      </div>
+      <div class="news-desc">数据显示，比特币3月份涨幅已转正，成功终结连续两个月亏损。全球资产管理规模排名前29位的投资顾问机构（合计管理约$146万亿）均已配置比特币敞口，花旗银行亦宣布将在2026年内正式整合比特币相关服务。这一机构全覆盖格局标志着BTC正从另类资产走向标配配置。</div>
+      <div class="news-tags">
+        <span class="itag">周期：长期</span>
+        <span class="itag">影响：机构配置格局</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://cryptonews.net/news/bitcoin/32596342/" target="_blank">CryptoNews</a></span>
+        <span class="news-time">本周</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">X平台本周四更新创作者收益分成机制：提升所在地区用户曝光量权重，鼓励本地化内容生产</span>
+      </div>
+      <div class="news-desc">X（原Twitter）产品负责人宣布将于本周四（3/26）调整创作者广告收益分成机制：提高创作者所在地区用户浏览量在收益计算中的权重，目的是激励创作者面向本地受众生产内容，而非一味追求英语国际流量。这一调整将影响大量加密KOL的变现策略。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时</span>
+        <span class="itag">影响：加密社交媒体</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473768" target="_blank">Odaily</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58599" target="_blank">吴说区块链</a></span>
+        <span class="news-time">03/25 00:37</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-wrap">
+    <div class="kw-title">今日关键词</div>
+    <div class="kw-list">
+      <span class="kw">美伊停火协议</span>
+      <span class="kw">霍尔木兹重开</span>
+      <span class="kw">布伦特跌6.6%</span>
+      <span class="kw">BTC突破71K</span>
+      <span class="kw">国会代币化听证</span>
+      <span class="kw">RWA 264亿</span>
+      <span class="kw">Bitmine 460万ETH</span>
+      <span class="kw">3.86%总供应</span>
+      <span class="kw">贝莱德5亿年收入</span>
+      <span class="kw">7钱包提走7.5万ETH</span>
+      <span class="kw">litellm供应链攻击</span>
+      <span class="kw">PyPI恶意包</span>
+      <span class="kw">OpenAI关闭Sora</span>
+      <span class="kw">SpaceX IPO</span>
+      <span class="kw">GameStop盈利</span>
+      <span class="kw">ETH鲸鱼盈利转正</span>
+      <span class="kw">花旗整合BTC</span>
+      <span class="kw">Pump.fun亏损过半</span>
+      <span class="kw">Powell翻修无违法</span>
+    </div>
+  </div>
+
+</div><!-- /content -->
+
+<div class="footer">
+  <div>免责声明：本早报内容仅供参考，不构成任何投资建议。加密货币市场存在较高风险，请自行判断并遵守当地法规。</div>
+  <div class="okx-brand">
+    <span class="okx-logo">OKX</span>
+    <span>加密行业热点早报 · 内部研究参考</span>
+  </div>
+</div>
+
+</body>
+</html>
