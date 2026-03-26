@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密行业热点早报 · 2026年3月26日</title>
+<style>
+  /* ─── Reset & Base ─── */
+  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+  html { font-size: 15px; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+  a { color: #BCFF2F; text-decoration: none; }
+  a:active { opacity: 0.7; }
+
+  /* ─── Sticky Header ─── */
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.88);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+  }
+  .header-row1 { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+  .date-badge {
+    background: #BCFF2F; color: #000;
+    font-size: 11px; font-weight: 800;
+    padding: 3px 9px; border-radius: 4px; letter-spacing: 0.5px; flex-shrink: 0;
+  }
+  .time-badge {
+    background: #161616; border: 1px solid #2a2a2a; color: #666;
+    font-size: 10px; padding: 3px 8px; border-radius: 4px;
+  }
+  .header h1 { font-size: 22px; font-weight: 800; letter-spacing: -0.3px; line-height: 1.2; }
+  .header h1 .accent { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 3px; }
+
+  /* ─── Source Pills ─── */
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0;
+    background: #111; border: 1px solid #222; color: #888;
+    font-size: 11px; padding: 4px 10px; border-radius: 20px;
+    white-space: nowrap;
+  }
+
+  /* ─── Alert Banner ─── */
+  .alert-banner {
+    margin: 0 16px 4px;
+    background: #0a0a0a; border-left: 3px solid #FF3B3B;
+    border-radius: 0 8px 8px 0; padding: 10px 13px;
+  }
+  .alert-label { font-size: 10px; font-weight: 700; color: #FF3B3B; letter-spacing: 1px; margin-bottom: 3px; }
+  .alert-text { font-size: 13px; color: #ddd; line-height: 1.5; }
+  .alert-text .hl { color: #FF3B3B; font-weight: 600; }
+  .alert-text .hl-g { color: #BCFF2F; font-weight: 600; }
+
+  /* ─── Market Grid ─── */
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a;
+    border-radius: 10px; margin: 8px 16px;
+  }
+  .mitem { background: #000; padding: 10px 10px 9px; text-align: center; }
+  .mitem:first-child { border-radius: 9px 0 0 9px; }
+  .mitem:last-child { border-radius: 0 9px 9px 0; }
+  .mlabel { display: block; font-size: 10px; color: #555; margin-bottom: 3px; }
+  .mprice { display: block; font-size: 14px; font-weight: 700; color: #fff; }
+  .mchange { display: block; font-size: 10px; margin-top: 2px; }
+  .up { color: #BCFF2F; } .dn { color: #FF3B3B; } .nt { color: #888; }
+
+  /* ─── Content ─── */
+  .content { padding: 0 0 8px; }
+
+  /* ─── Section ─── */
+  .section { margin: 8px 16px 0; }
+  .sec-header {
+    display: flex; align-items: center; gap: 7px;
+    padding: 10px 0 8px;
+    border-bottom: 1px solid #161616;
+  }
+  .sec-icon { font-size: 16px; line-height: 1; }
+  .sec-title { font-size: 14px; font-weight: 700; color: #fff; flex: 1; }
+  .sec-count {
+    background: #111; border: 1px solid #222; color: #555;
+    font-size: 10px; padding: 2px 7px; border-radius: 10px;
+  }
+
+  /* ─── News Item ─── */
+  .news-item {
+    padding: 11px 0 10px;
+    border-bottom: 1px solid #0d0d0d;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #111; border-radius: 6px; margin: 0 -8px; padding: 11px 8px 10px; }
+  .news-item-top { display: flex; align-items: flex-start; gap: 7px; margin-bottom: 6px; }
+  .ptag {
+    flex-shrink: 0; font-size: 9px; font-weight: 800;
+    padding: 2px 6px; border-radius: 3px; letter-spacing: 0.5px;
+    margin-top: 2px;
+  }
+  .ptag.high { background: #0D2208; color: #BCFF2F; border: 1px solid #2A5A14; }
+  .ptag.mid  { background: #1A1500; color: #FFD600; border: 1px solid #3A3000; }
+  .ptag.low  { background: #111; color: #555; border: 1px solid #222; }
+  .news-title { font-size: 14px; font-weight: 600; color: #fff; line-height: 1.45; }
+  .news-desc { font-size: 12.5px; color: #888; line-height: 1.6; margin-bottom: 7px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 6px; }
+  .itag {
+    font-size: 10px; color: #555; background: #0c0c0c;
+    border: 1px solid #1a1a1a; padding: 2px 7px; border-radius: 10px;
+  }
+  .news-footer-row { display: flex; justify-content: space-between; align-items: center; }
+  .news-source-txt { font-size: 11px; color: #444; }
+  .news-source-txt a { color: #555; border-bottom: 1px solid #222; }
+  .news-time { font-size: 10px; color: #333; flex-shrink: 0; }
+
+  /* ─── Keywords ─── */
+  .kw-section { margin: 12px 16px 16px; padding: 14px; background: #080808; border: 1px solid #1a1a1a; border-radius: 10px; }
+  .kw-label { font-size: 10px; color: #444; letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 10px; }
+  .kw-list { display: flex; flex-wrap: wrap; gap: 6px; }
+  .kw {
+    background: #0d0d0d; border: 1px solid #1e1e1e;
+    color: #BCFF2F; font-size: 11px; padding: 4px 10px; border-radius: 20px;
+  }
+
+  /* ─── Footer ─── */
+  .footer {
+    padding: 14px 16px 10px; border-top: 1px solid #111;
+    font-size: 11px; color: #333; line-height: 1.6;
+  }
+  .okx-brand { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+  .okx-logo { background: #BCFF2F; color: #000; font-size: 10px; font-weight: 900; padding: 2px 7px; border-radius: 3px; letter-spacing: 1px; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HEADER ═══ -->
+<div class="header">
+  <div class="header-row1">
+    <span class="date-badge">03/26</span>
+    <span class="time-badge">3/25 20:00 — 3/26 09:30</span>
+  </div>
+  <h1>加密行业热点<span class="accent">早报</span></h1>
+  <div class="header-sub">OKX Research · 14条精选资讯</div>
+</div>
+
+<!-- ═══ SOURCE PILLS ═══ -->
+<div class="source-pills">
+  <span class="pill">Odaily 星球日报</span>
+  <span class="pill">吴说区块链</span>
+  <span class="pill">CoinDesk</span>
+  <span class="pill">The Block</span>
+  <span class="pill">Bloomberg</span>
+  <span class="pill">BusinessWire</span>
+</div>
+
+<!-- ═══ ALERT BANNER ═══ -->
+<div class="alert-banner">
+  <div class="alert-label">⚡ 重要监管动态</div>
+  <div class="alert-text">CLARITY Act最新妥协文本引爆行业分歧：<span class="hl">Coinbase不满稳定币收益条款</span>，Circle股价单日跌<span class="hl">20%</span>；同日英国宣布<span class="hl-g">即时生效</span>禁止政党接受加密捐款</div>
+</div>
+
+<!-- ═══ MARKET GRID ═══ -->
+<div class="market-grid">
+  <div class="mitem">
+    <span class="mlabel">BTC</span>
+    <span class="mprice">$71,200</span>
+    <span class="mchange nt">±横盘</span>
+  </div>
+  <div class="mitem">
+    <span class="mlabel">ETH</span>
+    <span class="mprice">$2,130</span>
+    <span class="mchange nt">±整理</span>
+  </div>
+  <div class="mitem">
+    <span class="mlabel">恐惧指数</span>
+    <span class="mprice">~20</span>
+    <span class="mchange dn">极度恐惧</span>
+  </div>
+</div>
+
+<!-- ═══ CONTENT ═══ -->
+<div class="content">
+
+  <!-- 全球事件 -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-icon">🌍</span>
+      <span class="sec-title">全球事件</span>
+      <span class="sec-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">美伊停火谈判再度陷入僵局：特朗普称"伊朗不敢承认在谈判"；美方称和谈通道依然存在，细节仍在协商</span>
+      </div>
+      <div class="news-desc">距特朗普3月25日宣布美伊停火协议"初步一致"不到24小时，双方公开表态再现分歧。特朗普在Truth Social发文称"伊朗在谈判，但不敢承认"；美方官员称"停火通道依然存在，但条件细节仍需协商"。美联社报道，副总统万斯可能本周末赴巴基斯坦参与斡旋会谈。市场情绪转向谨慎，布伦特原油在停火乐观情绪消退后反弹。BTC从$72K阻力位回落，恐惧与贪婪指数维持极度恐惧区间。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时-日级</span>
+        <span class="itag">影响：全球风险情绪</span>
+        <span class="itag">影响：油价走势</span>
+        <span class="itag">影响：BTC价格</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473981" target="_blank">Odaily（特朗普表态）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/473982" target="_blank">Odaily（谈判通道）</a></span>
+        <span class="news-time">03/26 00:40</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">伊朗议会民事委员会拟立法对通过霍尔木兹海峡船只征收"主权通行费"；法案下周提交议会研究</span>
+      </div>
+      <div class="news-desc">伊朗议会民事委员会主席透露，委员会正在起草一项法案，将对通过霍尔木兹海峡的所有船只征收通行费，既主张伊朗对该海峡的主权权利，也通过创收为国家财政服务。法案草案已拟定，将于下周提交议会研究中心进行法律完善。霍尔木兹海峡每日承载全球约20%原油运输，此举意味着伊朗将"通道控制权"纳入法律化轨道，被市场解读为伊朗在谈判中的重要筹码，也是此前停战态度强硬化的进一步延续。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中长期</span>
+        <span class="itag">影响：全球能源供应</span>
+        <span class="itag">影响：地缘政治格局</span>
+        <span class="itag">影响：BTC避险属性</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473986" target="_blank">Odaily</a>（央视）</span>
+        <span class="news-time">03/26 01:07</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 全球监管 -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-icon">⚖️</span>
+      <span class="sec-title">全球监管</span>
+      <span class="sec-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">英国宣布即时生效禁止政党接受加密货币捐款；追溯适用，30天内须退还已有捐款；违规面临刑事处罚</span>
+      </div>
+      <div class="news-desc">英国首相斯塔默在议会宣布，政府将对政党接受加密货币捐款实施即时暂停令，并追溯适用至2026年3月25日。措施基于Rycroft Review建议，原因是加密货币"来源难以追踪，对现有竞选财务规则构成执法挑战"。政党须在30天宽限期内退还所有违规捐款，此后违规将面临刑事处罚。此举直接针对Reform UK——该党是英国第一个宣布接受比特币捐款的政党，去年超三分之二资金来自海外捐款人。该禁令将以修订《人民代表法案》的方式立法化。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：英国加密政策</span>
+        <span class="itag">影响：全球监管示范</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.coindesk.com/business/2026/03/25/keir-starmer-takes-aim-at-nigel-farage-while-announcing-an-immediate-ban-on-crypto-funding" target="_blank">CoinDesk</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58655" target="_blank">吴说</a> · <a href="https://www.gov.uk/government/news/cap-on-donations-from-overseas-electors-and-ban-on-crypto-donations-to-protect-democracy" target="_blank">GOV.UK</a></span>
+        <span class="news-time">03/25 — 03/26</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">CLARITY Act稳定币收益妥协文本引行业分歧：禁被动收益，允许交易挂钩奖励；Coinbase私下表达不满，Circle股跌20%后小幅反弹</span>
+      </div>
+      <div class="news-desc">本周CLARITY Act稳定币收益妥协方案正式向行业利益相关方披露。核心内容：禁止稳定币提供被动类利息收益（含"经济或功能等价"形式），允许与交易量/平台使用挂钩的活动奖励，由SEC/CFTC/财政部在12个月内制定具体规则。Coinbase已向参议员幕僚私下表达不满，但尚未公开声明反对——此举与1月其CEO Armstrong单独拉倒参议院听证如出一辙，市场担忧该法案再遭阻拦。Circle股价单日跌20%（周跌幅最大一日），Tether同日宣布引入四大会计事务所审计，被视为对Circle合规优势的削弱。白宫加密顾问Witt表示"一切都会解决"，参议院Banking Committee markup目标定为4月下旬。</div>
+      <div class="news-tags">
+        <span class="itag">周期：长期</span>
+        <span class="itag">影响：稳定币市场格局</span>
+        <span class="itag">影响：Coinbase/Circle股价</span>
+        <span class="itag">影响：GENIUS/CLARITY Act进程</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473983" target="_blank">Odaily</a> · <a href="https://www.coindesk.com/markets/2026/03/25/circle-selloff-may-be-overdone-as-crypto-bill-weakens-coinbase-edge-say-analysts" target="_blank">CoinDesk</a> · <a href="https://www.theblock.co/post/394918/circle-falls-20-stablecoin-reward-limits-tether-big-four-auditor-wallets-frozen" target="_blank">The Block</a></span>
+        <span class="news-time">03/26 01:00</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 传统金融 -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-icon">🏛️</span>
+      <span class="sec-title">传统金融</span>
+      <span class="sec-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">盈透证券IBKR宣布支持BTC/ETH/SOL等加密资产从外部钱包直接转入交易账户，无需先行清算；手续费低至0.12%</span>
+      </div>
+      <div class="news-desc">Interactive Brokers（盈透证券，Nasdaq: IBKR）宣布，客户现可将比特币、以太坊、Solana等支持的加密资产从外部钱包或平台直接转入其IBKR关联加密账户（Paxos或zerohash托管），无需提前卖出。加密交易手续费仅0.12%–0.18%，远低于主要加密交易所2%+的水平，且无额外价差。该举措使投资者可在同一账户下管理加密资产与股票、期权、债券等传统资产，被业界视为继摩根士丹利ETrade、Coinbase扩张之后，传统券商加速整合加密资产的重要信号。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：机构零售加密入场</span>
+        <span class="itag">影响：加密经纪商竞争</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.businesswire.com/news/home/20260325613057/en/Interactive-Brokers-Enables-Crypto-Portfolio-Transfers-for-Lower-Cost-Trading-and-Broader-Market-Access" target="_blank">BusinessWire</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58640" target="_blank">吴说</a></span>
+        <span class="news-time">03/25</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">亚市早盘：日经225开涨+0.19%，韩国KOSPI开跌-0.91%；美伊谈判不确定性令市场分化</span>
+      </div>
+      <div class="news-desc">3月26日亚洲股市开盘，日经225小幅上涨0.19%，韩国KOSPI回调0.91%。市场情绪受美伊停火谈判反复影响：前一日乐观信号推动日经反弹，但伊朗随后强硬表态令风险情绪再度降温。加密市场受亚市开盘影响有限，BTC维持在$71,000附近窄幅震荡，未平仓合约数量基本持平。</div>
+      <div class="news-tags">
+        <span class="itag">周期：日级</span>
+        <span class="itag">影响：亚太风险情绪</span>
+        <span class="itag">影响：加密市场联动</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473975" target="_blank">Odaily</a></span>
+        <span class="news-time">03/26 00:10</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 链上事件 -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-icon">⛓️</span>
+      <span class="sec-title">链上事件</span>
+      <span class="sec-count">4</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">Circle冻结16个业务相关热钱包USDC余额；ZachXBT：涉及交易所/娱乐场/外汇企业，关联一项未公开美国民事案件</span>
+      </div>
+      <div class="news-desc">链上侦探ZachXBT披露，Circle于3月25日冻结与多家企业相关的16个热钱包USDC余额。其中一家受影响企业透露，此举与一项"尚未公开细节的美国民事案件"有关。ZachXBT分析链上数据后指出，这些地址涉及交易所、娱乐场及外汇业务等多个领域，相互之间并无明显关联，无法判断是否属于同一案件。Circle同日股价跌20%（主因CLARITY Act稳定币收益限制），同日又宣布将引入四大审计。此次冻结事件再次引发市场对USDC中心化风险的讨论。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时</span>
+        <span class="itag">影响：USDC信任风险</span>
+        <span class="itag">影响：稳定币中心化争议</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473725" target="_blank">Odaily</a> · <a href="https://www.theblock.co/post/394918/circle-falls-20-stablecoin-reward-limits-tether-big-four-auditor-wallets-frozen" target="_blank">The Block</a></span>
+        <span class="news-time">03/26 00:10</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">一巨鲸沉寂一个月后从Coinbase提取11,999枚ETH（$2600万）并立即质押；总持仓升至22,618枚ETH</span>
+      </div>
+      <div class="news-desc">Onchain Lens监测数据显示，地址0xd55...bf25在沉寂约一个月后，从Coinbase提取11,999枚ETH（价值约2600万美元）并立即进行质押操作。该账户总持仓随之增至22,618枚ETH（约4900万美元），账户历史累计盈利约120万美元。此次大额质押被解读为长期持有者加仓信号，但鉴于ETH当前处于Q1表现最差阶段之一，市场对买盘真实性存在分歧。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时</span>
+        <span class="itag">影响：ETH质押需求</span>
+        <span class="itag">影响：巨鲸情绪</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473980" target="_blank">Odaily</a></span>
+        <span class="news-time">03/26 00:37</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">Trump Meme团队向BitGo托管钱包转移697万枚TRUMP（$2318万）；或将依惯例存入中心化交易所</span>
+      </div>
+      <div class="news-desc">据Onchain Lens监测，Trump Meme Token团队地址（3S7zw...d9D）向BitGo托管钱包转移了697万枚TRUMP代币，价值约2318万美元。分析认为，该团队此前有多次将代币转入BitGo后随即存入CEX的记录，市场担忧此举可能预示大额抛售压力。TRUMP代币当前价格维持$3.3附近低位，相较发行初期高点缩水明显。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时</span>
+        <span class="itag">影响：TRUMP代币价格</span>
+        <span class="itag">影响：Meme市场情绪</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473987" target="_blank">Odaily</a></span>
+        <span class="news-time">03/26 01:15</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag low">LOW</span>
+        <span class="news-title">James Wynn被清算194次后再度回归，开设40倍杠杆BTC空单；当前仅持仓0.62枚BTC，清算价71,675美元</span>
+      </div>
+      <div class="news-desc">据Lookonchain监测，知名链上赌徒James Wynn在近期被清算194次的记录之后再次回归，以40倍杠杆开设比特币空单，当前仓位仅0.62枚BTC，清算价71,675美元。市场对其"蚂蚁仓"开空的行为定性为情绪指标而非市场信号，但其特殊的反向指标属性仍引发社区关注。</div>
+      <div class="news-tags">
+        <span class="itag">周期：即时</span>
+        <span class="itag">影响：情绪噪音</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473958" target="_blank">Odaily</a></span>
+        <span class="news-time">03/25 23:59</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 行业趋势 -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-icon">🚀</span>
+      <span class="sec-title">行业趋势</span>
+      <span class="sec-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">Mizuho：Mastercard以$18亿收购BVNK后有望成为加密与法币"网络连接层"；稳定币将为B2B支付和汇款提供加速器</span>
+      </div>
+      <div class="news-desc">投行Mizuho在最新研报中指出，Mastercard以最高18亿美元收购BVNK（史上最大稳定币基础设施收购，超过Stripe$11亿收购Bridge）后，有望成为连接加密资产与法币体系的核心网络层。分析师认为稳定币不会削弱Mastercard核心卡支付业务，反而将成为其B2B跨境支付、汇款和零工经济的效率加速器，并维持"跑赢大盘"评级，目标价666美元。BVNK目前在130+国家运营，支持主流区块链网络的稳定币收发。</div>
+      <div class="news-tags">
+        <span class="itag">周期：长期</span>
+        <span class="itag">影响：稳定币支付赛道</span>
+        <span class="itag">影响：TradFi加密整合</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473970" target="_blank">Odaily</a> · <a href="https://www.coindesk.com/business/2026/03/17/mastercard-agrees-to-purchase-bvnk-for-up-to-usd1-8-billion" target="_blank">CoinDesk</a></span>
+        <span class="news-time">03/25 22:53</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">Sky财库公司SDEV增持：持有21.35亿枚SKY（$1.56亿），昨晚从Coinbase Prime追加提取1.84亿枚（$1400万）</span>
+      </div>
+      <div class="news-desc">据链上分析师余烬监测，Sky财库公司SDEV（0xC65...9471）当前持有21.35亿枚SKY，价值约1.56亿美元，其中包含3160万枚质押利息（价值231万美元），平均成本约0.065美元。3月25日深夜，SDEV再次从Coinbase Prime提取1.84亿枚SKY至链上，价值1400万美元，显示企业对Sky/MakerDAO生态的持续增持意愿。</div>
+      <div class="news-tags">
+        <span class="itag">周期：中期</span>
+        <span class="itag">影响：Sky/MakerDAO生态</span>
+        <span class="itag">影响：DeFi财库趋势</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473988" target="_blank">Odaily</a></span>
+        <span class="news-time">03/26 01:19</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 加密数据 -->
+  <div class="section">
+    <div class="sec-header">
+      <span class="sec-icon">📊</span>
+      <span class="sec-title">加密数据</span>
+      <span class="sec-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag high">HIGH</span>
+        <span class="news-title">BTC Q1 2026回报-23.21%，为2013年以来第三低季度表现；ETH Q1 -32.17%，为2016年以来第三低；Q1末日益逼近</span>
+      </div>
+      <div class="news-desc">Coinglass最新数据：比特币2026年Q1回报率-23.21%，为2013年以来第三低季度回报（远低于历史Q1均值+45.9%）；以太坊Q1 -32.17%，为2016年以来第三低（历史Q1均值+66.5%）。从技术面看，BTC支撑位68,500–69,600美元，强支撑66,000–68,000美元；阻力位71,600–72,473美元，强阻力74,600–75,000美元。链上数据显示交易所净流出-$4.2亿（48小时），显示持有者倾向减少抛售；巨鲸持有100+ BTC地址数突破20,000历史新高，显示大户正在低位积累。</div>
+      <div class="news-tags">
+        <span class="itag">周期：季度</span>
+        <span class="itag">影响：市场情绪</span>
+        <span class="itag">影响：机构配置节奏</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://blockchainmagazine.net/crypto-market-today-2026-03-25/" target="_blank">Blockchain Magazine</a> · <a href="https://coinmarketcap.com/cmc-ai/bitcoin/latest-updates/" target="_blank">CoinMarketCap</a></span>
+        <span class="news-time">03/25 — 03/26</span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-top">
+        <span class="ptag mid">MID</span>
+        <span class="news-title">XRP现货ETF 3月25日单日净流入$126万（Bitwise领跑）；历史累计净流入$12.11亿，总净资产$9.96亿</span>
+      </div>
+      <div class="news-desc">SoSoValue数据：美国XRP现货ETF 3月25日（美东时间）全市场净流入126.40万美元，其中Bitwise XRP ETF（XRP）贡献全部净流入，当日净流入126.40万美元，历史累计净流入3.77亿美元。全市场XRP现货ETF总净资产9.96亿美元，XRP净资产占比1.15%，历史累计净流入12.11亿美元。当日比特币现货ETF整体仍处于净流出区间，XRP ETF的净流入成为市场中少有的亮点。</div>
+      <div class="news-tags">
+        <span class="itag">周期：日级</span>
+        <span class="itag">影响：XRP价格</span>
+        <span class="itag">影响：山寨ETF市场</span>
+      </div>
+      <div class="news-footer-row">
+        <span class="news-source-txt">来源：<a href="https://www.odaily.news/zh-CN/newsflash/473978" target="_blank">Odaily</a></span>
+        <span class="news-time">03/26 00:24</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- 关键词 -->
+  <div class="kw-section">
+    <div class="kw-label">今日关键词</div>
+    <div class="kw-list">
+      <span class="kw">美伊谈判僵局</span>
+      <span class="kw">霍尔木兹通行费立法</span>
+      <span class="kw">英国禁止加密捐款</span>
+      <span class="kw">CLARITY Act稳定币收益</span>
+      <span class="kw">Coinbase不满妥协文本</span>
+      <span class="kw">Circle股跌20%</span>
+      <span class="kw">Tether四大审计</span>
+      <span class="kw">IBKR加密转账</span>
+      <span class="kw">盈透证券无需清算</span>
+      <span class="kw">日经+0.19%</span>
+      <span class="kw">KOSPI-0.91%</span>
+      <span class="kw">Circle冻结16热钱包</span>
+      <span class="kw">USDC中心化风险</span>
+      <span class="kw">巨鲸提取ETH质押</span>
+      <span class="kw">Trump Meme BitGo转移</span>
+      <span class="kw">James Wynn BTC空单</span>
+      <span class="kw">Mastercard BVNK连接层</span>
+      <span class="kw">Sky SDEV增持</span>
+      <span class="kw">BTC Q1跌23%</span>
+      <span class="kw">ETH Q1跌32%</span>
+      <span class="kw">XRP ETF净流入$126万</span>
+    </div>
+  </div>
+
+</div>
+
+<!-- ═══ FOOTER ═══ -->
+<div class="footer">
+  <div>免责声明：本早报内容仅供参考，不构成任何投资建议。加密货币市场存在较高风险，请自行判断并遵守当地法规。</div>
+  <div class="okx-brand">
+    <span class="okx-logo">OKX</span>
+    <span>加密行业热点早报 · 内部研究参考</span>
+  </div>
+</div>
+
+</body>
+</html>
