@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年3月27日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* HEADER */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 20px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: #888;
+    margin-bottom: 6px;
+  }
+  .header-title {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    line-height: 1.2;
+  }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub {
+    font-size: 11px;
+    color: #555;
+    margin-top: 4px;
+  }
+
+  /* SOURCE PILLS */
+  .source-pills {
+    display: flex;
+    gap: 6px;
+    padding: 10px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0;
+    background: #111;
+    border: 1px solid #222;
+    border-radius: 12px;
+    padding: 4px 10px;
+    font-size: 11px;
+    color: #aaa;
+    white-space: nowrap;
+  }
+
+  /* IMPORTANT BANNER */
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d;
+    border: 1px solid #2a1a1a;
+    border-left: 3px solid #FF3B3B;
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+  .banner-label {
+    font-size: 10px;
+    font-weight: 700;
+    color: #FF3B3B;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+    text-transform: uppercase;
+  }
+  .banner-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 6px;
+    line-height: 1.4;
+  }
+  .banner-body {
+    font-size: 12px;
+    color: #aaa;
+    line-height: 1.5;
+  }
+
+  /* MARKET GRID */
+  .market-wrap {
+    padding: 0 16px 12px;
+  }
+  .market-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: #111;
+    border: 1px solid #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  .market-cell {
+    background: #0c0c0c;
+    padding: 10px 8px;
+    text-align: center;
+  }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; }
+  .down { color: #FF3B3B; }
+
+  /* SECTION */
+  .section {
+    margin: 0 0 4px;
+    padding: 0 16px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 0 8px;
+    border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count {
+    background: #BCFF2F;
+    color: #000;
+    border-radius: 10px;
+    padding: 1px 7px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  /* NEWS ITEM */
+  .news-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #0f0f0f;
+  }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 5px;
+    flex-wrap: wrap;
+  }
+  .tag-priority {
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #f0f0f0;
+    line-height: 1.4;
+    margin-bottom: 4px;
+  }
+  .news-desc {
+    font-size: 12px;
+    color: #777;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+  .news-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 5px;
+  }
+  .news-tag {
+    background: #111;
+    border: 1px solid #1e1e1e;
+    border-radius: 4px;
+    padding: 1px 6px;
+    font-size: 10px;
+    color: #555;
+  }
+  .news-source {
+    font-size: 11px;
+    color: #444;
+  }
+  .news-source a {
+    color: #BCFF2F;
+    text-decoration: none;
+    opacity: 0.8;
+  }
+  .news-source a:hover { opacity: 1; }
+
+  /* KEYWORDS */
+  .keywords-wrap {
+    padding: 16px 16px 12px;
+    border-top: 1px solid #111;
+    margin-top: 8px;
+  }
+  .keywords-title {
+    font-size: 11px;
+    color: #555;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .keywords {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+  }
+  .keyword {
+    background: #0d0d0d;
+    border: 1px solid #1a1a1a;
+    border-radius: 12px;
+    padding: 3px 10px;
+    font-size: 11px;
+    color: #BCFF2F;
+  }
+
+  /* FOOTER */
+  .footer {
+    padding: 12px 16px 20px;
+    text-align: center;
+    font-size: 10px;
+    color: #333;
+    line-height: 1.5;
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="header-date">2026 · MAR 27 · 星期五</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：3月26日 20:00 — 3月27日 09:30</div>
+</div>
+
+<!-- SOURCE PILLS -->
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">Decrypt</div>
+  <div class="pill">CryptoTimes</div>
+  <div class="pill">The Motley Fool</div>
+  <div class="pill">Bitcoin Magazine</div>
+</div>
+
+<!-- IMPORTANT BANNER -->
+<div class="banner">
+  <div class="banner-label">⚡ 重要事件</div>
+  <div class="banner-title">美伊停火谈判破裂 · BTC $141.6亿期权今日到期</div>
+  <div class="banner-body">伊朗拒绝美国15点停火提案，美伊冲突进入第28天；特朗普政府考虑向中东增派1万名地面部队。地缘风险叠加3月27日141.6亿美元BTC期权集中到期（最大痛点$75,000），BTC跌破$70,000，市场恐慌情绪加剧。</div>
+</div>
+
+<!-- MARKET DATA -->
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$69,036</div>
+      <div class="market-change down">▼ 4.0%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,066</div>
+      <div class="market-change down">▼ 4.4%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">XRP</div>
+      <div class="market-price">$1.35</div>
+      <div class="market-change down">▼ 3.8%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">总市值</div>
+      <div class="market-price">$2.36T</div>
+      <div class="market-change down">▼ 2.5%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">BTC主导</div>
+      <div class="market-price">58.74%</div>
+      <div class="market-change up">▲ 0.3%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐慌贪婪</div>
+      <div class="market-price">28</div>
+      <div class="market-change down">极端恐惧</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION: 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+    </div>
+    <div class="news-title">美伊冲突第28天：伊朗拒绝美国15点停火提案，特朗普考虑增派1万名地面部队</div>
+    <div class="news-desc">伊朗官方媒体证实，伊方正式拒绝美国提出的15点停火与和平提案，冲突进入僵局。五角大楼随即讨论向中东增派多达1万人的地面部队，为特朗普提供"军事施压选项"。市场风险偏好急剧收缩，加密、股票等风险资产同步下行。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">情绪 · 风险偏好</span>
+      <span class="news-tag">宏观联动</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cryptotimes.io/2026/03/27/btc-eth-xrp-price-drops-is-the-crypto-market-going-to-crash-as-iran-war-enters-day-28/" target="_blank">CryptoTimes</a> · <a href="https://www.odaily.news/zh-CN/newsflash/474166" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+    </div>
+    <div class="news-title">David Sacks卸任白宫AI与加密顾问，关键立法遗留悬念</div>
+    <div class="news-desc">特朗普政府加密与AI顾问David Sacks在达到130天特别政府雇员服务上限后正式卸任，转任白宫科学与技术顾问委员会（PCAST）联席主席。加密市场结构法案尚未完成立法，Sacks此前推动的GENIUS Act稳定币法案已过关，但市场结构法案遗留给继任者。Jensen Huang、Zuckerberg、Marc Andreessen等已加入新顾问团，政策延续性有望维持。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">政策风向</span>
+      <span class="news-tag">监管连续性</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/03/26/white-house-crypto-czar-david-sacks-transfers-to-presidential-advisory-committee-role" target="_blank">CoinDesk</a> · <a href="https://decrypt.co/362531/david-sacks-leaves-white-house-crypto-role-legislation" target="_blank">Decrypt</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58689" target="_blank">吴说区块链</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 全球监管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+    </div>
+    <div class="news-title">巴西通过加密资产没收法，无需定罪可冻结数字资产</div>
+    <div class="news-desc">巴西总统卢拉签署第15,358号法律，赋予法院在有重大犯罪证据时即可冻结、没收加密资产的权力，无需等待最终定罪判决。没收的加密资产将注入公共安全基金。法官还可在不通知嫌疑人的情况下立即封锁交易所账户和数字钱包，且可暂停相关平台的访问权限。这是拉美最大经济体迄今最强硬的加密监管执法立法。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">法规 · 执法</span>
+      <span class="news-tag">新兴市场</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/policy/2026/03/26/brazil-passes-law-turning-seized-crypto-into-public-security-war-chest" target="_blank">CoinDesk</a> · <a href="https://decrypt.co/362453/brazil-passes-law-seized-bitcoin-crypto-fund-public-security" target="_blank">Decrypt</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58685" target="_blank">吴说区块链</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 传统金融 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+    </div>
+    <div class="news-title">SpaceX计划本周提交IPO申请，拟向散户分配最高30%份额</div>
+    <div class="news-desc">SpaceX正筹备史上最大规模IPO，融资规模最高可达750亿美元，估值约1.75万亿美元。马斯克计划向散户投资者分配最高30%份额（通常仅5-10%），银美负责高净值客户，摩根士丹利通过E*TRADE承接小额散户订单。SpaceX拟最快本周提交招股书，4月开始投资者路演。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">传统资本市场</span>
+      <span class="news-tag">情绪催化</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.fool.com/investing/2026/03/26/spacex-ipo-may-allocate-30-to-retail-investors-3x/" target="_blank">The Motley Fool</a> · <a href="https://www.bloomberg.com/news/articles/2026-03-25/spacex-to-file-for-us-ipo-soon-as-this-week-information-says" target="_blank">Bloomberg</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+    </div>
+    <div class="news-title">美股收盘加密板块全线下行，TRON跌超16%，纳指跌2.38%</div>
+    <div class="news-desc">美股收盘：道指跌1.01%、标普500跌1.74%、纳指跌2.38%。加密概念股随之重挫：TRON跌超16.35%，MicroStrategy（MSTR）跌超4.46%，Coinbase跌超4.26%。黄金逆势小涨0.24%至4,389美元/盎司，体现资金从风险资产向贵金属的防御性转移。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">情绪 · 联动</span>
+      <span class="news-tag">加密概念股</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474171" target="_blank">Odaily</a> · <a href="https://www.odaily.news/zh-CN/newsflash/474170" target="_blank">Odaily（黄金数据）</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+    </div>
+    <div class="news-title">GameStop将4709枚BTC质押Coinbase Credit，开展备兑看涨期权策略</div>
+    <div class="news-desc">GameStop在年度报告中披露：公司并未出售比特币，而是将4,709枚BTC（约3.68亿美元）全部质押至Coinbase Credit，执行场外备兑看涨期权策略（行权价$105,000–$110,000，到期至3月底）。Coinbase有权对质押BTC进行再抵押和出售，因此4,709枚BTC已从资产负债表移除，替换为"数字资产应收款"。该策略为创始人Ryan Cohen选用，旨在通过出售期权溢价获取现金收益，同时保留BTC上涨敞口至设定价位。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">企业BTC策略</span>
+      <span class="news-tag">衍生品创新</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/03/26/gamestop-turned-its-usd368-million-bitcoin-stash-into-an-options-income-play" target="_blank">CoinDesk</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+    </div>
+    <div class="news-title">Ethereum Hegota升级：开发者决定不将Frame Transactions纳入核心优先级</div>
+    <div class="news-desc">以太坊开发者在会议中讨论Hegota升级路线图，确定不将frame transactions作为2026年下半年升级的核心内容，原因是技术实现复杂性存在争议，优先级相应后移。Hegota升级为以太坊继Pectra之后的下一个重大网络升级节点。</div>
+    <div class="news-tags">
+      <span class="news-tag">季度级影响</span>
+      <span class="news-tag">协议开发</span>
+      <span class="news-tag">ETH路线图</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58687" target="_blank">吴说区块链</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+    </div>
+    <div class="news-title">WorldCoin团队单日转移8965万枚WLD至新地址并流入交易所</div>
+    <div class="news-desc">链上数据显示，WorldCoin官方团队将8965万枚WLD（约2617万美元）转移至新地址，随后部分资金流入中心化交易所，引发市场对大规模抛压的担忧。WLD当前价格约$0.29，团队此次转移规模相当于约90天流通供应量。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">抛压风险</span>
+      <span class="news-tag">链上监控</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474173" target="_blank">Odaily</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58691" target="_blank">吴说区块链</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+    </div>
+    <div class="news-title">巨鲸以均价$2,064单次买入7543枚ETH，总持仓升至29,451枚</div>
+    <div class="news-desc">一链上地址以约2,064美元均价买入7,543枚ETH，成交金额约1,557万美元，已将资金投入收益策略。该地址当前ETH总持仓量达29,451枚，在ETH跌至阶段性低位时选择加仓。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">巨鲸动向</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474175" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- SECTION: 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority high">HIGH</span>
+    </div>
+    <div class="news-title">3月27日141.6亿美元BTC期权到期，最大痛点$75,000，当前价差近8%</div>
+    <div class="news-desc">今日届满的BTC期权名义价值达141.6亿美元，是近期最大规模的单日期权到期。最大痛点（Max Pain）位于$75,000，而BTC当前报价约$69,036，差距达8%。期权到期通常伴随剧烈波动，做市商可能在痛点附近操作对冲。美伊局势与Fed政策预期共同构成短期压力，CME利率期货显示93.8%概率维持利率不变，6.5%甚至定价加息。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">衍生品</span>
+      <span class="news-tag">波动预警</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cryptotimes.io/2026/03/27/btc-eth-xrp-price-drops-is-the-crypto-market-going-to-crash-as-iran-war-enters-day-28/" target="_blank">CryptoTimes</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority low">LOW</span>
+    </div>
+    <div class="news-title">美国SOL现货ETF单日净流出104.10万美元，历史累计净流入仍达9.93亿美元</div>
+    <div class="news-desc">受市场整体下行影响，美国上市的SOL现货ETF当日录得净流出104.10万美元。尽管如此，历史累计净流入仍维持在9.93亿美元高位，显示机构层面的中长期配置意愿并未明显逆转。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">ETF流向</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474174" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- SECTION: OKX动态 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🟢</span>
+    <span class="section-title">OKX 动态</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta">
+      <span class="tag-priority mid">MID</span>
+    </div>
+    <div class="news-title">OKX：不会仓促赴美IPO，以股东回报和全球流动性布局为前提</div>
+    <div class="news-desc">OKX公开表示暂无计划在美国仓促推进上市，目前平台整体估值约250亿美元。公司强调将以股东长期回报和全球流动性布局为优先，而非追求上市时间窗口。此前市场传闻OKX或寻求在美国进行IPO，OKX此次表态为市场预期降温。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">平台战略</span>
+      <span class="news-tag">IPO预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474168" target="_blank">Odaily</a> · <a href="https://www.wublock123.com/index.php?m=content&c=index&a=show&catid=6&id=58686" target="_blank">吴说区块链</a></div>
+  </div>
+</div>
+
+<!-- KEYWORDS -->
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">美伊冲突</span>
+    <span class="keyword">BTC期权到期</span>
+    <span class="keyword">David Sacks</span>
+    <span class="keyword">SpaceX IPO</span>
+    <span class="keyword">GameStop BTC</span>
+    <span class="keyword">巴西加密法</span>
+    <span class="keyword">WLD抛压</span>
+    <span class="keyword">极端恐惧</span>
+    <span class="keyword">Max Pain $75K</span>
+    <span class="keyword">TRON暴跌</span>
+    <span class="keyword">OKX估值</span>
+    <span class="keyword">Hegota升级</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  本早报仅供内部参考，不构成任何投资建议。<br>
+  数据来源：Odaily · 吴说区块链 · CoinDesk · Decrypt · CryptoTimes<br>
+  OKX Research · 2026.03.27
+</div>
+
+</body>
+</html>
