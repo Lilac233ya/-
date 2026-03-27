@@ -1,0 +1,333 @@
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0d0f14;color:#e2e0d8;line-height:1.6}
+.wrap{max-width:780px;margin:0 auto;padding:24px 20px}
+.head{text-align:center;margin-bottom:28px}
+.head h1{font-size:20px;font-weight:600;letter-spacing:0.5px}
+.head .sub{font-size:13px;color:#888780;margin-top:6px}
+.head .sub2{font-size:12px;color:#5F5E5A;margin-top:4px}
+.legend{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:12px}
+.legend span{display:flex;align-items:center;gap:5px;font-size:11px;color:#b4b2a9}
+.dot{width:8px;height:8px;border-radius:2px}
+.tabs{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap}
+.tab{padding:7px 16px;border-radius:8px;font-size:13px;cursor:pointer;border:1px solid #2a2c32;background:#16181e;color:#b4b2a9;transition:all .15s}
+.tab:hover{border-color:#444;color:#e2e0d8}
+.tab.on{background:#1D9E75;border-color:#1D9E75;color:#fff}
+.kpi-row{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:#16181e;border:1px solid #23252b;border-radius:10px;padding:12px 14px;text-align:center}
+.kpi-n{font-size:20px;font-weight:600}
+.kpi-l{font-size:11px;color:#888780;margin-top:2px}
+.sec{margin-bottom:20px;background:#16181e;border-radius:12px;border:1px solid #23252b;overflow:hidden}
+.sec-head{padding:14px 20px;display:flex;align-items:center;gap:10px;border-bottom:1px solid #23252b}
+.sec-icon{width:28px;height:28px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px;flex-shrink:0;color:#fff}
+.sec-head h2{font-size:15px;font-weight:500;flex:1}
+.badge{font-size:11px;padding:2px 10px;border-radius:10px}
+.freq{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;background:#23252b;color:#9FE1CB}
+.sec-body{padding:16px 20px}
+.row{display:flex;align-items:flex-start;padding:8px 0;border-bottom:1px solid #1c1e24;gap:12px;font-size:13px}
+.row:last-child{border-bottom:none}
+.row-label{color:#888780;width:100px;flex-shrink:0}
+.row-val{color:#d3d1c7;flex:1}
+.tag{display:inline-block;font-size:11px;padding:2px 8px;border-radius:4px;margin:2px 3px 2px 0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.item{background:#1c1e24;border-radius:8px;padding:10px 14px}
+.item-t{font-size:12px;color:#888780}
+.item-v{font-size:13px;font-weight:500;margin-top:3px}
+.quote{font-size:12px;color:#9FE1CB;font-style:italic;padding:8px 12px;border-left:2px solid #1D9E75;margin:10px 0;background:#12241d;border-radius:0 6px 6px 0}
+.tpl{background:#1a1e2a;border:1px solid #2a3040;border-radius:8px;padding:12px 16px;margin:10px 0;font-size:12px;color:#B5D4F4;line-height:1.8}
+.tpl-h{font-size:11px;color:#378ADD;font-weight:500;margin-bottom:6px;letter-spacing:0.5px}
+.warn{background:#1a1214;border:1px solid #3a1a1a;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:12px;color:#F09595;line-height:1.7}
+.warn-h{font-size:11px;color:#E24B4A;font-weight:500;margin-bottom:4px;letter-spacing:0.5px}
+.tip{background:#12241d;border:1px solid #1a3a2a;border-radius:8px;padding:10px 14px;margin:8px 0;font-size:12px;color:#9FE1CB;line-height:1.7}
+.tip-h{font-size:11px;color:#1D9E75;font-weight:500;margin-bottom:4px;letter-spacing:0.5px}
+.c1{background:#1D9E75}.c2{background:#378ADD}.c3{background:#BA7517}
+.c4{background:#7F77DD}.c5{background:#D85A30}.c6{background:#D4537E}
+.c7{background:#639922}.c8{background:#888780}
+.t1{color:#085041;background:#1D9E75}.t2{color:#042C53;background:#378ADD}
+.t3{color:#412402;background:#BA7517}.t4{color:#26215C;background:#7F77DD}
+.t5{color:#4A1B0C;background:#D85A30}.t6{color:#4B1528;background:#D4537E}
+.t7{color:#173404;background:#639922}.t8{color:#2C2C2A;background:#888780}
+.b1{border-left:3px solid #1D9E75}.b2{border-left:3px solid #378ADD}
+.b3{border-left:3px solid #BA7517}.b4{border-left:3px solid #7F77DD}
+.b5{border-left:3px solid #D85A30}.b6{border-left:3px solid #D4537E}
+.b7{border-left:3px solid #639922}.b8{border-left:3px solid #888780}
+.hide{display:none}
+.foot{text-align:center;margin-top:24px;padding-top:16px;border-top:1px solid #23252b;font-size:11px;color:#5F5E5A}
+</style>
+<div class="wrap">
+<div class="head">
+<h1>OKX 星球创作者内容指南</h1>
+<p class="sub">用户告诉我们他们想看什么 · 这份指南告诉你怎么写</p>
+<p class="sub2">基于 105 位真实用户反馈整理 · 2026 年 03 月 16 日</p>
+</div>
+
+<div class="kpi-row">
+<div class="kpi"><div class="kpi-n" style="color:#1D9E75">105</div><div class="kpi-l">参与调研用户</div></div>
+<div class="kpi"><div class="kpi-n" style="color:#378ADD">8</div><div class="kpi-l">用户最想看的方向</div></div>
+<div class="kpi"><div class="kpi-n" style="color:#E24B4A">6</div><div class="kpi-l">用户最反感的雷区</div></div>
+<div class="kpi"><div class="kpi-n" style="color:#BA7517">40%</div><div class="kpi-l">最想看实战复盘</div></div>
+</div>
+
+<div class="tabs" id="tabs">
+<div class="tab on" data-i="all">全部方向</div>
+<div class="tab" data-i="0">实盘复盘</div>
+<div class="tab" data-i="1">新手教程</div>
+<div class="tab" data-i="2">快讯早报</div>
+<div class="tab" data-i="3">链上数据</div>
+<div class="tab" data-i="4">项目测评</div>
+<div class="tab" data-i="5">空投教程</div>
+<div class="tab" data-i="6">安全科普</div>
+<div class="tab" data-i="7">真实故事</div>
+</div>
+
+<div id="cards">
+
+<div class="sec b1" data-s="0">
+<div class="sec-head">
+<div class="sec-icon c1">01</div>
+<h2>行情分析 / 实盘复盘</h2>
+<span class="badge t1">用户最想看</span>
+</div>
+<div class="sec-body">
+<div class="row"><span class="row-label">用户要什么</span><span class="row-val">不要"肯定涨/跌"，要的是带数据、带逻辑、带风控的完整交易拆解。用户特别想看失败案例的复盘——亏钱不丢人，亏了不知道为什么才丢人。</span></div>
+<div class="quote">"不是那种'肯定涨或肯定跌'，而是带图表、带数据、带失败案例的硬核复盘"<br>— @小梦一场</div>
+<div class="tpl">
+<div class="tpl-h">爆款模板：实盘复盘帖</div>
+① 开单背景（什么时间、什么行情下）<br>
+② 操作记录（币种 / 方向 / 杠杆 / 止损 / 止盈 / 仓位比）<br>
+③ 结果（赚了多少 or 亏了多少，附截图）<br>
+④ 复盘分析（哪里判断对了，哪里错了，为什么）<br>
+⑤ 教训总结（下次遇到同样情况怎么做）<br>
+<span style="color:#5DCAA5">加分项：附K线标注图、资金费率截图、持仓量变化</span>
+</div>
+<div class="warn">
+<div class="warn-h">创作雷区 — 用户最反感的写法</div>
+· 纯喊单："这个币必涨，目标看xxx"——没有逻辑支撑，用户直接划走<br>
+· 只有结论没有过程："看多/看空"一句话就没了<br>
+· 只晒赚不晒亏：容易制造焦虑，用户明确表示不喜欢
+</div>
+<div class="tip">
+<div class="tip-h">小技巧 — 让用户感受到真实</div>
+截图尽量带时间戳，让用户知道你是真实开的单。大胆分享亏损单比只晒盈利更能赢得信任。每篇复盘末尾加一句"欢迎指出我的盲点"，能显著提升评论区互动。
+</div>
+</div>
+</div>
+
+<div class="sec b2" data-s="1">
+<div class="sec-head">
+<div class="sec-icon c2">02</div>
+<h2>新手科普 / 入门教程</h2>
+<span class="badge t2">用户需求 #2</span>
+</div>
+<div class="sec-body">
+<div class="row"><span class="row-label">用户要什么</span><span class="row-val">大白话、有截图、一步步教。很多用户"玩了2年才知道挂单比吃单省手续费"——基础知识的市场缺口远比你想的大。</span></div>
+<div class="quote">"最少多少U可以玩，怎么调倍数和杠杆"<br>— @武子4658</div>
+<div class="tpl">
+<div class="tpl-h">爆款模板：保姆级教程</div>
+① 标题直接说"解决什么问题"（如：100U怎么玩合约？）<br>
+② 先说核心公式/原理（用具体数字举例，别用抽象概念）<br>
+③ 分步操作（'打开APP → 点哪里 → 填什么'，最好配截图）<br>
+④ 踩坑提醒（新手必犯的3个错误）<br>
+⑤ 实操建议（先用5U练手，别第一单就认真）<br>
+<span style="color:#5DCAA5">分层思路：L1 怎么买卖 → L2 合约/网格 → L3 组合保证金/链上操作</span>
+</div>
+<div class="tip">
+<div class="tip-h">写作诀窍 — 怎么写新手不会觉得难</div>
+每个专业术语第一次出现时必须用一句大白话解释。比如"逐仓模式（就是爆仓只亏这一单，不会连累你全部资金）"。用户不是笨，是没人教。
+</div>
+</div>
+</div>
+
+<div class="sec b3" data-s="2">
+<div class="sec-head">
+<div class="sec-icon c3">03</div>
+<h2>每日快讯 / 早报</h2>
+<span class="badge t3">用户需求 #3</span>
+</div>
+<div class="sec-body">
+<div class="row"><span class="row-label">用户要什么</span><span class="row-val">3分钟获取全球要闻，不是纯搬运，每条新闻都要配一句话解读"这对币价意味着什么"。</span></div>
+<div class="quote">"突然插针都不知道为啥，突然拉涨，突然大跌，跟个白痴似的"<br>— @收割</div>
+<div class="tpl">
+<div class="tpl-h">爆款模板：星球早报</div>
+① 宏观面（美联储/政策/地缘，1-2句话说清楚影响）<br>
+② 市场数据（BTC/ETH价格、爆仓量、资金费率、稳定币市值）<br>
+③ 热点事件（2-3条，每条配一句解读）<br>
+④ 今日关注（重要数据公布时间、项目事件）<br>
+<span style="color:#5DCAA5">发布时间：比如每日 8:00 前，适合通勤的宝子刷帖</span>
+</div>
+<div class="warn">
+<div class="warn-h">创作雷区</div>
+· 纯截图搬运无解读——用户说"大家都能看到，价值不大"<br>
+· 新闻过多不筛选——3-5条最佳，只留真正影响币价的
+</div>
+</div>
+</div>
+
+<div class="sec b4" data-s="3">
+<div class="sec-head">
+<div class="sec-icon c4">04</div>
+<h2>链上数据解读</h2>
+<span class="badge t4">用户需求 #4</span>
+</div>
+<div class="sec-body">
+<div class="row"><span class="row-label">用户要什么</span><span class="row-val">不要干巴巴的数字，要把数据"翻译"成普通人能用的信号。"这个数据说明什么，我该怎么做"。</span></div>
+<div class="quote">"能不能每周整理一份'聪明钱持仓异动'？"<br>— @2025起飞</div>
+<div class="tpl">
+<div class="tpl-h">爆款模板：链上数据周报</div>
+① 稳定币流向（场内外资金净流入/出 + 一句话信号判断）<br>
+② 聪明钱动向（胜率>65%地址近期买卖TOP3 + 表格）<br>
+③ 巨鲸预警（单笔>100万美元转账，说清"这意味着什么"）<br>
+④ 信号总结（绿灯/黄灯/红灯，直观呈现）<br>
+<span style="color:#5DCAA5">数据源参考：Arkham / Nansen / Defillama / CoinGlass / Dune</span>
+</div>
+<div class="tip">
+<div class="tip-h">写作诀窍 — 数据帖怎么写才不无聊</div>
+每个数据后面必须跟一句"信号判断"。不要写"稳定币市值2087亿"就完了，而是"较昨日+1.4亿，资金小幅净流入，中性偏多"。数据是载体，信号才是价值。
+</div>
+</div>
+</div>
+
+<div class="sec b5" data-s="4">
+<div class="sec-head">
+<div class="sec-icon c5">05</div>
+<h2>深度研报 / 项目测评</h2>
+<span class="badge t5">用户需求 #5</span>
+</div>
+<div class="sec-body">
+<div class="row"><span class="row-label">用户要什么</span><span class="row-val">不吹不黑，帮用户判断"这个项目值不值得投"。用户明确反感软文和无脑吹，希望看到风险和机会一起讲。</span></div>
+<div class="quote">"让我们为了发展前景投资而不是为了热度而投资"<br>— @酷酷游水的小明</div>
+<div class="tpl">
+<div class="tpl-h">爆款模板：项目测评</div>
+① 一句话说清"这个项目干什么的"<br>
+② 团队背景（谁做的，融过多少钱，谁投的）<br>
+③ 代币模型拆解（分配比例 + 解锁时间表 + 抛压预警）<br>
+④ 真实数据（TVL、用户量、收入——是真的还是刷的）<br>
+⑤ 风险清单（至少列3条风险，让用户自己判断）<br>
+⑥ 结论（不要"DYOR"一句带过，给出你的真实看法）<br>
+<span style="color:#5DCAA5">重点赛道：AI+Web3 / RWA / Layer2 / DeFi / 新公链</span>
+</div>
+<div class="warn">
+<div class="warn-h">创作雷区</div>
+· "XX币必火！"式软文——用户一眼就能看出来<br>
+· 只写好的不写风险——用户明确说"不吹不黑"<br>
+· 堆砌抽象概念无数据支撑——没有TVL、收入等硬指标的测评缺乏说服力
+</div>
+</div>
+</div>
+
+<div class="sec b6" data-s="5">
+<div class="sec-head">
+<div class="sec-icon c6">06</div>
+<h2>空投教程 / 交互攻略</h2>
+<span class="badge t6">用户需求 #6</span>
+</div>
+<div class="sec-body">
+<div class="row"><span class="row-label">用户要什么</span><span class="row-val">保姆级步骤 + 风险前置 + 成本透明。用户最怕的不是操作复杂，而是不知道哪个链接是真的、哪个是钓鱼的。</span></div>
+<div class="quote">"手动刷空投效率太低，希望能有更系统化的工具推荐"<br>— @Jim</div>
+<div class="tpl">
+<div class="tpl-h">爆款模板：空投教程</div>
+① 成本和风险先说清楚（Gas费多少，有什么风险，有没有可能零回报）<br>
+② 分步操作（每步配官方链接，标注"只认这个域名"）<br>
+③ 省Gas技巧（什么时间段最便宜）<br>
+④ 跨周策略（提醒用户每周交互一次，说明为什么）<br>
+⑤ 安全提醒（不要点任何"空投领取"链接，交互后检查授权）
+</div>
+<div class="tip">
+<div class="tip-h">写作诀窍 — 安全感是空投教程的核心竞争力</div>
+很多创作者写空投教程只写操作，但用户最担心的是"这个链接安全吗"。在步骤前放一个"成本与风险"表格，用户会觉得你是真正在帮他，而不是在利用他。
+</div>
+</div>
+</div>
+
+<div class="sec b7" data-s="6">
+<div class="sec-head">
+<div class="sec-icon c7">07</div>
+<h2>安全科普 / 避坑指南</h2>
+<span class="badge t7">用户需求 #7</span>
+</div>
+<div class="sec-body">
+<div class="row"><span class="row-label">用户要什么</span><span class="row-val">教用户自己查、自己防，而不是等到被骗了才知道。尤其是合约安全检测、貔貅币识别、授权管理这些实操层的内容。</span></div>
+<div class="quote">"代币的合约就像股票的财报，底层出了问题再怎么叙事也没用"<br>— @JAY杰</div>
+<div class="tpl">
+<div class="tpl-h">爆款模板：安全自查指南</div>
+① 工具准备（推荐2-3个免费检测工具，配链接）<br>
+② 分步教查（合约验证 → 评分检查 → 深度检测 → 交易真实性）<br>
+③ 每个步骤配"即刻跑"的红线标准<br>
+④ 5秒决策流程图（给用户一个快速判断的框架）<br>
+<span style="color:#5DCAA5">推荐工具：TokenSniffer / GoPlus / DEXScreener / Revoke.cash</span>
+</div>
+<div class="tip">
+<div class="tip-h">写作诀窍 — 安全帖的流量密码</div>
+用真实诈骗案例开头（'昨天群里又有人被骗了20万'），再拆解骗术原理，最后教用户怎么防。有故事的安全帖比纯工具教程阅读量高3倍。
+</div>
+</div>
+</div>
+
+<div class="sec b8" data-s="7">
+<div class="sec-head">
+<div class="sec-icon c8">08</div>
+<h2>真实故事 / 社区互动</h2>
+<span class="badge t8">情感连接</span>
+</div>
+<div class="sec-body">
+<div class="row"><span class="row-label">用户要什么</span><span class="row-val">有温度的真实经历，不是冰冷的技术分析。用户说"读45分钟还有10分钟休息呢"——星球需要"课间休息"式的内容。</span></div>
+<div class="quote">"冰冰冷冷的很机械化，读45分钟还有10分钟休息呢，总不能180分钟都在上课吧"<br>— @[Miku]</div>
+<div class="tpl">
+<div class="tpl-h">爆款模板：真实故事帖</div>
+① 先说结论（"我从5000U做到5万再到归零"）<br>
+② 时间线叙述（从入场 → 巅峰 → 崩盘 → 反思）<br>
+③ 情感细节（"那天晚上请了三桌饭""盯着爆仓"）<br>
+④ 教训清单（用数字总结，比如"学到的6件事"）<br>
+⑤ 开放评论（"你的经历是什么？匿名也行"）<br>
+<span style="color:#5DCAA5">特别适合：爆仓复盘、踩坑经历、小白成长日记、周期复盘</span>
+</div>
+<div class="tip">
+<div class="tip-h">写作诀窍 — 怎么写才有"人味"</div>
+写你真实的想法，不要用"市场拉升"而是"那天看着绿色数字往上跳，心跳加速"。用户说"比起冰冷的数据和研报，有温度的经历更能给人力量"。真诚比专业更重要。
+</div>
+</div>
+</div>
+
+<div class="sec" style="border-left:3px solid #E24B4A" data-s="x">
+<div class="sec-head">
+<div class="sec-icon" style="background:#E24B4A;color:#fff">!!</div>
+<h2>全板块通用 — 用户最反感的6个雷区</h2>
+<span class="badge" style="background:#E24B4A;color:#501313">必读</span>
+</div>
+<div class="sec-body">
+<div class="grid2" style="margin-bottom:12px">
+<div class="item" style="border-left:2px solid #E24B4A;border-radius:0 8px 8px 0"><div class="item-t" style="color:#F09595">雷区1：无脑喊单</div><div class="item-v" style="color:#F7C1C1">纯点位+"必涨/必跌"，没有逻辑支撑</div></div>
+<div class="item" style="border-left:2px solid #E24B4A;border-radius:0 8px 8px 0"><div class="item-t" style="color:#F09595">雷区2：AI水文</div><div class="item-v" style="color:#F7C1C1">复制粘贴、千篇一律、没有个人观点</div></div>
+<div class="item" style="border-left:2px solid #E24B4A;border-radius:0 8px 8px 0"><div class="item-t" style="color:#F09595">雷区3：引流广告</div><div class="item-v" style="color:#F7C1C1">拉群返佣、带单诱导、私域引流</div></div>
+<div class="item" style="border-left:2px solid #E24B4A;border-radius:0 8px 8px 0"><div class="item-t" style="color:#F09595">雷区4：只晒赚不晒亏</div><div class="item-v" style="color:#F7C1C1">制造焦虑，用户最反感"永赚"人设</div></div>
+<div class="item" style="border-left:2px solid #E24B4A;border-radius:0 8px 8px 0"><div class="item-t" style="color:#F09595">雷区5：情绪煽动</div><div class="item-v" style="color:#F7C1C1">标题党、制造恐慌、过度多空对立</div></div>
+<div class="item" style="border-left:2px solid #E24B4A;border-radius:0 8px 8px 0"><div class="item-t" style="color:#F09595">雷区6：虚假实盘</div><div class="item-v" style="color:#F7C1C1">实盘不开、截图作假、夸大收益率</div></div>
+</div>
+<div style="padding:12px 16px;background:#12241d;border:1px solid #1a3a2a;border-radius:8px;font-size:12px;color:#9FE1CB;line-height:1.7">
+<span style="font-weight:500;color:#5DCAA5">用户原话总结：</span>"看完没收获"是用户对低质内容的统一评价。写帖前问自己一个问题："别人看完我这篇，能带走什么？"如果答案是"什么都没有"，那就别发。
+</div>
+</div>
+</div>
+
+</div>
+
+<div class="foot">
+OKX 星球运营团队出品 · 基于 105 位真实用户反馈 · 2026 年 3 月<br>
+好内容的标准只有一个：看完有收获
+</div>
+</div>
+
+<script>
+document.getElementById('tabs').addEventListener('click', function(e) {
+  var t = e.target.closest('.tab');
+  if (!t) return;
+  var idx = t.dataset.i;
+  document.querySelectorAll('.tab').forEach(function(el) { el.classList.remove('on'); });
+  t.classList.add('on');
+  document.querySelectorAll('#cards .sec').forEach(function(el) {
+    if (idx === 'all') { el.style.display = ''; }
+    else if (idx !== 'all' && el.dataset.s === 'x') { el.style.display = ''; }
+    else { el.style.display = el.dataset.s === idx ? '' : 'none'; }
+  });
+});
+</script>
