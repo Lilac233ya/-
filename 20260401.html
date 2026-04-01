@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月1日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #2a1a1a; border-left: 3px solid #FF3B3B;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #FF3B3B; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 01 · 星期三</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：3月31日 20:00 — 4月1日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">CoinDesk</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Polymarket</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">⚡ 重要事件</div>
+  <div class="banner-title">伊朗总统释放停战信号 · 美股加密板块大反弹</div>
+  <div class="banner-body">伊朗总统Pezeshkian凌晨表示愿意结束战争，但强调需要安全保障。停战信号即时引发全球风险资产修复行情：纳指涨3.83%、COIN涨8.6%、ABTC涨17%，BTC反弹至约$67,800。与此同时，美国国务卿称"能看到战争终点线"，阿联酋拟联手美军武力打通霍尔木兹海峡，地缘博弈从"谈判僵局"进入"军事收尾+外交突破"并轨阶段。</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$67,800</div>
+      <div class="market-change up">▲ 1.3%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,120</div>
+      <div class="market-change up">▲ 2.4%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">SOL</div>
+      <div class="market-price">$82.10</div>
+      <div class="market-change up">▲ 2.4%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,706</div>
+      <div class="market-change up">▲ 3.9%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">原油(WTI)</div>
+      <div class="market-price">$105.80</div>
+      <div class="market-change down">▼ 0.7%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐慌贪婪</div>
+      <div class="market-price">28</div>
+      <div class="market-change down">极端恐惧</div>
+    </div>
+  </div>
+</div>
+
+<!-- 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">伊朗总统释放停战信号：愿意结束战争，强调需要安全保障</div>
+    <div class="news-desc">伊朗总统Pezeshkian凌晨发表声明称愿意终止与美国的武装冲突，但要求美方提供具体安全保障。美国国务卿同日表示"能看到这场战争的终点线"，为28天冲突以来最明确的结束信号。Polymarket数据显示4月底前停火概率仍仅38%，市场对和谈持保留态度。风险资产对停战预期作出快速正面响应，BTC当夜反弹1.3%。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 停火</span>
+      <span class="news-tag">风险情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474712" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">阿联酋拟联手美军武力强突霍尔木兹 · 白宫研判油价$150极端预案</div>
+    <div class="news-desc">据悉阿联酋正与美军协调武力打通霍尔木兹海峡封锁的军事方案，美国国务卿同步表达强硬立场。白宫已启动油价突破$150的极端情景推演，或动用国家紧急权力限制国内原油出口以平抑通胀。若海峡强突行动落地，原油将面临短期剧烈波动，通胀压力可能进一步推迟美联储降息时间表。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">能源 · 军事</span>
+      <span class="news-tag">通胀预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474743" target="_blank">Odaily</a> · <a href="https://www.odaily.news/zh-CN/newsflash/474740" target="_blank">Odaily（白宫油价预案）</a></div>
+  </div>
+</div>
+
+<!-- 传统金融 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">停战信号触发美股加密板块大反弹：纳指+3.83%，COIN+8.6%，ABTC+17%</div>
+    <div class="news-desc">伊朗停战信号释放后，美股收涨：纳斯达克指数涨3.83%，加密概念股Coinbase（COIN）大涨8.6%，比特币矿企ABTC暴涨17%。BTC现货随即反弹至$67,800，创近一周新高。此次反弹为3月末普跌行情提供短期修复窗口，但恐慌贪婪指数仍处"极端恐惧"区间（28），机构资金尚未大规模回流。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">股市 · 加密</span>
+      <span class="news-tag">情绪反弹</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474737" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">黄金新高$4,706 · 欧洲股指普涨 · 全球风险情绪温和修复</div>
+    <div class="news-desc">黄金在停战预期与通胀双重逻辑驱动下涨至$4,706，再度刷新历史记录。欧洲主要股指跟随美股收高。原油小幅回落至约$105.80，市场开始计价霍尔木兹短期解封的可能性。黄金与风险资产同涨的"双牛"结构，反映市场对停战预期与潜在通胀长期化的矛盾定价。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">贵金属 · 能源</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474736" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 全球监管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">香港首批合规稳定币牌照推迟落地，金管局：正全力推进</div>
+    <div class="news-desc">香港金融管理局证实，原定本季度落地的首批稳定币发行人牌照将推迟发放，当局表示监管框架细则仍在完善中，正全力推进落地。港元稳定币被定位为跨境结算最后一公里方案，多家大行已与Circle等主流发行方展开差异化布局谈判。牌照延期将暂时影响香港稳定币市场的启动节奏，但不改变中期布局逻辑。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">稳定币 · 香港</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474739" target="_blank">Odaily</a> · <a href="https://wublock123.com/articles/hk-dollar-stablecoin-not-just-usdc-58784" target="_blank">吴说区块链</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Cardano创始人批评CLARITY法案：称设计存在根本性缺陷</div>
+    <div class="news-desc">Cardano创始人Charles Hoskinson公开批评美国CLARITY数字资产市场结构法案，指出其中对"充分去中心化"的认定标准存在根本性设计缺陷，可能将大量L1协议纳入证券监管范畴。此前David Sacks已卸任白宫AI/加密顾问，法案推进的核心协调人缺位，市场结构立法的时间表存在不确定性。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">法案 · 美国</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474734" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美劳工部提议放开401k另类资产投资 · "Mined in America Act"禁用中国挖矿设备</div>
+    <div class="news-desc">美国劳工部提议修订养老金投资规则，拟允许401k计划增配另类资产（含加密资产），潜在规模万亿美元级。同期国会提出"Mined in America Act"，拟禁止使用中国制造矿机以保障国家安全。两项立法均处于提案阶段，若通过将分别利好机构加密配置需求与北美本土矿业设备供应链。</div>
+    <div class="news-tags">
+      <span class="news-tag">季度影响</span>
+      <span class="news-tag">养老金 · 矿业</span>
+    </div>
+    <div class="news-source">来源：<a href="https://wublock123.com/articles/wu-daily-crypto-news-us-dol-proposes-401k-alt-asset-rules-58786" target="_blank">吴说区块链</a></div>
+  </div>
+</div>
+
+<!-- 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">新罕布什尔拟发行$1亿比特币抵押市政债券，穆迪评级Ba2</div>
+    <div class="news-desc">美国新罕布什尔州拟发行总额$1亿的市政债券，以比特币作为抵押资产，穆迪给予Ba2（非投资级）评级。这是美国地方政府以BTC直接抵押发债的首例探索，虽评级偏低但标志着比特币正式进入公共财政抵押物范畴。若获批落地将引发其他州的模仿效应，对BTC需求侧形成中期正面催化。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">市政债券 · BTC</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474735" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Galaxy Digital推出SOL质押功能，覆盖全美40+州合规客户</div>
+    <div class="news-desc">纳斯达克上市加密公司Galaxy Digital宣布通过GalaxyOne平台推出SOL质押服务，面向美国40余个州的合规机构客户，质押代币委托至Galaxy Digital自有验证节点。SOL在此前ETF流出压力下仍获头部机构布局，有助于改善市场对SOL中期生态信心。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">SOL · 机构质押</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474752" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">USDC Treasury在Solana链新增铸造2.5亿枚USDC</div>
+    <div class="news-desc">Circle USDC Treasury在Solana区块链上新增铸造250,000,000枚USDC。大额USDC铸造通常与机构资金入场备货或链上流动性补充需求相关，此次铸造规模较大，可能预示Solana生态近期将有较大规模交易活动或机构资金流入。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">稳定币 · Solana</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339006" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">沉睡两年巨鲸向Binance转入600枚BTC，疑为潜在抛压</div>
+    <div class="news-desc">链上数据显示，一个沉寂超过两年的Bitcoin地址突然向Binance转入600枚BTC（约$4,068万）。沉睡地址向交易所的大额转账历史上往往先于抛售行为，在BTC当前反弹窗口下需关注该笔资金的实际处置动向。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">鲸鱼 · 抛压预警</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/338998" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority low">LOW</span></div>
+    <div class="news-title">巨鲸清仓持有逾一年的HYPE仓位，获利约$160.8万</div>
+    <div class="news-desc">链上监测显示，某鲸鱼地址完全清仓持有超过一年的HyperLiquid原生代币HYPE，实现约160.8万美元利润。鉴于HYPE近期在高杠杆ETH空单事件（$2000万20倍空单）后市场关注度持续提升，该笔获利了结动作值得关注，但对整体市场影响有限。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">鲸鱼 · HYPE</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339003" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">BTC 3月月度回报率+1.62%，避免历史上连续六个月收跌</div>
+    <div class="news-desc">3月收盘后统计显示，BTC月度涨幅为+1.62%，未出现历史上极为罕见的"连续六个月收跌"局面，为周期底部讨论提供关键数据支撑。结合链上模型指向底部区间$4.6万–$5.4万、STH-MVRV仍在0.77的熊市区间、以及本周五非农数据等多重催化剂，4月行情走向将成为本轮周期是否已见底的重要验证窗口。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">BTC · 周期</span>
+      <span class="news-tag">非农催化</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474738" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Polymarket：4月底前美伊停火概率仅38%，市场预期远低于官方表态</div>
+    <div class="news-desc">尽管伊朗总统与美国国务卿均释放停战信号，Polymarket预测市场对4月底前美伊停火的概率定价仅为38%，显示博彩市场对官方乐观表态持明显怀疑态度。对比3月30日该数值为59%，停火概率在伊朗国内立法（霍尔木兹通行费法案）后大幅下修，地缘风险溢价仍将持续影响加密市场走势。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">预测市场 · 地缘</span>
+    </div>
+    <div class="news-source">来源：<a href="https://polymarket.com" target="_blank">Polymarket</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">伊朗停战信号</span>
+    <span class="keyword">纳指+3.83%</span>
+    <span class="keyword">黄金$4,706</span>
+    <span class="keyword">霍尔木兹强突</span>
+    <span class="keyword">油价$150预案</span>
+    <span class="keyword">BTC $67,800反弹</span>
+    <span class="keyword">香港稳定币延期</span>
+    <span class="keyword">401k新规</span>
+    <span class="keyword">BTC 3月+1.62%</span>
+    <span class="keyword">Polymarket 38%</span>
+    <span class="keyword">新罕布什尔BTC债券</span>
+    <span class="keyword">USDC Solana增发</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 加密行业早报 · 本报告仅供参考，不构成投资建议<br>
+  数据来源：Odaily · 吴说区块链 · BlockBeats · Polymarket
+</div>
+
+</body>
+</html>
