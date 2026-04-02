@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月2日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #2a1a1a; border-left: 3px solid #FF3B3B;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #FF3B3B; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 02 · 星期四</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月1日 20:00 — 4月2日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Lookonchain</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">⚠️ 重大安全事件</div>
+  <div class="banner-title">Drift Protocol遭攻击 $2.2亿资产被转移 · 今年最大链上黑客事件</div>
+  <div class="banner-body">Solana DeFi协议Drift Protocol于4月2日凌晨遭遇重大安全攻击，约$2.2-2.7亿资产被转移至可疑地址，含USDC $6040万、JLP代币$1.556亿，黑客随后将资产桥接至以太坊购入约19,913枚ETH（约$4260万）。DRIFT代币暴跌35%，协议紧急暂停服务并提醒用户停止充币。Jupiter明确表示未受波及，JLP由基础资产完全背书。同日，特朗普就伊朗军事行动发表全国讲话，确认"达到或超过基准"并重申2-3周结束时间表。</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$67,800</div>
+      <div class="market-change down">▼ 0.1%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,140</div>
+      <div class="market-change up">▲ 0.9%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">SOL</div>
+      <div class="market-price">$79.60</div>
+      <div class="market-change down">▼ 3.0%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,800</div>
+      <div class="market-change up">▲ 2.0%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">原油(WTI)</div>
+      <div class="market-price">$100.20</div>
+      <div class="market-change up">▲ 0.9%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐慌贪婪</div>
+      <div class="market-price">26</div>
+      <div class="market-change down">极端恐惧</div>
+    </div>
+  </div>
+</div>
+
+<!-- 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">特朗普发表伊朗问题全国讲话：军事行动"达到或超过基准"，2-3周结束时间表再确认</div>
+    <div class="news-desc">美国总统特朗普4月2日就伊朗军事冲突发表全国电视讲话，白宫官员称军事行动"达到或超过既定基准"，并重申2-3周内完成相关作战任务的时间表。这是特朗普就伊朗冲突发表的首次正式全国讲话。市场对讲话内容初步解读为"收尾信号"，股指期货短暂走高、油价有所回落，但白宫同步向盟友施压要求增加贡献，实际停火进程仍存变数。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 停火</span>
+      <span class="news-tag">风险情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339232" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美国情报机构：伊朗目前无意实质性谈判，认为特朗普缺乏诚意</div>
+    <div class="news-desc">美国情报机构评估显示，伊朗当前无意进行实质性停战谈判，内部认定特朗普政府不具备足够谈判诚意。该评估与特朗普讲话中传递的"收尾"信号形成鲜明矛盾，说明美伊双方存在严重认知鸿沟。Polymarket停火概率维持低位（38%），战略对话实质推进仍面临重大障碍，市场需防范地缘风险反弹。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 谈判</span>
+      <span class="news-tag">风险溢价</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474942" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 传统金融 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">黄金突破$4,800创历史新高，有望五连阳 · 停火预期与通胀双轮驱动</div>
+    <div class="news-desc">黄金盘中突破$4,800，日涨幅达2.0%，连续五日上涨势头强劲。停战预期带来避险需求结构性松动，但油价高位（WTI $100+）维系通胀担忧，黄金在"停火乐观+通胀持续"的矛盾叙事下持续受益。黄金与加密资产的相关性再度弱化，当前BTC在$67,800附近震荡而黄金持续创新高，说明机构增量资金优先流向传统避险资产。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">贵金属 · 避险</span>
+      <span class="news-tag">通胀预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474943" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/339230" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">WTI原油逼近$100大关，日涨0.93% · 特朗普讲话前市场情绪紧绷</div>
+    <div class="news-desc">WTI原油在特朗普伊朗讲话前夜涨至$100.20/桶，布伦特原油越过$99。原油在$100关口附近形成强阻力，若霍尔木兹局势转向宽松将大幅回落。本周四美国EIA原油库存报告（预计周三公布）将成为原油短期方向的关键数据参考。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">能源 · 地缘</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474958" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">日韩股市开盘走高：KOSPI +1.56%，日经225 +0.50% · 亚洲情绪修复</div>
+    <div class="news-desc">受特朗普伊朗讲话"收尾"信号推动，日韩股市4月2日开盘双双走高，KOSPI涨1.56%，日经225涨0.50%，扭转此前连续多日的跌势。亚洲市场风险偏好短暂回升，但Drift黑客事件对Solana生态的冲击或使加密资产承压，情绪修复的可持续性仍待确认。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">亚股 · 情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474948" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 全球监管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美国财政部正式发布GENIUS法案首个稳定币实施规则，$100亿以下可选州级监管</div>
+    <div class="news-desc">美国财政部正式发布《GENIUS法案》首个稳定币拟议规则制定通知（NPRM），标志着该法案从立法语言进入操作层面落地。核心要点：流通量$100亿美元以下的小型发行人，若所在州监管框架达到联邦"实质等同"标准，可选择接受州级而非联邦监管。公众意见征询期60天，FDIC、OCC正同步制定配套规则。这为Circle、Paxos等中小发行人提供了更灵活的合规路径，港元稳定币等境外方案的联邦监管坐标也将逐渐清晰。</div>
+    <div class="news-tags">
+      <span class="news-tag">季度影响</span>
+      <span class="news-tag">稳定币 · 法规</span>
+      <span class="news-tag">美国合规</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474940" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/339217" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">加密政治行动委员会任命Tether高管Jesse Spiro为主席，稳定币政治博弈升温</div>
+    <div class="news-desc">Fellowship PAC（加密行业主要政治献金机构）任命Tether全球事务主管Jesse Spiro担任主席。此举发生在GENIUS法案规则落地的同一天，凸显Tether积极介入美国监管政策制定的战略意图。此前Tether面临与GENIUS法案储备要求的合规摩擦，此次人事布局或意在加强USDT在美国监管框架内的话语权。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">稳定币 · 政治</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474941" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">Schwab/Citadel/Fidelity支持的EDX Markets申请美国国家信托银行牌照</div>
+    <div class="news-desc">EDX Markets——由嘉信理财、城堡证券和富达投资共同支持的机构级加密交易所——正式向美国货币监理署（OCC）申请国家信托银行牌照，以开展数字资产托管和清算服务。这是继Kraken获得美联储主账户后，又一家传统金融巨头背书的加密机构向银行体系内嵌发力，传统金融全面拥抱数字资产的趋势进一步加速。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">机构 · 银行牌照</span>
+      <span class="news-tag">TradFi入场</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474938" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Bithumb宣布IPO推迟至2028年，受内部治理与监管合规双重拖累</div>
+    <div class="news-desc">韩国第二大加密交易所Bithumb宣布原计划于2025-2026年落地的IPO延期至2028年，官方原因为内部控制体系完善需求及监管合规要求。Bithumb此前曾多次提上市计划均受挫，本次明确延至2028年也侧面反映韩国监管机构对大型交易所上市的严苛态度。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">韩国 · 交易所</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474939" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">【年度最大链上攻击】Drift Protocol被盗$2.2-2.7亿，DRIFT暴跌35%</div>
+    <div class="news-desc">Solana头部DeFi协议Drift Protocol于4月2日凌晨遭遇重大安全事件。链上数据：被盗资产包含USDC约$6040万、JLP代币$1.556亿、cbBTC $1130万及其他资产，黑客将部分资金桥接至以太坊，购入约19,913枚ETH（约$4260万），并向Hyperliquid和Binance转入被盗SOL。Drift官方确认"这不是愚人节玩笑"，已建议所有用户暂停充值并正在全力调查。DRIFT代币在消息后暴跌35%，SOL受Solana生态信心冲击跌3%，为2026年迄今最大单次链上黑客事件。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">安全 · Solana</span>
+      <span class="news-tag">协议风险</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339219" target="_blank">BlockBeats（事件）</a> · <a href="https://www.theblockbeats.info/flash/339220" target="_blank">BlockBeats（代币暴跌）</a> · <a href="https://www.theblockbeats.info/flash/339224" target="_blank">BlockBeats（TVL腰斩）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Jupiter澄清未受Drift事件波及，JLP由基础资产完全背书</div>
+    <div class="news-desc">Solana头部流动性协议Jupiter在Drift事件发酵后第一时间发表声明，明确表示Jupiter协议未受Drift黑客事件影响，其流动性池代币JLP由BTC、ETH、SOL及稳定币等基础资产完全背书支撑。及时的澄清声明有效防止了Solana生态流动性的连锁恐慌，但在Drift TVL腰斩背景下，Solana DeFi整体信心修复仍需时间。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">Solana · DeFi</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474953" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Trust Wallet Discord短链接遭劫持，指向钓鱼服务器 · 用户高度警惕</div>
+    <div class="news-desc">Trust Wallet官方Discord频道的短链接遭恶意方劫持，目前重定向至钓鱼网站服务器。Trust Wallet已发出紧急警告，提醒用户切勿点击任何来自Discord的链接，直至问题修复。在Drift黑客事件同一天出现此类社会工程攻击，提示黑客可能借助市场恐慌窗口集中发动多点位攻击，用户需提高警惕。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">安全 · 钓鱼</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474955" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">BTC短时跌破$68,000，24H涨幅收窄至0.03% · 分布阶段特征显现</div>
+    <div class="news-desc">BTC在4月1日夜间短时跌破$68,000 USDT，24小时涨幅由前一日的1.3%收窄至接近0。Bloomberg报道大型持有者抛售潮持续，买盘力量尚不足以对冲，市场进入"分发阶段"特征。链上数据显示STH-MVRV仍低于1.0，短期持有者整体亏损，且本周五即将公布的非农就业数据可能带来方向性波动。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">BTC · 筹码分布</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/474936" target="_blank">Odaily</a> · <a href="https://www.odaily.news/zh-CN/newsflash/474947" target="_blank">Odaily（Bloomberg分析）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Drift黑客购入约19,913枚ETH（约$4260万），ETH价格短暂受提振</div>
+    <div class="news-desc">链上追踪显示，Drift黑客在将资产桥接至以太坊后，大规模购入约19,913枚ETH，市值约$4260万。受此大单买入推动，ETH价格短暂走强至$2,140附近，但资金来源为被盗资产，预计在链上追踪施压后黑客可能进行混币处理或转移，ETH的"黑客买盘"支撑属于非正常流量，持续性存疑。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">ETH · 链上流动</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339219" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">Drift $2.7亿黑客</span>
+    <span class="keyword">DRIFT -35%</span>
+    <span class="keyword">特朗普伊朗讲话</span>
+    <span class="keyword">2-3周收尾</span>
+    <span class="keyword">黄金$4,800</span>
+    <span class="keyword">GENIUS法案落地</span>
+    <span class="keyword">EDX信托银行牌照</span>
+    <span class="keyword">Tether PAC主席</span>
+    <span class="keyword">SOL -3%</span>
+    <span class="keyword">黑客买入ETH</span>
+    <span class="keyword">Trust Wallet钓鱼</span>
+    <span class="keyword">原油$100</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 加密行业早报 · 本报告仅供参考，不构成投资建议<br>
+  数据来源：Odaily · BlockBeats · Bloomberg · Lookonchain
+</div>
+
+</body>
+</html>
