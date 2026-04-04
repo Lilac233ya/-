@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月4日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #2a1a1a; border-left: 3px solid #FF3B3B;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #FF3B3B; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 04 · 星期六</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月3日 20:00 — 4月4日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">JPMorgan</div>
+  <div class="pill">CME FedWatch</div>
+  <div class="pill">Lookonchain</div>
+  <div class="pill">Oxford Economics</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">⚡ 重要事件</div>
+  <div class="banner-title">美军F-15在伊朗上空被击落 · 嘉信理财正式推出Schwab Crypto账户</div>
+  <div class="banner-body">美国特种部队成功救回伊朗上空被击落F-15的一名机组人员，另一名仍失踪，伊朗冲突持续升级。美国情报同步评估伊朗短期内不太可能开放霍尔木兹海峡，美国已将霍尔木兹航运再保险规模翻倍至$400亿美元。与此同时，嘉信理财正式推出"Schwab Crypto"账户支持全美48州直接交易BTC/ETH，标志着传统金融机构入场加密赛道的步伐进一步加速。昨晚美国3月非农就业17.8万大超预期，美联储4月降息概率实际归零。</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$66,200</div>
+      <div class="market-change down">▼ 0.9%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">$2,040</div>
+      <div class="market-change down">▼ 1.0%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">SOL</div>
+      <div class="market-price">$78.60</div>
+      <div class="market-change down">▼ 0.5%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,680</div>
+      <div class="market-change down">▼ 2.5%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">原油(WTI)</div>
+      <div class="market-price">$108.20</div>
+      <div class="market-change down">▼ 2.1%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐慌贪婪</div>
+      <div class="market-price">22</div>
+      <div class="market-change down">极端恐惧</div>
+    </div>
+  </div>
+</div>
+
+<!-- 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美军F-15在伊朗上空被击落，特种部队救回一名飞行员，另一名仍失踪</div>
+    <div class="news-desc">美国特种部队已成功救回在伊朗上空被击落的F-15战斗机的一名机组人员，另一名机组人员仍处于失联状态，伊朗方面同步展开搜寻行动。这是美伊冲突自2月28日爆发以来首次出现美军飞行员伤亡/失踪事件，标志着冲突进入新的危险阶段。此类事件历史上往往会显著推高市场的地缘风险溢价，黄金、原油等避险资产短期需求或再度上升。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">军事升级</span>
+      <span class="news-tag">风险溢价</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475271" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美国情报：伊朗短期内不太可能开放霍尔木兹，油价下行空间有限</div>
+    <div class="news-desc">美国最新情报评估显示，伊朗在可预见的短期内不太可能主动解除霍尔木兹海峡封锁。这一判断与前一日伊朗与阿曼就通行协议进行磋商的外交信号形成矛盾，凸显美伊谈判的"外交烟雾弹"属性。霍尔木兹持续封锁意味着布伦特原油将维持高位，当前$108+的WTI价格中仍含有大量地缘风险溢价。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 能源</span>
+      <span class="news-tag">油价支撑</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475279" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美国将霍尔木兹航运再保险翻倍至$400亿，Berkshire/AIG/Travelers等六大险企加入</div>
+    <div class="news-desc">美国国际发展金融公司（DFC）宣布将霍尔木兹海峡航运再保险承诺规模从$200亿翻倍至$400亿，新增Travelers、Liberty Mutual、Berkshire Hathaway、AIG、Starr、CNA等六大保险商。此举旨在通过提升承保能力恢复全球航运业对霍尔木兹通行的信心，但实际效果仍取决于封锁解除与否。这一举措也侧面印证了美国政府对封锁将持续一段时间的内部预判。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">能源 · 航运</span>
+      <span class="news-tag">风险管理</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475270" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 宏观数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📉</span>
+    <span class="section-title">宏观数据</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美国3月非农就业17.8万（预期6万），失业率4.3% · CME美联储4月维持概率99.5%</div>
+    <div class="news-desc">美国劳工部3月非农就业人口17.8万，较预期6万超出近三倍；失业率4.3%，优于预期4.4%。数据公布后，CME FedWatch显示美联储4月维持利率不变概率直接拉升至99.5%，Polymarket同步定价98%维持。在高油价叠加关税余压的宏观背景下，就业市场的强劲韧性进一步压缩降息空间，年内首次降息时点预期大幅后移，加密资产面临持续的"无降息环境"逆风。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">非农 · 降息</span>
+      <span class="news-tag">BTC逆风</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339568" target="_blank">BlockBeats（非农）</a> · <a href="https://www.theblockbeats.info/flash/339567" target="_blank">BlockBeats（失业率）</a> · <a href="https://www.theblockbeats.info/flash/339600" target="_blank">BlockBeats（FedWatch）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美联储戴利：应以就业率而非就业人数衡量市场，零增长不代表经济疲软</div>
+    <div class="news-desc">旧金山联储主席戴利在非农数据发布后表态，认为"就业率与失业率比单纯的新增就业人数更能准确反映劳动力市场健康状况"，并指出劳动力供给增长放缓背景下，就业零增长甚至负增长不一定意味着经济疲软。戴利的发言为市场提供了一个边际上更为温和的解读框架，但非农大幅超预期已实质性压缩美联储本轮的政策灵活性。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">美联储 · 就业</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475272" target="_blank">Odaily（零增长）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/475273" target="_blank">Odaily（就业率）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">牛津经济研究院：美联储今年仍可能两次降息，以防止就业市场因能源冲击而崩溃</div>
+    <div class="news-desc">牛津经济研究院发布预测，认为即便非农短期强劲，若伊朗冲突导致的油价冲击延续对制造业和服务业造成持续打压，美联储今年仍存在两次降息的可能性，以防止就业市场在能源成本重压下出现系统性崩溃。该预测与CME市场当前定价存在明显偏差，但为市场提供了"油价主导降息逻辑"的鹰鸽分歧参考。</div>
+    <div class="news-tags">
+      <span class="news-tag">季度影响</span>
+      <span class="news-tag">降息预测 · 机构</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475274" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 传统金融 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">嘉信理财推出"Schwab Crypto"账户，全美48州支持直接交易BTC与ETH</div>
+    <div class="news-desc">美国最大折扣经纪商Charles Schwab正式推出"Schwab Crypto"加密交易账户，支持在全美（除纽约州和路易斯安那州外）直接买卖比特币和以太坊，由Charles Schwab Premier Bank, SSB负责内部托管。这是继Robinhood、Fidelity、EDX之后又一头部传统券商正式开放加密交易，对推动加密资产的大众普及意义重大——嘉信理财管理资产规模超$9万亿，其客户基础将为BTC/ETH带来可观的潜在增量需求。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">TradFi · 机构入场</span>
+      <span class="news-tag">零售需求</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475268" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美股加密板块收盘分化：TRON大涨11.37%，MARA +8.33%，MSTR跌2.4%</div>
+    <div class="news-desc">昨日美股加密概念股涨跌明显分化：TRON相关概念股涨逾11.37%领涨，比特币矿企MARA涨8.33%跟涨，而MicroStrategy（MSTR）下跌2.4%，游戏相关股SBET跌4.18%。三大股指小幅收盘：道指-0.13%，标普500 +0.11%，纳指+0.18%，大盘整体震荡。加密板块资金向特定强势叙事（TRON生态）聚集，反映在高波动期机构资金的精选逻辑正在主导板块分化。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">加密概念股</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475281" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">摩根大通：Q1 2026加密资金流仅$110亿，同比仅去年三分之一，ETF机构流入持续疲软</div>
+    <div class="news-desc">摩根大通研究报告显示，2026年Q1加密数字资产资金流入总额约$110亿，仅为2025年同期水平的三分之一，年化若维持当前节奏全年仅$440亿，大幅低于2025年的$1,300亿。核心流入来源已收窄至企业资产负债表配置（MicroStrategy等）和加密风险投资，散户与机构ETF资金流双双疲软。CME比特币期货持仓量下降印证机构情绪转向。报告揭示当前市场已进入"少数大户主导"的资金结构，广泛性资金回流信号尚未出现。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">资金流 · 机构</span>
+      <span class="news-tag">ETF疲软</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475275" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">企业BTC财库策略分化：Nakamoto亏损减284枚换取$2000万流动性，Strategy 76.2万枚按兵不动</div>
+    <div class="news-desc">企业比特币财库的持仓策略出现明显分化：Nakamoto Holdings宣布以亏损价格卖出284枚BTC，套现约$2000万用于营运资金及并购投资，并同步削减了对日本Metaplanet的持股；而Strategy维持其约762,000枚BTC的巨额持仓不变，坚持"只买不卖"战略。Nakamoto的亏损减仓折射出部分企业财库在高油价+高利率叠加下的流动性压力，与Strategy基本面截然不同，凸显企业BTC持仓策略已步入分化期。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">BTC财库 · 策略分化</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475269" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Cosmos生态非托管钱包Leap Wallet宣布5月28日全面关闭，停止所有服务</div>
+    <div class="news-desc">Cosmos生态主流非托管钱包Leap Wallet官宣将于5月28日全面停止运营，涉及浏览器扩展插件、移动端App、Web界面及验证者服务。Leap Wallet的关闭是继近期多个Cosmos生态基础设施收缩之后的又一事件，折射出IBC跨链生态在整体市场寒冬中的流量与资金双重萎缩。Cosmos用户需在5月28日前迁移钱包并提取资产。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">Cosmos · 钱包</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475277" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">HypurrFi疑似遭域名劫持，协议TVL约$3000万，紧急警告用户停止访问</div>
+    <div class="news-desc">HyperEVM上的DeFi借贷协议HypurrFi官方发出紧急警告：其网站域名hypurr.fi疑似已遭恶意方劫持，前端界面可能注入恶意代码。协议方明确表示"勿使用hypurr.fi域名"，强调底层智能合约资产暂未受到直接威胁，但访问被劫持的前端可能导致用户钱包被盗。当前TVL约$3000万，需等待团队进一步修复公告后再使用。这是继Trust Wallet Discord劫持和Drift协议攻击后本周第三起针对加密前端/基础设施的安全事件。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">安全 · 域名劫持</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475276" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Chainlink非流通地址4小时内向币安转入250万枚LINK（约$2165万）</div>
+    <div class="news-desc">链上分析师Ai姨监测到，与Chainlink非流通供应相关的三个地址在4小时内累计向Binance转入250万枚LINK，市值约$2165万。非流通持仓地址的大额转入交易所通常被市场解读为潜在的机构卖压信号，当前LINK已有短期下行压力。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">LINK · 抛压预警</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475280" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">FTX/Alameda通过Wintermute清算694万枚DRIFT（$32万），初始价值$622万，缩水94%</div>
+    <div class="news-desc">FTX/Alameda清算团队在Drift Protocol被盗事件发生约6小时后，通过Wintermute出售694万枚DRIFT，套现约$32万。Alameda此前通过归属获得约833万枚DRIFT，初始价值约$622万，如今套现仅$32万，资产缩水高达94%。此举是FTX清算团队面对协议安全危机选择的止损操作，进一步压制了DRIFT的市场情绪。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">DRIFT · FTX清算</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475283" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">F-15被击落</span>
+    <span class="keyword">霍尔木兹封锁持续</span>
+    <span class="keyword">再保险$400亿</span>
+    <span class="keyword">非农17.8万</span>
+    <span class="keyword">降息概率99.5%维持</span>
+    <span class="keyword">Schwab Crypto上线</span>
+    <span class="keyword">Q1资金流仅$110亿</span>
+    <span class="keyword">HypurrFi域名劫持</span>
+    <span class="keyword">Nakamoto亏损减仓</span>
+    <span class="keyword">LINK $2165万转账</span>
+    <span class="keyword">恐慌贪婪22</span>
+    <span class="keyword">Leap Wallet关闭</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 加密行业早报 · 本报告仅供参考，不构成投资建议<br>
+  数据来源：Odaily · BlockBeats · JPMorgan · CME FedWatch · Oxford Economics · Lookonchain
+</div>
+
+</body>
+</html>
