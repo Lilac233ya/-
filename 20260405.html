@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月5日</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+/* ── 顶部固定导航 ── */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1a1a1a;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sticky-header .brand { font-size: 13px; font-weight: 700; color: #BCFF2F; letter-spacing: 0.5px; }
+.sticky-header .date-pill {
+  background: #0d0d0d;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+/* ── 顶部英雄区 ── */
+.hero {
+  padding: 20px 16px 16px;
+  text-align: center;
+}
+.hero-title { font-size: 20px; font-weight: 900; letter-spacing: 0.5px; line-height: 1.3; }
+.hero-title .hl { color: #BCFF2F; }
+.hero-subtitle { font-size: 11px; color: #444; margin-top: 6px; letter-spacing: 0.5px; }
+.hero-time-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #555;
+}
+.hero-time-bar .dot { width: 5px; height: 5px; border-radius: 50%; background: #BCFF2F; }
+
+/* ── 市场速览 3格 ── */
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #111;
+  margin: 0 16px;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.market-cell {
+  background: #0a0a0a;
+  padding: 10px 8px;
+  text-align: center;
+}
+.market-cell .label { font-size: 10px; color: #444; margin-bottom: 3px; }
+.market-cell .val { font-size: 14px; font-weight: 700; color: #fff; }
+.market-cell .chg { font-size: 11px; margin-top: 2px; }
+.up   { color: #BCFF2F; }
+.down { color: #FF3B3B; }
+.neu  { color: #888; }
+
+/* ── 情绪指数横幅 ── */
+.sentiment-bar {
+  margin: 10px 16px;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sentiment-bar .fear-num { font-size: 22px; font-weight: 900; color: #FF3B3B; line-height: 1; }
+.sentiment-bar .fear-label { font-size: 10px; color: #FF3B3B; opacity: 0.8; margin-top: 2px; }
+.sentiment-bar .fear-desc { font-size: 11px; color: #666; line-height: 1.5; }
+.sentiment-bar .fear-desc strong { color: #aaa; }
+
+/* ── section ── */
+.section { margin: 16px 0 0; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+.section-icon { font-size: 13px; }
+.section-title { font-size: 12px; font-weight: 700; color: #aaa; letter-spacing: 0.5px; flex: 1; }
+.section-count {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 8px;
+  padding: 1px 7px;
+  font-size: 10px;
+  color: #444;
+}
+
+/* ── 新闻卡片 ── */
+.news-list { display: flex; flex-direction: column; gap: 6px; padding: 0 16px; }
+.news-item {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.news-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: #BCFF2F;
+}
+.news-item.alert::before { background: #FF3B3B; }
+.news-item.mid::before   { background: #FFD600; }
+
+.news-item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.priority-tag {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+}
+.priority-high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+.priority-mid  { background: rgba(255,214,0,0.1);  color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+.priority-low  { background: rgba(255,255,255,0.05); color: #555; border: 1px solid #222; }
+
+.news-title { font-size: 13px; font-weight: 700; color: #fff; line-height: 1.4; }
+.news-body  { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 8px; }
+.news-body .hl-r { color: #FF3B3B; font-weight: 600; }
+.news-body .hl-g { color: #BCFF2F; font-weight: 600; }
+.news-body .hl-y { color: #FFD600; font-weight: 600; }
+.news-body .hl-w { color: #fff;    font-weight: 600; }
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.impact-tag {
+  font-size: 10px;
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 1px 7px;
+  color: #555;
+}
+.news-source {
+  font-size: 10px;
+  color: #444;
+  margin-left: auto;
+}
+.news-source a { color: #BCFF2F; text-decoration: none; }
+.news-source a:hover { text-decoration: underline; }
+
+/* ── 底部关键词 ── */
+.footer-section {
+  margin: 20px 16px 0;
+  padding-top: 16px;
+  border-top: 1px solid #111;
+}
+.footer-label { font-size: 10px; color: #333; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+.kw {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 10px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: #BCFF2F;
+}
+
+/* ── 免责 ── */
+.disclaimer {
+  margin: 14px 16px 0;
+  font-size: 10px;
+  color: #2a2a2a;
+  line-height: 1.6;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="sticky-header">
+  <span class="brand">OKX Research · 加密早报</span>
+  <span class="date-pill">2026.04.05 周日</span>
+</div>
+
+<div class="hero">
+  <div class="hero-title">加密<span class="hl">早报</span></div>
+  <div class="hero-subtitle">OKX Research · 4月4日 20:00 — 4月5日 09:30</div>
+  <div class="hero-time-bar">
+    <div class="dot"></div>
+    <span>今日共 13 条核心资讯 · 极度恐慌 · BTC主导率 56.1%</span>
+    <div class="dot"></div>
+  </div>
+</div>
+
+<!-- 市场速览 -->
+<div class="market-grid">
+  <div class="market-cell">
+    <div class="label">BTC</div>
+    <div class="val">$66,911</div>
+    <div class="chg up">+0.48%</div>
+  </div>
+  <div class="market-cell">
+    <div class="label">ETH</div>
+    <div class="val">$2,054</div>
+    <div class="chg down">-0.17%</div>
+  </div>
+  <div class="market-cell">
+    <div class="label">总市值</div>
+    <div class="val">$2.38T</div>
+    <div class="chg down">-0.4%</div>
+  </div>
+</div>
+
+<!-- 情绪指数 -->
+<div class="sentiment-bar">
+  <div>
+    <div class="fear-num">9</div>
+    <div class="fear-label">极度恐慌</div>
+  </div>
+  <div class="fear-desc">
+    <strong>恐慌贪婪指数：9 / 极度恐慌</strong><br>
+    73%代币24小时下跌 · BTC主导率56.1% · ETH占比10.4%
+  </div>
+</div>
+
+<!-- Section 1: 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">3条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item alert">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">特朗普向伊朗发出48小时最后通牒：开放霍尔木兹或迎"地狱"</span>
+      </div>
+      <div class="news-body">
+        特朗普在Truth Social发文：<span class="hl-r">"时间快到了——48小时后地狱将降临"</span>，要求伊朗立即开放霍尔木兹海峡。截止期限约为<span class="hl-y">4月6日20时</span>。美伊对峙持续数周，海峡封锁已造成全球每日逾<span class="hl-r">$4.8亿</span>贸易损失。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">地缘 · 周级↑</span>
+        <span class="impact-tag">油价 · 通胀</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475323" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+    <div class="news-item alert">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">伊朗军方拒绝通牒：若遭攻击"整个中东将是美以的地狱"</span>
+      </div>
+      <div class="news-body">
+        伊朗伊斯兰革命卫队联合指挥部将领Ali Abdollahi正式拒绝特朗普通牒，声称<span class="hl-r">"若美以攻击我国基础设施，地狱的大门将为你们而开"</span>。另有高级官员在广传视频中称将把特朗普送入"地狱深处"。伊朗局势<span class="hl-r">剑拔弩张</span>。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">地缘 · 周级↑</span>
+        <span class="impact-tag">原油 · 风险资产</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475330" target="_blank">Odaily</a> · <a href="https://www.odaily.news/zh-CN/newsflash/475331" target="_blank">Odaily②</a></span>
+      </div>
+    </div>
+
+    <div class="news-item mid">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">苏莱曼尼旧部"圣城旅"指挥官亲属在美被捕，紧张态势进一步升级</span>
+      </div>
+      <div class="news-body">
+        美国当局逮捕伊朗伊斯兰革命卫队"圣城旅"相关人员，被捕者与已故指挥官<span class="hl-w">苏莱曼尼</span>家族有关联。此举被分析人士解读为美国对伊朗发出的额外施压信号，正值48小时通牒截止前夕。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">地缘 · 情绪波动</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475325" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 2: 货币政策 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">💰</span>
+    <span class="section-title">货币政策</span>
+    <span class="section-count">1条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item mid">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">多位经济学家：强劲非农叠加油价冲击，美联储今年降息窗口几乎关闭</span>
+      </div>
+      <div class="news-body">
+        非农就业<span class="hl-y">17.8万</span>（预期6万）大超预期后，多位经济学家指出油价冲击将进一步推高<span class="hl-r">通胀</span>，使美联储陷入两难。美联储4月维持利率概率维持高位，部分机构认为今年<span class="hl-r">降息或全无</span>，与牛津经济（预计2次降息）观点产生明显分歧。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">利率预期 · 月级</span>
+        <span class="impact-tag">宏观 · BTC相关</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475337" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 3: 传统金融 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏦</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">1条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">嘉信理财开放BTC/ETH直接交易等候名单，计划Q2启动试运行</span>
+      </div>
+      <div class="news-body">
+        嘉信理财（Charles Schwab）正式上线比特币与以太坊直接交易<span class="hl-g">等候名单</span>，计划于<span class="hl-g">2026年Q2</span>通过嘉信Premier Bank开启内测。面向全美46个州逾<span class="hl-g">4600万客户</span>、管理$12万亿资产，用户可在标准券商账户内直接买卖BTC/ETH，无需外部钱包或交易所。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">TradFi采用 · 季度级</span>
+        <span class="impact-tag">BTC/ETH需求</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475335" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 4: 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item alert">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">BTC $66,911 / ETH $2,054，总市值$2.38万亿，周末交投清淡</span>
+      </div>
+      <div class="news-body">
+        截至4月5日早报时段：BTC报<span class="hl-g">$66,911</span>（+0.48%），较$65,000一线获支撑后小幅反弹；ETH报<span class="hl-r">$2,054</span>（-0.17%），全球加密总市值<span class="hl-y">$2.38万亿</span>，24小时交易量$610亿。BTC主导率<span class="hl-g">56.1%</span>，续创年内高位。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">价格 · 日级</span>
+        <span class="news-source">来源：<a href="https://www.coingabbar.com/en/crypto-currency-news/latest-crypto-market-update-edgex-aria-algo-gains-today" target="_blank">CoinGabbar</a></span>
+      </div>
+    </div>
+
+    <div class="news-item alert">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">恐慌贪婪指数跌至9（极度恐慌），73%代币24小时下跌</span>
+      </div>
+      <div class="news-body">
+        加密市场情绪指数（Fear &amp; Greed Index）报<span class="hl-r">9 / 极度恐慌</span>，处近年极低区间。<span class="hl-r">73%</span>代币过去24小时录得跌幅，反映地缘风险、降息预期消退与ETF流入持续疲软的三重压制。历史上，极度恐慌区间往往是<span class="hl-y">逆向布局</span>的参考信号。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">情绪 · 日级</span>
+        <span class="impact-tag">极度恐慌区间</span>
+        <span class="news-source">来源：<a href="https://alternative.me/crypto/fear-and-greed-index/" target="_blank">Alternative.me</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 5: 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">4条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">Jack Dorsey旗下Block宣布4月6日启动BTC水龙头"btc.day"，分发$100万BTC</span>
+      </div>
+      <div class="news-body">
+        Twitter联创Jack Dorsey旗下Block宣布，将于<span class="hl-g">4月6日至10日</span>通过btc.day网站免费分发约<span class="hl-g">$100万美元</span>（≈15枚BTC）的比特币，用户可通过Cash App购买BTC、在Square商户消费或使用Bitkey硬件钱包赚取聪（Satoshi）。这是继2010年比特币水龙头后的首次<span class="hl-y">大规模复刻</span>，旨在推动BTC作为支付货币的实际使用。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">BTC生态 · 周级</span>
+        <span class="impact-tag">支付/采用</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475327" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/339668" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">Saylor：BTC数字资本共识已确立，最大风险是糟糕理念引发人为协议变更</span>
+      </div>
+      <div class="news-body">
+        Michael Saylor发表声明称：<span class="hl-g">"比特币已经赢了"</span>，全球已形成"BTC是数字资本"共识，协议自身在技术上极为稳健。他警告<span class="hl-y">最大风险并非外部攻击</span>，而是糟糕意识形态驱动的"人为协议变更"，呼吁坚守现有设计。此观点与F2Pool联创王纯对BIP-110/BIP-54政治化提案的批评立场高度一致。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">观点 · 月级</span>
+        <span class="impact-tag">BTC协议治理</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475326" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/339666" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">F2Pool联创王纯：BTC协议升级不应出现"政治性妥协"，反对BIP-110/BIP-54</span>
+      </div>
+      <div class="news-body">
+        F2Pool联创王纯公开表态，反对以<span class="hl-y">政治妥协</span>方式推进BTC协议升级。他认为，围绕时间扭曲攻击（timewarp）等议题的BIP-110与BIP-54修改提案"实际收益不足以支撑变更必要性"，强调任何协议更改都应以技术严谨性为优先，而非社区政治博弈。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">协议治理 · 月级</span>
+        <span class="impact-tag">矿池/开发者</span>
+        <span class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339663" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">Polymarket下架美国大兵在伊朗救援行动预测市场，疑触发平台完整性规则</span>
+      </div>
+      <div class="news-body">
+        去中心化预测市场平台Polymarket已下架与"<span class="hl-w">美国大兵在伊朗救援行动</span>"相关的预测市场，官方未作说明。分析人士认为此举源于相关市场信息不对称、操纵风险极高，或受到监管合规压力。此前平台曾多次在高敏感性事件中主动暂停市场。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">DeFi合规 · 日级</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475334" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 6: 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">3条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">疑似Bitmine地址再度增持4万枚ETH（约$8207万），持续大规模建仓</span>
+      </div>
+      <div class="news-body">
+        链上监测显示，一疑似<span class="hl-w">Bitmine</span>的地址在4月4日深夜再次增持<span class="hl-g">40,000枚ETH</span>（约合<span class="hl-g">$8207万</span>），这是该地址近期多次买入操作之一，显示机构级别的ETH系统性建仓行为。ETH在$2,050附近获得支撑或与此类大额买盘有关。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">巨鲸 · ETH · 周级</span>
+        <span class="impact-tag">机构建仓</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475324" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">以太坊基金会质押量升至4.6万枚ETH，持续加大Staking布局</span>
+      </div>
+      <div class="news-body">
+        链上数据显示，以太坊基金会（EF）当前质押量已达<span class="hl-g">46,000枚ETH</span>，较此前的45,034枚进一步扩大。EF近期频繁增加质押操作，与此前批评基金会ETH持仓管理不力的社区声音形成对比，被视为对生态信心的<span class="hl-y">积极信号</span>。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">ETH质押 · 周级</span>
+        <span class="impact-tag">基金会动向</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475333" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">新地址在$2,050附近建仓2,015枚ETH（约$413万），聪明钱悄然入场</span>
+      </div>
+      <div class="news-body">
+        链上追踪显示，一全新地址以均价约<span class="hl-y">$2,049.53</span>买入<span class="hl-g">2,015枚ETH</span>，总价值约<span class="hl-g">$413万</span>。该地址在$2,050附近低吸，叠加Bitmine持续增仓，使得ETH在当前价位出现多个<span class="hl-g">聪明钱买入信号</span>，短期下行空间或相对有限。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">链上 · ETH · 日级</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475338" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- 关键词 -->
+<div class="footer-section">
+  <div class="footer-label">今日关键词</div>
+  <div class="keywords">
+    <span class="kw">Trump 48小时通牒</span>
+    <span class="kw">伊朗拒绝谈判</span>
+    <span class="kw">霍尔木兹4/6截止</span>
+    <span class="kw">降息窗口关闭</span>
+    <span class="kw">Schwab Crypto等候名单</span>
+    <span class="kw">恐慌贪婪指数9</span>
+    <span class="kw">Bitmine +4万ETH</span>
+    <span class="kw">BTC水龙头btc.day</span>
+    <span class="kw">BTC协议治理争议</span>
+    <span class="kw">EF质押4.6万ETH</span>
+    <span class="kw">BTC主导率56.1%</span>
+    <span class="kw">极度恐慌区间</span>
+  </div>
+</div>
+
+<div class="disclaimer">
+  本报告由 OKX Research 根据公开信息整理，不构成任何投资建议。<br>
+  加密货币投资存在极高风险，请自行评估并承担相应风险。
+</div>
+
+</body>
+</html>
