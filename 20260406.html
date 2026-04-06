@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月6日</title>
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  background: #000;
+  color: #fff;
+  font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+  max-width: 480px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(0,0,0,0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #1a1a1a;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.sticky-header .brand { font-size: 13px; font-weight: 700; color: #BCFF2F; letter-spacing: 0.5px; }
+.sticky-header .date-pill {
+  background: #0d0d0d;
+  border: 1px solid #2a2a2a;
+  border-radius: 20px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: #aaa;
+}
+
+.hero {
+  padding: 20px 16px 16px;
+  text-align: center;
+}
+.hero-title { font-size: 20px; font-weight: 900; letter-spacing: 0.5px; line-height: 1.3; }
+.hero-title .hl { color: #BCFF2F; }
+.hero-subtitle { font-size: 11px; color: #444; margin-top: 6px; letter-spacing: 0.5px; }
+.hero-time-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  margin-top: 12px;
+  font-size: 11px;
+  color: #555;
+}
+.hero-time-bar .dot { width: 5px; height: 5px; border-radius: 50%; background: #BCFF2F; }
+
+.market-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: #111;
+  margin: 0 16px;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.market-cell {
+  background: #0a0a0a;
+  padding: 10px 8px;
+  text-align: center;
+}
+.market-cell .label { font-size: 10px; color: #444; margin-bottom: 3px; }
+.market-cell .val { font-size: 14px; font-weight: 700; color: #fff; }
+.market-cell .chg { font-size: 11px; margin-top: 2px; }
+.up   { color: #BCFF2F; }
+.down { color: #FF3B3B; }
+.neu  { color: #888; }
+
+.sentiment-bar {
+  margin: 10px 16px;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.sentiment-bar .fear-num { font-size: 22px; font-weight: 900; color: #FFD600; line-height: 1; }
+.sentiment-bar .fear-label { font-size: 10px; color: #FFD600; opacity: 0.85; margin-top: 2px; }
+.sentiment-bar .fear-desc { font-size: 11px; color: #666; line-height: 1.5; }
+.sentiment-bar .fear-desc strong { color: #aaa; }
+
+/* ── 今日关键提示横幅 ── */
+.key-banner {
+  margin: 10px 16px;
+  background: rgba(188,255,47,0.05);
+  border: 1px solid rgba(188,255,47,0.2);
+  border-left: 3px solid #BCFF2F;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+.key-banner .banner-label {
+  font-size: 10px;
+  color: #BCFF2F;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.key-banner .banner-body {
+  font-size: 12px;
+  color: #aaa;
+  line-height: 1.6;
+}
+.key-banner .banner-body .hl-g { color: #BCFF2F; font-weight: 600; }
+.key-banner .banner-body .hl-y { color: #FFD600; font-weight: 600; }
+.key-banner .banner-body .hl-r { color: #FF3B3B; font-weight: 600; }
+
+.section { margin: 16px 0 0; }
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  margin-bottom: 8px;
+}
+.section-icon { font-size: 13px; }
+.section-title { font-size: 12px; font-weight: 700; color: #aaa; letter-spacing: 0.5px; flex: 1; }
+.section-count {
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 8px;
+  padding: 1px 7px;
+  font-size: 10px;
+  color: #444;
+}
+
+.news-list { display: flex; flex-direction: column; gap: 6px; padding: 0 16px; }
+.news-item {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  padding: 12px;
+  position: relative;
+  overflow: hidden;
+}
+.news-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: #BCFF2F;
+}
+.news-item.alert::before { background: #FF3B3B; }
+.news-item.mid::before   { background: #FFD600; }
+
+.news-item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+.priority-tag {
+  flex-shrink: 0;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 5px;
+  border-radius: 3px;
+  letter-spacing: 0.5px;
+  margin-top: 1px;
+}
+.priority-high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+.priority-mid  { background: rgba(255,214,0,0.1);  color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+.priority-low  { background: rgba(255,255,255,0.05); color: #555; border: 1px solid #222; }
+
+.news-title { font-size: 13px; font-weight: 700; color: #fff; line-height: 1.4; }
+.news-body  { font-size: 12px; color: #777; line-height: 1.6; margin-bottom: 8px; }
+.news-body .hl-r { color: #FF3B3B; font-weight: 600; }
+.news-body .hl-g { color: #BCFF2F; font-weight: 600; }
+.news-body .hl-y { color: #FFD600; font-weight: 600; }
+.news-body .hl-w { color: #fff;    font-weight: 600; }
+
+.news-meta {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+.impact-tag {
+  font-size: 10px;
+  background: #111;
+  border: 1px solid #1e1e1e;
+  border-radius: 10px;
+  padding: 1px 7px;
+  color: #555;
+}
+.news-source {
+  font-size: 10px;
+  color: #444;
+  margin-left: auto;
+}
+.news-source a { color: #BCFF2F; text-decoration: none; }
+.news-source a:hover { text-decoration: underline; }
+
+/* 解锁日历卡 */
+.unlock-card {
+  margin: 0 16px;
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 8px;
+  padding: 12px 14px;
+  position: relative;
+  overflow: hidden;
+}
+.unlock-card::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: #FFD600;
+}
+.unlock-title { font-size: 12px; font-weight: 700; color: #FFD600; margin-bottom: 10px; }
+.unlock-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 4px 10px;
+}
+.unlock-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #666;
+  padding: 3px 0;
+  border-bottom: 1px solid #141414;
+}
+.unlock-row:last-child { border-bottom: none; }
+.unlock-row .token { color: #aaa; font-weight: 600; }
+.unlock-row .val   { color: #FFD600; font-weight: 600; }
+
+.footer-section {
+  margin: 20px 16px 0;
+  padding-top: 16px;
+  border-top: 1px solid #111;
+}
+.footer-label { font-size: 10px; color: #333; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 10px; }
+.keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+.kw {
+  background: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 10px;
+  padding: 3px 10px;
+  font-size: 11px;
+  color: #BCFF2F;
+}
+
+.disclaimer {
+  margin: 14px 16px 0;
+  font-size: 10px;
+  color: #2a2a2a;
+  line-height: 1.6;
+  text-align: center;
+}
+</style>
+</head>
+<body>
+
+<div class="sticky-header">
+  <span class="brand">OKX Research · 加密早报</span>
+  <span class="date-pill">2026.04.06 周一</span>
+</div>
+
+<div class="hero">
+  <div class="hero-title">加密<span class="hl">早报</span></div>
+  <div class="hero-subtitle">OKX Research · 4月5日 20:00 — 4月6日 09:30</div>
+  <div class="hero-time-bar">
+    <div class="dot"></div>
+    <span>今日共 13 条核心资讯 · BTC $69K · 美伊谈判现积极信号</span>
+    <div class="dot"></div>
+  </div>
+</div>
+
+<!-- 市场速览 -->
+<div class="market-grid">
+  <div class="market-cell">
+    <div class="label">BTC</div>
+    <div class="val">$69,035</div>
+    <div class="chg up">+2.54%</div>
+  </div>
+  <div class="market-cell">
+    <div class="label">ETH</div>
+    <div class="val">$2,101</div>
+    <div class="chg up">+1.70%</div>
+  </div>
+  <div class="market-cell">
+    <div class="label">布伦特原油</div>
+    <div class="val">$113</div>
+    <div class="chg down">高位波动</div>
+  </div>
+</div>
+
+<!-- 情绪指数 -->
+<div class="sentiment-bar">
+  <div>
+    <div class="fear-num">12→</div>
+    <div class="fear-label">极度恐慌回暖</div>
+  </div>
+  <div class="fear-desc">
+    <strong>恐慌贪婪指数：12（极度恐慌区间，边际改善）</strong><br>
+    美伊谈判现曙光 · BTC脱离$66K底部 · 风险资产整体反弹
+  </div>
+</div>
+
+<!-- 今日关键提示 -->
+<div class="key-banner">
+  <div class="banner-label">🔔 今日核心背景</div>
+  <div class="banner-body">
+    特朗普<span class="hl-r">48小时通牒</span>今日（4月6日）到期，但谈判出现<span class="hl-g">积极信号</span>——特朗普称与伊朗已进入"<span class="hl-y">深入谈判</span>"，Witkoff提出<span class="hl-g">15点和平框架</span>，市场情绪急剧好转，<span class="hl-g">BTC单夜从$66K飙升至$69K</span>。地缘降温预期推动全线风险资产反弹。
+  </div>
+</div>
+
+<!-- Section 1: 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">4条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item alert">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">特朗普：美伊已进入"深入谈判"，一度接近直接对话，谈判进展"相当顺利"</span>
+      </div>
+      <div class="news-body">
+        特朗普在4月5日深夜表示，美伊之间已展开<span class="hl-g">深入谈判</span>，双方一度"非常接近"举行直接对话，他对谈判进展表示"相当顺利"。白宫特使<span class="hl-w">Witkoff</span>称已通过巴基斯坦转交<span class="hl-g">15点和平框架</span>，包括要求伊朗承诺不获取核武器、限制导弹射程与数量等。伊朗方面虽否认直接谈判，但已提出反条件，对话渠道实质运作。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">地缘 · 周级</span>
+        <span class="impact-tag">油价 · 风险情绪</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475387" target="_blank">Odaily</a> · <a href="https://www.cbsnews.com/live-updates/iran-war-trump-israel-tehran-denies-ceasefire-talks-strait-of-hormuz/" target="_blank">CBS News</a></span>
+      </div>
+    </div>
+
+    <div class="news-item alert">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">特朗普再发霍尔木兹最后通牒：不达协议将摧毁伊朗油井与卡尔格岛，油价报$113</span>
+      </div>
+      <div class="news-body">
+        尽管谈判释放积极信号，特朗普同日在Truth Social发文，警告若未能"<span class="hl-r">立即</span>"达成开放霍尔木兹协议，美军将摧毁伊朗<span class="hl-r">全部发电站、油井与卡尔格岛</span>。消息推动布伦特原油维持<span class="hl-r">$113/桶</span>高位。市场研判：强硬声明属"谈判杠杆"，实际开战前仍有窗口，但风险溢价不会消失。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">地缘 · 能源 · 日级</span>
+        <span class="impact-tag">原油$113</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475393" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+    <div class="news-item mid">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">巴林呼吁联合国通过决议，授权以武力重开霍尔木兹海峡</span>
+      </div>
+      <div class="news-body">
+        巴林外交部长在联合国安理会紧急会议上表示，为防止<span class="hl-y">人道主义与经济危机</span>持续恶化，应通过联合国决议授权国际社会采取武力手段重开霍尔木兹海峡。这是首个海湾国家公开呼吁国际军事介入的声明，表明地区国家的急迫感已到临界点。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">地缘 · 联合国</span>
+        <span class="impact-tag">周级</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475394" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+    <div class="news-item mid">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">伊朗驻联合国代表团：特朗普意图将中东拖入"无休止战争"，伊朗不惧威胁</span>
+      </div>
+      <div class="news-body">
+        伊朗常驻联合国代表团在安理会发表声明，将特朗普通牒定性为<span class="hl-r">将中东拖入无休止战争</span>的图谋，并称伊朗不会在威胁下做出任何让步。但与此同时，伊朗已通过中间渠道提出五点反条件，谈判实质进行中。<span class="hl-y">强硬声明与背后谈判并行</span>是当前美伊博弈的典型特征。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">地缘 · 外交</span>
+        <span class="impact-tag">日级</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475395" target="_blank">Odaily</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 2: 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">BTC飙升至$69,035（+2.54%），ETH突破$2,101（+1.70%）——美伊谈判曙光点燃风险资产</span>
+      </div>
+      <div class="news-body">
+        受美伊谈判积极信号提振，BTC在4月5日深夜至4月6日凌晨完成从<span class="hl-g">$66,900 → $68,014 → $69,035</span>的三级连跳，24小时涨幅<span class="hl-g">+2.54%</span>。ETH同步破位$2,100，报<span class="hl-g">$2,101（+1.70%）</span>。韩国KOSPI开盘<span class="hl-g">+2%</span>，风险资产整体共振反弹，表明本轮行情是宏观情绪驱动而非加密内因。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">价格 · 日级</span>
+        <span class="impact-tag">地缘驱动</span>
+        <span class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475392" target="_blank">Odaily</a> · <a href="https://www.odaily.news/zh-CN/newsflash/475391" target="_blank">Odaily②</a></span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-high">HIGH</span>
+        <span class="news-title">Q1 2026：机构净买入69,000枚BTC，散户净卖出62,000枚——分歧结构在底部聚集</span>
+      </div>
+      <div class="news-body">
+        最新Q1数据显示，机构投资者在整个Q1累积净买入约<span class="hl-g">69,000枚BTC</span>，而散户投资者在同期净卖出约<span class="hl-r">62,000枚BTC</span>。这种"机构买、散户逃"的分歧结构与历史上多轮BTC<span class="hl-y">周期性底部</span>的模式高度吻合——恰在极度恐慌区间，聪明钱逆势入场，为行情复苏埋下基础。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">机构 · 季度级</span>
+        <span class="impact-tag">底部结构信号</span>
+        <span class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339737" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 3: 宏观数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📉</span>
+    <span class="section-title">宏观数据</span>
+    <span class="section-count">2条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item mid">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">日本10年期国债收益率升至2.4%，创1999年2月以来27年新高</span>
+      </div>
+      <div class="news-body">
+        日本基准10年期国债收益率触及<span class="hl-r">2.4%</span>，为1999年2月以来最高水平，标志着日本货币政策正常化进程持续推进。此前日本央行已多次上调利率，此次突破将进一步压缩全球套息交易（carry trade）空间，可能触发部分机构去杠杆，对<span class="hl-y">高风险资产（包括加密）流动性产生潜在压力</span>。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">日本货币政策</span>
+        <span class="impact-tag">全球流动性 · 月级</span>
+        <span class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339735" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">韩国KOSPI开盘涨幅扩大至+2%，亚太风险情绪随美伊谈判预期同步升温</span>
+      </div>
+      <div class="news-body">
+        韩国综合股价指数KOSPI周一开盘后涨幅迅速扩大至<span class="hl-g">+2%</span>，报5,486.89点，延续上周末美伊谈判乐观情绪。亚太股市整体以<span class="hl-g">风险偏好回升</span>开盘，与BTC同步反弹印证了当前市场由<span class="hl-y">宏观/地缘叙事</span>主导的特征，加密市场与传统风险资产联动性维持高位。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">亚太市场 · 日级</span>
+        <span class="impact-tag">风险偏好</span>
+        <span class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339736" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 4: 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">2条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">SpaceX IPO要求摩根斯坦利等大行订阅Grok，马斯克AI生态与TradFi深度捆绑</span>
+      </div>
+      <div class="news-body">
+        Elon Musk要求参与SpaceX首次公开募股的金融机构必须订阅<span class="hl-w">Grok AI服务</span>，摩根斯坦利、高盛、摩根大通、美国银行、花旗等主要承销商已同意每年投入<span class="hl-y">数千万美元</span>。这是马斯克将AI商业化与TradFi入场资格捆绑的首个公开案例，对加密行业的启示在于：<span class="hl-g">顶级TradFi机构正以前所未有的方式与科技/加密生态融合</span>。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">TradFi融合 · 月级</span>
+        <span class="impact-tag">AI · SpaceX IPO</span>
+        <span class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339744" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">CZ新书《Freedom of Money》发布，全部销售收益将捐赠慈善，不个人保留</span>
+      </div>
+      <div class="news-body">
+        币安创始人赵长鹏（CZ）分享新书《Freedom of Money》（中文名《币安人生》）首批章节，书中记述其从创立币安到经历法律风波的完整历程。CZ表明<span class="hl-g">全部销售所得将捐赠慈善</span>，本人不留任何收益。此举被外界解读为CZ重建公众形象并持续活跃于加密行业的积极信号，当前Binance在其后继领导层治下运营稳健。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">行业人物 · 日级</span>
+        <span class="impact-tag">Binance生态</span>
+        <span class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339738" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 5: 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">2条</span>
+  </div>
+  <div class="news-list">
+
+    <div class="news-item mid">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">新巨鲸在Hyperliquid开20倍杠杆ETH空单$2025万，当前浮亏$25.5万</span>
+      </div>
+      <div class="news-body">
+        一新创建钱包向Hyperliquid存入<span class="hl-y">398万USDC</span>，以20倍杠杆开设<span class="hl-r">9,526枚ETH空单</span>（约$2,025万）。该操作方向与市场趋势相反——ETH正在反弹——当前已出现约<span class="hl-r">$25.5万</span>浮亏。大户重仓做空可能反映对地缘不确定性持续或反弹不可持续的判断，也可能是对冲操作，后续需关注平仓动向。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">ETH · 衍生品 · 日级</span>
+        <span class="impact-tag">Hyperliquid</span>
+        <span class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339741" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+    <div class="news-item mid">
+      <div class="news-item-header">
+        <span class="priority-tag priority-mid">MID</span>
+        <span class="news-title">loracle.hl出售45万枚HYPE代币套现$1501万，其中$1272万存入币安</span>
+      </div>
+      <div class="news-body">
+        链上数据显示，<span class="hl-w">loracle.hl</span>出售<span class="hl-y">450,000枚HYPE</span>代币，获得约<span class="hl-y">$15,012,000 USDC</span>，随即将其中<span class="hl-r">$12,725,000</span>转入币安。loracle.hl为Hyperliquid早期深度参与者，此次大额套现值得关注——或为获利了结、流动性管理或机构级别再平衡操作，可能对HYPE价格形成<span class="hl-r">短期抛压</span>。
+      </div>
+      <div class="news-meta">
+        <span class="impact-tag">HYPE · 链上 · 日级</span>
+        <span class="impact-tag">Hyperliquid生态</span>
+        <span class="news-source">来源：<a href="https://www.theblockbeats.info/flash/339742" target="_blank">BlockBeats</a></span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- Section 6: 本周解锁日历 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🔓</span>
+    <span class="section-title">本周代币解锁</span>
+    <span class="section-count">1条</span>
+  </div>
+
+  <div class="unlock-card">
+    <div class="unlock-title">⚠ 本周大额解锁预警（4月7日-4月13日）</div>
+    <div class="unlock-grid">
+      <div class="unlock-row"><span class="token">RED</span><span class="val">$756M</span></div>
+      <div class="unlock-row"><span class="token">MOVE</span><span class="val">$312M</span></div>
+      <div class="unlock-row"><span class="token">ME</span><span class="val">$245M</span></div>
+      <div class="unlock-row"><span class="token">LINEA</span><span class="val">$198M</span></div>
+      <div class="unlock-row"><span class="token">APT</span><span class="val">$163M</span></div>
+      <div class="unlock-row"><span class="token">IO</span><span class="val">$141M</span></div>
+      <div class="unlock-row"><span class="token">AGI</span><span class="val">$127M</span></div>
+      <div class="unlock-row"><span class="token">BABY / PEAQ</span><span class="val">$107M+</span></div>
+    </div>
+    <div style="font-size:11px;color:#444;margin-top:8px;">多个代币本周面临大额线性/悬崖式解锁，建议关注各项目解锁节奏与持仓结构对应变化</div>
+  </div>
+
+</div>
+
+<!-- 关键词 -->
+<div class="footer-section">
+  <div class="footer-label">今日关键词</div>
+  <div class="keywords">
+    <span class="kw">美伊深入谈判</span>
+    <span class="kw">Witkoff 15点和平框架</span>
+    <span class="kw">4/6霍尔木兹截止</span>
+    <span class="kw">BTC $69K 夜间急涨</span>
+    <span class="kw">油价$113</span>
+    <span class="kw">机构Q1买69K BTC</span>
+    <span class="kw">日债收益率27年高</span>
+    <span class="kw">KOSPI +2%</span>
+    <span class="kw">SpaceX IPO×Grok</span>
+    <span class="kw">ETH 20x空单$2025万</span>
+    <span class="kw">HYPE $1501万套现</span>
+    <span class="kw">RED $756M本周解锁</span>
+    <span class="kw">CZ新书捐慈善</span>
+  </div>
+</div>
+
+<div class="disclaimer">
+  本报告由 OKX Research 根据公开信息整理，不构成任何投资建议。<br>
+  加密货币投资存在极高风险，请自行评估并承担相应风险。
+</div>
+
+</body>
+</html>
