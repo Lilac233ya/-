@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月9日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #2a1a1a; border-left: 3px solid #FF3B3B;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #FF3B3B; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 09 · 星期四</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月8日 20:00 — 4月9日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Lookonchain</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">⚠️ 停火再生变数 · 霍尔木兹重新关闭</div>
+  <div class="banner-title">霍尔木兹海峡已全面关闭 · 美伊停火或因以色列破裂 · 以核电站军事行动概率升至96%</div>
+  <div class="banner-body">昨日生效的两周停火协议已现裂痕：伊媒称霍尔木兹海峡已全面关闭并迫使油轮返航；伊朗革命卫队公布通行线路图（以免触碰水雷）；美伊停火或因以色列持续打击而破裂；Polymarket以色列对伊朗核电站动手概率升至96%。以太坊基金会昨夜出售3750枚ETH（约$830万），BTC期权市场指标显示当前$72,000反弹属技术性而非趋势性。</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">~$72,000</div>
+      <div class="market-change up">▲ 技术反弹</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">~$2,214</div>
+      <div class="market-change up">▲ 持稳</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">WTI原油</div>
+      <div class="market-price">~$93</div>
+      <div class="market-change up">▲ 小幅回涨</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,715</div>
+      <div class="market-change down">▼ 回落</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">美股加密</div>
+      <div class="market-price">ABTC+10.6%</div>
+      <div class="market-change up">▲ 普涨</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">波动率</div>
+      <div class="market-price">BVIX大幅↓</div>
+      <div class="market-change up">▲ 情绪修复</div>
+    </div>
+  </div>
+</div>
+
+<!-- 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">6</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">伊媒：霍尔木兹海峡已全面关闭，迫使油轮返航；革命卫队公布通行线路图（以免触碰水雷）</div>
+    <div class="news-desc">伊朗Press TV报道，霍尔木兹海峡已全面关闭，并迫使油轮返航。随后伊朗伊斯兰革命卫队公布霍尔木兹海峡安全通行线路图，指引船只绕开布雷区域通行，暗示海峡内已布设水雷。这一消息与昨日宣布的两周停火协议形成直接矛盾，能源市场的停火溢价面临重新消化压力。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 能源</span>
+      <span class="news-tag">霍尔木兹</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475898" target="_blank">Odaily（关闭）</a> · <a href="https://www.theblockbeats.info/flash/340292" target="_blank">BlockBeats（线路图）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美伊临时停火或因以色列持续打击而破裂；以色列总理：随时准备重返战斗</div>
+    <div class="news-desc">媒体报道称美伊临时停火协议面临破裂风险，核心原因是以色列未停止对伊朗的军事打击行动。以色列总理内塔尼亚胡明确表态，"我们取得了曾经看似不可能的巨大成就，还有更多目标要完成，要么通过升级、要么通过重启战斗来实现，我们随时准备在需要时重返战斗。"Polymarket上"以色列4月30日前对伊朗核电站采取军事行动"概率已升至96%。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 停火</span>
+      <span class="news-tag">以色列 · 伊朗</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340285" target="_blank">BlockBeats（停火破裂）</a> · <a href="https://www.theblockbeats.info/flash/340260" target="_blank">BlockBeats（以色列总理）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/475899" target="_blank">Odaily（Polymarket）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">阿联酋和科威特指责伊朗停火后发动17枚导弹+35架无人机袭击；沙特关键石油管道遭袭</div>
+    <div class="news-desc">阿联酋国防部声称，"自停火生效以来，伊朗公然发动袭击，共发射了17枚弹道导弹和35架无人机，防空系统已成功应对"；科威特国防部亦指责伊朗在停火后继续以其安全和重要基础设施为目标。同时，沙特一条关键东西向石油管道遭到袭击。停火协议有效性受到多方公开质疑。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 能源设施</span>
+      <span class="news-tag">海湾局势</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475850" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美国国防部长：停火只是一次暂停，联军随时准备恢复作战；伊朗绝不能拥核</div>
+    <div class="news-desc">美国国防部长赫格塞思表示，美国周二夜间发动800次空袭摧毁了伊朗国防工业基础，使其"再也无法制造导弹、火箭和无人机"。他强调"停火意味着伊朗不会拥有核武器，美国的军事目标已达成"，但"停火只是一次暂停，联军仍随时准备恢复作战"。此外他重申伊朗高浓缩铀问题必须解决，"要么由伊朗主动交出，要么美方将采取行动移除"。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">地缘 · 军事</span>
+      <span class="news-tag">核武器</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340220" target="_blank">BlockBeats（停火即暂停）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/475840" target="_blank">Odaily（核问题）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">AXIOS：对伊朗炼油厂的攻击并非美国或以色列实施；Polymarket停火账户集群获利$60万引发内幕质疑</div>
+    <div class="news-desc">一名美国官员否认对伊朗炼油厂的攻击是美国或以色列所为，引发行动方身份猜测。与此同时，链上分析平台Bubblemaps监测到一批关联Polymarket账户，在美伊停火预测中获利约$60万（以色列发动奇袭、以色列崛起雄狮行动均曾精准押中），这批账户在获利后集体更名，疑似掌握非公开信息来源。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 内幕</span>
+      <span class="news-tag">Polymarket</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475870" target="_blank">Odaily（炼油厂）</a> · <a href="https://www.theblockbeats.info/flash/340170" target="_blank">BlockBeats（账户集群）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">特朗普考虑撤出不支持伊朗战争的北约盟国美军，或关闭西班牙/德国基地</div>
+    <div class="news-desc">据《华尔街日报》，特朗普政府正在讨论将美军从未支持美以伊朗行动的北约成员国撤出，可能关闭西班牙或德国的美军基地，并重新部署至波兰、罗马尼亚、立陶宛、希腊等支持国。该计划尚处初步阶段，特朗普无权在未经国会批准情况下退出北约，但此举对北约内部团结和欧洲安全格局将产生深远影响。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 北约</span>
+      <span class="news-tag">欧洲安全</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475890" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 货币政策 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏛️</span>
+    <span class="section-title">货币政策</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美联储"传声筒"Timiraos：通胀放缓慢于预期，三个交织因素驱动——关税、油价传导、预期锚定松动</div>
+    <div class="news-desc">《华尔街日报》记者Nick Timiraos（美联储传统传声筒）援引美联储会议纪要称，"绝大多数"官员认为通胀缓解步伐可能慢于预期。三项交织因素：①关税对商品价格的影响消退需更长时间；②油价对核心通胀的传导效应；③多年高于目标的通胀使预期更脆弱。这一表态降低了市场对近期降息的预期。4月10日将公布美国3月CPI数据，为关键风险事件。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">货币政策 · 通胀</span>
+      <span class="news-tag">降息预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340280" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美联储戴利：经济基本面仍处良好状态，消费者支出与企业投资稳定，但通胀担忧不可忽视</div>
+    <div class="news-desc">旧金山联储主席戴利表示，尽管伊朗战争带来不确定性和波动，美国经济基本面"仍处于良好状态"，消费者继续支出、企业继续投资，劳动力市场保持稳固。她承认存在推高通胀的风险因素，这是美联储持续关注的重点，但整体态度偏鸽。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">货币政策 · 美联储</span>
+      <span class="news-tag">经济基本面</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475880" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 全球监管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美国财政部拟出台稳定币反洗钱新规，要求合规主体强化制裁筛查与可疑交易上报</div>
+    <div class="news-desc">美国财政部正在研究针对稳定币的反洗钱新规，拟强化制裁合规要求，包括要求稳定币发行商和相关服务商对用户实施OFAC制裁名单筛查，以及可疑交易的主动上报义务。该提案与此前FDIC的稳定币不享存款保险保障提案形成配套，共同构建美国稳定币监管框架。对USDT、USDC等主流稳定币的合规成本和运营机制将产生直接影响。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · 稳定币</span>
+      <span class="news-tag">反洗钱</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475900" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">韩国执政党提出《数字资产基本法》，拟强化稳定币监管，要求发行商持有充足储备</div>
+    <div class="news-desc">韩国执政党提出《数字资产基本法》草案，核心条款包括强化稳定币监管框架，要求稳定币发行商持有与发行量相等的充足储备资产，并接受定期审计。韩国此前已对加密交易所推行实名制和严格KYC，新法案若通过将进一步覆盖稳定币发行端的监管缺口，与美国财政部的稳定币新规动向形成全球监管同步收紧的信号。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · 稳定币</span>
+      <span class="news-tag">韩国</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475905" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 宏观数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">宏观数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">黄金跌至$4,715/盎司，原油小幅回涨，波动率指数大幅回落；美股加密板块收盘普涨</div>
+    <div class="news-desc">受停火后部分避险需求消退影响，黄金从前日高点$4,818回落至$4,715/盎司；WTI原油随停火疑虑小幅回升；比特币波动率指数（BVIX）大幅回落，市场情绪修复。美股收盘加密板块普涨，ABTC（比特币矿业相关ETF）领涨逾10.63%，加密情绪跟随地缘政策预期修正持续回暖。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">宏观 · 资产价格</span>
+      <span class="news-tag">风险偏好</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475902" target="_blank">Odaily（黄金/原油）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/475903" target="_blank">Odaily（美股收盘）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Strategy优先股STRC首日募资规模可购超2500枚BTC，相当于矿工5倍新增供应量</div>
+    <div class="news-desc">MicroStrategy旗下Strategy的优先股STRC今日公开融资，募集资金规模按当前价格可购超2500枚BTC，相当于比特币矿工约5倍的新增供应量（当前每日约450枚）。STRC采用优先股结构，为MicroStrategy提供比普通股更低成本的BTC囤积融资渠道，持续强化其BTC国库战略。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">传统金融 · BTC囤积</span>
+      <span class="news-tag">MicroStrategy</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475906" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/340291" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">BTC反弹突破$72,000，但期权市场隐含波动率持续下降，Greeks.live：为技术反弹而非趋势延续</div>
+    <div class="news-desc">BTC价格快速上涨至$72,000，但Greeks.live指出，"主要期限期权IV仍在下降，甚至末日期权IV也在降"，表明此次反弹主要是"解除黑天鹅引发暴跌担忧"，而非预期价格持续上涨。隐含波动率下降显示专业交易员不认为本次上涨能形成持久趋势；偏斜度负偏程度减弱说明暴跌保险需求降低，为技术性修复。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">BTC · 期权市场</span>
+      <span class="news-tag">技术反弹</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340100" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Hyperliquid RWA交易量占总量47.1%逼近历史前高，TradeXYZ 24小时成交额达50亿美元</div>
+    <div class="news-desc">受美伊停火协议影响原油价格暴跌，Hyperliquid平台HIP-3生态项目TradeXYZ（提供7×24小时大宗商品现实资产永续合约）成交量大幅放量，24小时成交额达50.1亿美元。Hyperliquid平台RWA交易量占总交易量比例升至47.1%，逼近历史前高。地缘政治事件成为链上RWA交易需求的强力催化剂，体现链上衍生品在重大市场事件中的对冲价值。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">链上 · RWA</span>
+      <span class="news-tag">Hyperliquid</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340150" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">4</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">以太坊基金会昨夜出售3750枚ETH（均价$2,214，共约$830万），新一轮潜在抛压信号</div>
+    <div class="news-desc">以太坊基金会（EF）再次在链上出售3750枚ETH，成交均价约$2,214，合计约$830万美元。以太坊基金会历次卖出ETH的操作均引发市场对抛压的关注，此次出售发生在BTC反弹至$72,000、ETH跟随上涨的节点，时机选择被市场解读为基金会判断当前价格为相对合理出货位。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">ETH · 基金会卖出</span>
+      <span class="news-tag">抛压</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340286" target="_blank">BlockBeats</a> · <a href="https://www.odaily.news/zh-CN/newsflash/475901" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">麻吉黄立成滚仓做多ETH：持仓10,875枚ETH多单（$2,429万），强平价$2,061</div>
+    <div class="news-desc">知名交易员黄立成（麻吉）在3月26日遭遇大额强平后，向Hyperliquid补入70万美元并重启多单，目前持有10,875枚ETH多单，仓位价值约$2,429万，浮盈超$100万，当前强平价为$2,061。$2,061的强平价位与ETH当前价格差距约7%，若地缘风险再度升温引发ETH回落，存在二度强平风险。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">链上 · 高杠杆</span>
+      <span class="news-tag">ETH多头</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340110" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Loracle新建10倍杠杆WTI原油空单约$1,780万，开仓均价$93.68；某巨鲸做空288枚BTC</div>
+    <div class="news-desc">Hyperliquid早期贡献者Loracle新建190,738份WTI原油合约空单，10倍杠杆，开仓均价$93.68，仓位价值约$1,780万，清算价位$100.53，押注原油价格继续低于$100。与此同时，另一巨鲸做空288.69枚BTC，目前浮盈$20.9万，两笔链上大单均体现出专业交易者对停火协议能否持续的怀疑态度。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">链上 · 衍生品</span>
+      <span class="news-tag">原油空头 · BTC空头</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340200" target="_blank">BlockBeats（原油）</a> · <a href="https://www.theblockbeats.info/flash/340293" target="_blank">BlockBeats（BTC空单）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Morpho推出Morpho Agents Beta，支持自然语言完成协议集成；Claude推出Managed Agents</div>
+    <div class="news-desc">去中心化借贷协议Morpho推出Morpho Agents Beta，允许开发者与机构通过自然语言指令在几分钟内完成Morpho协议的集成与产品开发，目前支持以太坊和Base链。Anthropic同期推出Claude Managed Agents，可快速构建和部署AI代理。两款产品均指向AI × DeFi集成的加速落地，降低链上开发门槛。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">AI · DeFi</span>
+      <span class="news-tag">开发工具</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340250" target="_blank">BlockBeats（Morpho）</a> · <a href="https://www.theblockbeats.info/flash/340290" target="_blank">BlockBeats（Claude）</a></div>
+  </div>
+</div>
+
+<!-- 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">Michael Saylor：BTC或已在$60,000附近触底，量子计算对比特币的威胁被严重夸大</div>
+    <div class="news-desc">MicroStrategy创始人Michael Saylor表示，比特币可能已在$60,000附近触底，当前区间属于长期配置窗口。对于市场担忧的量子计算威胁，Saylor认为被"严重夸大"，理由是比特币可在必要时通过软分叉升级密码学标准，量子风险从技术层面可控。Saylor一贯鲜明的BTC多头立场与当前BTC $72,000的反弹态势形成相互印证。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">观点 · BTC</span>
+      <span class="news-tag">量子风险</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/475904" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/340289" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">CZ新书《Freedom of Money》披露：持有LUNA至崩盘不卖，因"不想被视为Binance跑在散户前面"</div>
+    <div class="news-desc">CZ在新书中首次完整披露币安持有Terra LUNA的决策过程：币安2018年以$300万投资Terra获LUNA代币，崩盘时市值达$16亿，团队建议卖出但CZ拒绝，理由是卖出会加剧市场恐慌，且"不想大家觉得Binance跑在散户前面"，体现出大型机构投资人复杂的道义与责任考量。币安至今仍持有部分LUNC代币。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">行业 · 历史</span>
+      <span class="news-tag">CZ · LUNA</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340130" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 观点研报 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">💡</span>
+    <span class="section-title">观点研报</span>
+    <span class="section-count">1</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Yuga Labs与艺术家Ryder Ripps就无聊猿商标纠纷达成和解</div>
+    <div class="news-desc">Yuga Labs（Bored Ape Yacht Club母公司）与艺术家Ryder Ripps就商标纠纷正式达成和解协议。Ryder Ripps此前以艺术批评为由发行RR/BAYC系列仿冒NFT，Yuga Labs起诉其商标侵权。此次和解意味着NFT领域知识产权纠纷通过庭外协议解决，具体和解条款未公开。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">NFT · 知识产权</span>
+      <span class="news-tag">Yuga Labs</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340287" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">霍尔木兹再度关闭</span>
+    <span class="keyword">停火协议裂痕</span>
+    <span class="keyword">以核电站打击概率96%</span>
+    <span class="keyword">美联储通胀放缓慢</span>
+    <span class="keyword">稳定币双重新规</span>
+    <span class="keyword">BTC技术反弹$72,000</span>
+    <span class="keyword">EF出售3750 ETH $830万</span>
+    <span class="keyword">STRC募资超2500 BTC</span>
+    <span class="keyword">Hyperliquid RWA 47%</span>
+    <span class="keyword">Saylor BTC触底$60K</span>
+    <span class="keyword">Polymarket内幕获利$60万</span>
+    <span class="keyword">Claude Managed Agents</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 加密早报 · 2026.04.09<br>
+  数据来源：Odaily · BlockBeats · 吴说区块链 · Bloomberg · The Block · Lookonchain<br>
+  本报告仅供信息参考，不构成任何投资建议。
+</div>
+
+</body>
+</html>
