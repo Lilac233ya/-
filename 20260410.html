@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月10日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #2a1a1a; border-left: 3px solid #FF3B3B;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #FF3B3B; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 10 · 星期五</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月9日 20:00 — 4月10日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Lookonchain</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">⚠️ 多线局势 · 霍尔木兹通行权博弈持续</div>
+  <div class="banner-title">周四仅6艘船过霍尔木兹 · 特朗普指责伊朗违反协议 · 三处战鼓同夜齐鸣</div>
+  <div class="banner-body">霍尔木兹海峡周四仅6艘船通过，特朗普公开指责伊朗"在石油通行方面表现非常糟糕，与协议完全不符"；伊斯兰堡和平谈判推进但伊朗坚持以色列须先停止对黎巴嫩袭击；同夜俄罗斯宣布32小时停火、胡塞威胁收紧红海；今日（4月10日）公布美国3月CPI数据，为当前最关键宏观风险事件。另：贝森特+鲍威尔召集华尔街CEO讨论Anthropic新模型Mythos的网络安全威胁。</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">~$72,000</div>
+      <div class="market-change up">▲ +1.16%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">~$2,214</div>
+      <div class="market-change up">▲ 持稳</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,758</div>
+      <div class="market-change down">▼ 小幅回落</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">原油</div>
+      <div class="market-price">~$93</div>
+      <div class="market-change up">▲ 小幅回涨</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">日经225</div>
+      <div class="market-price">+1.59%</div>
+      <div class="market-change up">▲ 高开</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">KOSPI</div>
+      <div class="market-price">+2.12%</div>
+      <div class="market-change up">▲ 高开</div>
+    </div>
+  </div>
+</div>
+
+<!-- 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">4</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">周四霍尔木兹仅6艘船通过，特朗普公开指责伊朗"表现非常糟糕，与协议完全不符"</div>
+    <div class="news-desc">船舶追踪公司MarineTraffic数据显示，周四（4月9日）共有6艘船通过霍尔木兹海峡，远低于战前每日60艘以上的正常水平。特朗普在社媒公开谴责："在允许石油通过霍尔木兹海峡方面，伊朗的表现非常糟糕，甚至可以说是不光彩的，这与我们达成的协议完全不符！"此前伊朗副外长已确认代表团赴伊斯兰堡参加和平谈判，但坚持以色列须先停止对黎巴嫩袭击为前提条件。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 能源</span>
+      <span class="news-tag">霍尔木兹</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340475" target="_blank">BlockBeats（6艘船）</a> · <a href="https://www.theblockbeats.info/flash/340467" target="_blank">BlockBeats（特朗普警告）</a> · <a href="https://www.theblockbeats.info/flash/340420" target="_blank">BlockBeats（伊朗谈判条件）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">同夜三处战鼓：俄宣布32小时复活节停火、黎以谈判启动、胡塞威胁红海——伊斯兰堡谈判48小时为关键节点</div>
+    <div class="news-desc">同一个夜晚三线并发：普京宣布东正教复活节停火32小时（北京时间4月11日21时开启），泽连斯基响应；黎巴嫩呼吁与以色列临时停火谈判，美以黎三方下周将在华盛顿国务院会面，但以色列坚持"解除真主党武装前不会停火"；胡塞武装威胁收紧红海通行。分析认为，伊斯兰堡谈判、黎以直接对话、霍尔木兹通行权三条线同步推进，未来48小时为中东局势关键节点。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 多线</span>
+      <span class="news-tag">停火谈判</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340468" target="_blank">BlockBeats（三处战鼓）</a> · <a href="https://www.theblockbeats.info/flash/340460" target="_blank">BlockBeats（黎以谈判）</a> · <a href="https://www.theblockbeats.info/flash/340440" target="_blank">BlockBeats（黎巴嫩停火呼吁）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美媒：美国在黎巴嫩停火问题上"摇摆不定"，万斯称存在"合理误解"</div>
+    <div class="news-desc">CBS报道称，内塔尼亚胡与特朗普通话后，美国立场发生变化，黎巴嫩已成为美伊初步外交中最棘手的问题之一。多位外交消息人士称特朗普此前被告知停火协议将适用于整个中东（含黎巴嫩），但万斯将立场变化归咎于"双方对协议条款存在合理的误解"并指责伊朗。此前美国已警告白宫工作人员不得利用内幕信息参与预测市场交易。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 外交</span>
+      <span class="news-tag">美国立场</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340460" target="_blank">BlockBeats（美国摇摆）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476084" target="_blank">Odaily（白宫警告）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">俄罗斯宣布东正教复活节32小时停火；波兰央行将黄金储备目标上调至700吨</div>
+    <div class="news-desc">俄罗斯总统普京宣布围绕东正教复活节期间实施32小时停火，乌克兰总统泽连斯基随即响应，停火窗口北京时间4月11日21时开启。与此同时，波兰央行行长表示将持续增持黄金至700吨（目前已达580吨），在地缘政治持续动荡背景下，欧洲央行的去美元化储备布局步伐进一步加快。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 俄乌</span>
+      <span class="news-tag">黄金储备</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476082" target="_blank">Odaily（俄罗斯停火）</a> · <a href="https://www.theblockbeats.info/flash/340468" target="_blank">BlockBeats（波兰黄金）</a></div>
+  </div>
+</div>
+
+<!-- 宏观数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">宏观数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">【今日关键事件】美国3月CPI数据今日公布，市场预期年率从2.4%升至3.3%</div>
+    <div class="news-desc">美国3月CPI数据将于今日（4月10日）公布，市场预期未季调CPI年率将从2月的2.4%上升至3.3%，核心CPI预期约3.0%。贝莱德此前已警告中东战争高能源价格将在3月数据中充分体现。若数据超预期，将进一步压缩美联储降息空间；停火信号若延伸，4月数据或出现回落拐点。今日数据为近期最关键宏观风险事件，需密切关注市场反应。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">宏观 · CPI</span>
+      <span class="news-tag">降息预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476096" target="_blank">Odaily（星球早讯）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美股收盘加密板块涨跌不一，Circle（CRCL）跌超9.34%；黄金回落至$4,758，原油小幅回升</div>
+    <div class="news-desc">4月9日美股收盘，加密概念股表现分化：Circle（CRCL）跌超9.34%领跌，其他加密股涨跌不一。大宗商品方面，黄金从前日高位继续回落至$4,758/盎司，WTI原油受霍尔木兹通行受阻影响小幅回升，波动率指数继续走低。日韩股市4月10日早盘分别高开1.59%（日经）和2.12%（KOSPI），延续亚太风险偏好修复态势。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">传统金融 · 资产价格</span>
+      <span class="news-tag">加密股</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476090" target="_blank">Odaily（美股收盘）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476089" target="_blank">Odaily（黄金/原油）</a> · <a href="https://www.theblockbeats.info/flash/340478" target="_blank">BlockBeats（日韩股市）</a></div>
+  </div>
+</div>
+
+<!-- 全球监管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">白宫警告员工禁止以内幕信息参与预测市场交易，3月23日停火公告前已出现石油期货异常成交量</div>
+    <div class="news-desc">白宫已向员工发出内部警告，禁止利用与政策相关的非公开信息在预测市场进行交易。该警告发布于3月23日，恰在特朗普宣布暂停对伊朗行动前后，期间石油期货成交量在政策公布前短期内大幅增加，Polymarket平台部分账户也因精准预测相关事件获利约$60万（此前报道）。白宫警告确认了信息不对称担忧的真实性，对预测市场监管具有重要警示意义。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · 预测市场</span>
+      <span class="news-tag">内幕交易</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476084" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">贝森特+鲍威尔紧急召见华尔街CEO：Anthropic新模型Mythos可识别几乎所有主流OS和浏览器漏洞，金融监管拉响警报</div>
+    <div class="news-desc">美国财政部长贝森特与美联储主席鲍威尔在华盛顿财政部紧急召集花旗、摩根士丹利、美国银行、富国银行、高盛（共五大系统重要性银行）CEO，专题讨论Anthropic最新AI模型Mythos的网络安全威胁。Mythos被确认可在用户指令下识别并利用几乎所有主流OS和浏览器漏洞，监管机构担忧其落入黑客之手将开启新型网络攻击纪元。Anthropic目前仅向亚马逊、苹果和摩根大通开放，纳入"Project Glasswing"安全修补项目，同时与特朗普政府就五角大楼将其列为"供应链风险"展开法律博弈。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">AI · 金融安全</span>
+      <span class="news-tag">监管 · Anthropic</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340473" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">Grayscale昨夜质押83,200枚ETH（约$1.84亿）；WLFI下周拟提交代币分阶段解锁提案</div>
+    <div class="news-desc">Onchain Lens监测显示，Grayscale于昨夜完成83,200枚ETH质押，按昨日均价约$2,214计算，价值约$1.84亿（83,200 × $2,214 ≈ $1.842亿）。另，WLFI（World Liberty Financial）官方宣布将于下周提交治理提案，采用"结构化分阶段释放机制"解锁早期零售购买者代币，并非一次性解锁；USD1年化收入约$1.595亿，6个月内已在二级市场回购约4.35亿枚WLFI代币，累计约$6,558万。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">链上 · 质押</span>
+      <span class="news-tag">ETH · WLFI</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476083" target="_blank">Odaily（Grayscale质押）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476087" target="_blank">Odaily（WLFI提案）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476097" target="_blank">Odaily（WLFI澄清）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">独立矿工以"300年一遇"概率挖出比特币区块#944,306，仅70TH算力获3.125 BTC全额奖励</div>
+    <div class="news-desc">一名通过CKPool独立挖矿的矿工成功挖出比特币第944,306号区块，共获奖励3.128枚BTC（含3.125枚区块补贴+0.003枚手续费，按$72,000计约合$22.5万）。该矿工仅持有70TH算力，CKPool开发者Con Kolivas表示"这种规模矿工每天挖出区块的概率约为十万分之一，平均需约300年才可能发生一次"。此事件体现了比特币挖矿的无许可性和去中心化特征。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">比特币 · 挖矿</span>
+      <span class="news-tag">去中心化</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340400" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Galaxy Digital全年净亏损$2.41亿（含未实现亏损），核心业务EBITDA盈利$2.16亿，股价涨超11%</div>
+    <div class="news-desc">Galaxy Digital发布年度报告：全年净亏损约$2.41亿，主要受数字资产及投资头寸未实现亏损拖累；剔除会计处理影响后，调整后EBITDA盈利约$2.16亿；数字资产核心业务（含交易、借贷、资产管理、质押服务）调整后毛利润约$5.05亿。财报发布后公司股价涨逾11%，市场对核心业务盈利能力的认可强于账面亏损的影响。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">传统金融 · 加密机构</span>
+      <span class="news-tag">Galaxy</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476092" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">4</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">Anthropic正探索自行设计AI芯片，计划处于早期阶段；SpaceX 2025年因AI投入亏损近$50亿</div>
+    <div class="news-desc">路透社援引知情人士称，Anthropic正在探索自行设计AI芯片的可能性，但尚未确定方案也未组建专项团队，计划仍处于早期阶段，也可能最终决定仅采购芯片。另，SpaceX 2025年全年录得接近$50亿亏损，主要拖累来自AI基础设施及算力投入大幅增加，反映出科技头部企业在AI军备竞赛中的资本开支压力。Anthropic自研芯片动向若落地，将直接冲击英伟达主导的AI算力市场格局。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">AI · 芯片</span>
+      <span class="news-tag">Anthropic · SpaceX</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476086" target="_blank">Odaily（Anthropic芯片）</a> · <a href="https://www.theblockbeats.info/flash/340474" target="_blank">BlockBeats（SpaceX亏损）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Covenant AI宣布退出Bittensor，质疑其实际治理中心化；旗下Covenant-72B为当前最大去中心化LLM</div>
+    <div class="news-desc">Bittensor生态知名子网项目Covenant AI（原Templar）宣布退出Bittensor网络，指其"实际治理权仍集中于少数人"，决策缺乏透明流程。该团队曾完成Covenant-72B模型训练（720亿参数，70余名独立贡献者协作完成，被视为当前规模最大的去中心化LLM预训练实践之一，曾获Nvidia CEO和Anthropic联合创始人公开认可）。此次出走事件引发对去中心化AI网络实际治理状态的广泛讨论。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">AI · 去中心化</span>
+      <span class="news-tag">Bittensor</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476093" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">OpenAI拟推每月$100 ChatGPT Pro订阅，Codex使用量将提升约10倍</div>
+    <div class="news-desc">OpenAI计划推出每月$100的ChatGPT Pro高级订阅，核心卖点是Codex（AI代码生成工具）使用量将提升约10倍。这一定价显示OpenAI正在面向专业开发者和高强度AI编程用户推进分级付费策略，与Claude Code等产品的竞争态势进一步升温。Codex使用量的大幅提升对依赖OpenAI API的加密开发者工具链同样具有参考价值。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">AI · 商业化</span>
+      <span class="news-tag">OpenAI</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476094" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority low">LOW</span></div>
+    <div class="news-title">美国XRP现货ETF单日净流出$66.12万；RAVE代币日内涨超240%</div>
+    <div class="news-desc">美国XRP现货ETF产品4月9日单日合计净流出$66.12万，在近期加密ETF普遍净流入背景下略显异常。与此同时，小市值代币RAVE短时突破$1.24，日内涨幅超240%，属于短期情绪性炒作，来源不明，不建议追涨。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">ETF · 资金流向</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476085" target="_blank">Odaily（XRP ETF）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476088" target="_blank">Odaily（RAVE）</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">霍尔木兹仅6艘船通过</span>
+    <span class="keyword">特朗普指责伊朗违约</span>
+    <span class="keyword">三处战鼓同夜</span>
+    <span class="keyword">美国3月CPI今日公布</span>
+    <span class="keyword">Anthropic Mythos网络威胁</span>
+    <span class="keyword">贝森特+鲍威尔召见华尔街</span>
+    <span class="keyword">白宫内幕交易警告</span>
+    <span class="keyword">Grayscale质押83,200 ETH $1.84亿</span>
+    <span class="keyword">WLFI分阶段解锁提案</span>
+    <span class="keyword">Galaxy EBITDA $2.16亿</span>
+    <span class="keyword">Anthropic探索自研芯片</span>
+    <span class="keyword">Covenant AI退出Bittensor</span>
+    <span class="keyword">独立矿工300年一遇</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 加密早报 · 2026.04.10<br>
+  数据来源：Odaily · BlockBeats · 吴说区块链 · Bloomberg · The Block · Lookonchain<br>
+  本报告仅供信息参考，不构成任何投资建议。
+</div>
+
+</body>
+</html>
