@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月11日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #2a1a1a; border-left: 3px solid #FF3B3B;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #FF3B3B; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 11 · 星期六</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月10日 20:00 — 4月11日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Lookonchain</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">⚠️ 美伊谈判开幕 · CPI超预期 · 霍尔木兹水雷难清</div>
+  <div class="banner-title">美伊伊斯兰堡谈判正式开幕·15天窗口·伊朗警告"毁灭性打击"·3月CPI月率+0.9%创2022最大</div>
+  <div class="banner-body">万斯率队赴伊斯兰堡与伊朗议长Kalibaff展开直接谈判，15天窗口期开启；伊朗警告若谈判失败将对美以发动"毁灭性打击"。与此同时，美国3月CPI月率+0.9%为2022年以来最大涨幅，年率达3.3%，油价贡献近3/4涨幅，市场降息预期进一步收窄。霍尔木兹海峡昨日仅9艘船通过，伊朗承认无法找到并清除全部水雷，特朗普表示将"很快恢复通行"。</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">~$72,000</div>
+      <div class="market-change up">▲ 区间震荡</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">~$2,221</div>
+      <div class="market-change up">▲ 持稳</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,700+</div>
+      <div class="market-change down">▼ 小幅回落</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">加密股</div>
+      <div class="market-price">普涨</div>
+      <div class="market-change up">▲ Circle+2.3%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">Strategy</div>
+      <div class="market-price">+1.28%</div>
+      <div class="market-change up">▲ 高开</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">原油</div>
+      <div class="market-price">~$93</div>
+      <div class="market-change up">▲ 能源涨压</div>
+    </div>
+  </div>
+</div>
+
+<!-- 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美伊谈判今日在伊斯兰堡正式开启：万斯率队，伊朗警告若15天内谈崩将发动"毁灭性打击"</div>
+    <div class="news-desc">美国副总统万斯、总统特使威特科夫、特朗普女婿库什纳率美方代表团赴巴基斯坦伊斯兰堡，与伊朗议长Kalibaff率领的代表团展开直接谈判，这是两国约40天激烈对抗后的首次面对面接触。伊朗最高国家安全委员会表示谈判最长持续15天。伊朗警告称，若无法达成各方接受的协议，将对美以利益发动"毁灭性打击"。美国坚持停止铀浓缩为红线，并要求霍尔木兹安全通行；伊朗则要求黎巴嫩停火及解冻资产为前提。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 外交</span>
+      <span class="news-tag">美伊谈判</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340630" target="_blank">BlockBeats（谈判开启）</a> · <a href="https://www.theblockbeats.info/flash/340631" target="_blank">BlockBeats（15天窗口/毁灭性打击）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476253" target="_blank">Odaily（万斯赴巴）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">霍尔木兹昨日仅9艘船通过，伊朗承认无法找到所有水雷；特朗普："海峡将很快恢复通行"</div>
+    <div class="news-desc">航运情报公司Kpler数据显示，4月10日通过霍尔木兹海峡的船只从前日6艘增至9艘，但仍远低于正常水平（战前每日60艘以上）。美国《纽约时报》援引知情人士称，伊朗难以完全重开海峡的核心障碍在于无法定位其之前布设的所有水雷，且缺乏清除能力。特朗普同日在社媒发文："霍尔木兹海峡将很快恢复正常通行。"黎巴嫩与以色列同意举行停火谈判，美以黎三方下周将在华盛顿国务院举行首次正式会议。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 能源</span>
+      <span class="news-tag">霍尔木兹</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340629" target="_blank">BlockBeats（特朗普声明）</a> · <a href="https://www.theblockbeats.info/flash/340560" target="_blank">BlockBeats（9艘船）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476257" target="_blank">Odaily（水雷难清）</a> · <a href="https://www.theblockbeats.info/flash/340625" target="_blank">BlockBeats（黎以会谈）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美能源部从战略石油储备借出850万桶；阿尔忒弥斯2号载人飞船安全返回地球</div>
+    <div class="news-desc">美国能源部宣布将从战略石油储备（SPR）向4家公司出借850万桶原油，以应对霍尔木兹通行受阻导致的能源供应压力，维持市场稳定供给。同日，NASA阿尔忒弥斯2号载人飞船完成绕月测试任务后安全返回地球，这是50年来首次载人绕月任务，为未来载人登月奠定基础；此次成功对太空经济板块具有中期催化作用。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">能源 · 地缘</span>
+      <span class="news-tag">太空经济</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340627" target="_blank">BlockBeats（SPR借出）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476250" target="_blank">Odaily（阿尔忒弥斯2号）</a></div>
+  </div>
+</div>
+
+<!-- 宏观数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">宏观数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美国3月CPI月率+0.9%创2022年以来最大涨幅，年率3.3%；能源油价贡献近3/4月度涨幅</div>
+    <div class="news-desc">美国劳工统计局公布3月CPI数据：季调月率+0.9%，为2022年以来最大单月涨幅；未季调年率+3.3%；核心CPI（剔除食品能源）月率仅+0.2%，涨幅明显收窄，说明此轮通胀高度集中于能源板块。分析指出，汽油价格上涨贡献了近3/4的月度CPI涨幅，主要受伊朗-以色列冲突持续推高油价影响。此次数据超出市场预期，美联储今年内降息空间进一步压缩，短期利率期货在数据发布后回吐部分涨幅。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">宏观 · CPI</span>
+      <span class="news-tag">降息预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476193" target="_blank">Odaily（CPI分析）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476190" target="_blank">Odaily（降息预期）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美联储年内降息"仅一次"押注上升；美国4月一年期通胀预期初值4.8%，大幅超预期4.3%</div>
+    <div class="news-desc">3月CPI数据发布后，市场对美联储年内降息一次（而非两次以上）的押注明显上升，短期利率期货在CPI公布后快速回吐前期涨幅。同日，密歇根大学4月消费者信心调查公布：一年期通胀预期初值4.8%，超过市场预期4.3%，大幅高于前值3.8%，创近年新高。两组数据叠加强化通胀未消信号，市场普遍预期美联储将在更长时间内维持当前利率水平，美元小幅走强。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">宏观 · 货币政策</span>
+      <span class="news-tag">通胀预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476192" target="_blank">Odaily（降息押注）</a> · <a href="https://www.theblockbeats.info/flash/340600" target="_blank">BlockBeats（通胀预期4.8%）</a></div>
+  </div>
+</div>
+
+<!-- 全球监管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">币安为阿联酋约千名员工提供临时搬迁至港/东京/吉隆坡选项；TOKEN2049迪拜正式延期至2027</div>
+    <div class="news-desc">受中东局势影响，币安向在阿联酋的约1,000名员工提供自愿临时搬迁选项，可选择转至香港、东京、吉隆坡或曼谷，阿联酋业务正常运营，全球用户服务未受影响。TOKEN2049迪拜活动正式宣布延期至2027年。CZ随后在社媒辟谣称"相关报道存在误导性，刻意将阿联酋形象化为负面"，强调该政策是币安一直以来的灵活工作地点机制，并非新政策，还暗示将在迪拜举办新书签售活动。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">行业 · 地缘</span>
+      <span class="news-tag">币安 · 中东</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476200" target="_blank">Odaily（搬迁选项）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476240" target="_blank">Odaily（CZ辟谣）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">OpenAI将被欧盟《数字服务法》归类为"超大型在线搜索引擎"，ChatGPT面临更严格监管</div>
+    <div class="news-desc">据消息人士透露，OpenAI将被欧盟委员会依据《数字服务法》（DSA）纳入监管，并归类为"超大型在线搜索引擎"，这意味着ChatGPT将面临严格的算法透明度、虚假信息治理及数据保护要求，违规最高处全球营收6%的罚款。这是欧盟针对生成式AI在搜索领域影响力的首个重大监管行动，对Perplexity、Google AI Overviews等竞争产品亦将形成示范效应，也可能推动加密领域AI应用在欧盟合规方面面临更高门槛。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">监管 · AI</span>
+      <span class="news-tag">OpenAI · 欧盟</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476220" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">4</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">以太坊基金会以$2,221均价出售5,000枚ETH，换取1,110万枚DAI；链上已可追踪</div>
+    <div class="news-desc">Onchain Lens监测显示，以太坊基金会（EF）在4月10日深夜至4月11日早间完成出售5,000枚ETH，按$2,221均价计算共获得约1,110万枚DAI（5,000 × $2,221 = $11,105,000 ≈ $1,110万）。EF此前已多次在市场阶段性高位出售ETH用于运营支出，此次出售规模居近期较大水平。社区部分人士认为此举具有一定抛压，但EF表示出售收益将用于支持生态系统研究与开发。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">链上 · ETH</span>
+      <span class="news-tag">基金会卖压</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476248" target="_blank">Odaily（EF出售）</a> · <a href="https://www.theblockbeats.info/flash/340632" target="_blank">BlockBeats（链上追踪）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">Strategy通过STRC再购3,468枚BTC，按当日均价约$72,000估算总价值约$2.50亿</div>
+    <div class="news-desc">Michael Saylor旗下Strategy宣布今日通过STRC（Strategy Convertible Reserve Capital）工具购买3,468枚比特币，购入价格原文未披露；按4月10日-11日BTC约$72,000均价估算，本次购入约合$2.50亿（3,468 × $72,000 ≈ $2.497亿）。此次为Strategy今年以来持续购入的延续。BTC持仓量持续创历史新高，进一步强化其"企业比特币财库"战略定位；市场解读此举为对BTC中长期价值的强信心表态。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">链上 · BTC</span>
+      <span class="news-tag">机构增持</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476256" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美国XRP现货ETF单日净流入909.39万美元，完成从净流出到净流入的180度逆转</div>
+    <div class="news-desc">美国XRP现货ETF产品4月10日单日合计净流入909.39万美元，较前一日（4月9日净流出$66.12万）实现明显逆转。ETF资金流向数据通常被视为机构/大户短期情绪的重要风向标，此次转正说明在宏观数据超预期背景下，机构资金仍在选择性布局XRP相关产品。与此同时，美国政府地址也向Coinbase转入2.4枚比特币，值得持续关注。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">加密数据 · ETF</span>
+      <span class="news-tag">XRP</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476255" target="_blank">Odaily（XRP ETF）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476252" target="_blank">Odaily（美国政府转币）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">BTC空头巨鲸40倍杠杆遭连续爆仓合计$4,333万：BTC涨破$72,000触发两轮清算</div>
+    <div class="news-desc">Hyperinsight链上监测显示，一以"0x2fc"开头的地址在BTC价格涨破$72,000后，其40倍杠杆BTC空头头寸遭连续清算：第一轮爆仓423.4枚BTC（约$3,050万，单笔最大$2,440万）；第二轮176枚BTC（约$1,283万），两轮合计$4,333万。该地址三次开立40x杠杆空头均以爆仓告终，剩余仅67枚BTC仓位（约$482万），总亏损超$580万。分析认为这是典型的"确认偏误+赌徒谬误"式加仓模式，高杠杆做空趋势资产风险极高。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">链上 · 清算</span>
+      <span class="news-tag">BTC空头</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340490" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">OpenAI创始人Sam Altman住所遭燃烧瓶袭击；OpenAI声明已协助警方调查</div>
+    <div class="news-desc">美国警方证实，OpenAI创始人兼CEO Sam Altman在旧金山的住所发生燃烧瓶袭击事件，现场有燃烧痕迹，Altman本人未在场未受伤。OpenAI随后发声明称已协助警方调查，事件性质被初步定性为蓄意破坏而非随机犯罪。分析认为，随着AI企业高管的社会影响力持续扩大，针对AI领导人的极端行为风险正在上升，部分机构投资者将此视为AI行业商业化进程中的额外不确定性因素。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">AI · 安全事件</span>
+      <span class="news-tag">OpenAI</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476249" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/340628" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">加密初创Q2首周融资7,600万美元，累计已近5亿；Pharos获$4,400万A轮领跑，专注RWA+L1</div>
+    <div class="news-desc">2026年第二季度第一周（截至4月10日），全球加密初创公司合计融资约7,600万美元，2026年累计融资接近5亿美元。最大轮次为Pharos Network的4,400万美元A轮（SNZ Holding、Chainlink、Flow Traders投资），专注于以太坊兼容高性能L1公链，重点支持RWA（真实世界资产）和去中心化基础设施。其他代表性轮次：Oh（Web3 AI平台）750万美元A轮（Maven 11领投）；Kulipa（加密支付卡）620万美元种子轮（Flourish Ventures、1kx投资）。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">行业 · 融资</span>
+      <span class="news-tag">RWA · L1</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476251" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Circle发布2026互联网金融系统愿景：Fast Transfer跨链+CCTP扩展至EURC/cirBTC/RWA</div>
+    <div class="news-desc">Circle在官方文件中发布2026年互联网金融系统（IFS）路线图，三大核心方向：①跨链互操作基础设施，推出"Fast Transfer"功能，无需等待源链最终确认即可完成结算；②资产扩展，将CCTP协议由仅支持USDC扩展至EURC、USYC、cirBTC及多类RWA；③开发者工具套件（Bridge Kit、Deposit Kit、Fee Service），简化多链集成复杂度。Circle上日股价（CRCL）刚经历CPI数据冲击后小幅反弹2.3%，此次路线图发布被视为其上市后首个重大战略宣示。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">行业 · 稳定币</span>
+      <span class="news-tag">Circle · RWA</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476230" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">美伊伊斯兰堡谈判开幕</span>
+    <span class="keyword">万斯率队</span>
+    <span class="keyword">伊朗警告毁灭性打击</span>
+    <span class="keyword">15天谈判窗口</span>
+    <span class="keyword">霍尔木兹水雷难清</span>
+    <span class="keyword">3月CPI月率+0.9%创2022新高</span>
+    <span class="keyword">年率3.3%</span>
+    <span class="keyword">4月通胀预期4.8%超预期</span>
+    <span class="keyword">币安阿联酋搬迁</span>
+    <span class="keyword">TOKEN2049延期2027</span>
+    <span class="keyword">EF出售5000ETH $1110万</span>
+    <span class="keyword">Strategy购3468 BTC</span>
+    <span class="keyword">XRP ETF净流入909万</span>
+    <span class="keyword">BTC空头40x爆仓$4333万</span>
+    <span class="keyword">Altman住所遭袭</span>
+    <span class="keyword">Pharos $4400万A轮</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 加密早报 · 2026.04.11<br>
+  数据来源：Odaily · BlockBeats · 吴说区块链 · Bloomberg · The Block · Lookonchain<br>
+  本报告仅供信息参考，不构成任何投资建议。
+</div>
+
+</body>
+</html>
