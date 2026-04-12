@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月12日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0d0d0d; border: 1px solid #2a1a1a; border-left: 3px solid #FF3B3B;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #FF3B3B; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 12 · 星期日</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月11日 20:00 — 4月12日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Lookonchain</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">⚠️ 美伊通宵三轮谈判 · 第四轮今日续谈 · 霍尔木兹仍是卡点</div>
+  <div class="banner-title">美伊伊斯兰堡谈判连夜进行三轮 · 外媒：仅霍尔木兹框架未定 · 特朗普称"伊朗军队已被彻底摧毁"</div>
+  <div class="banner-body">美伊代表团在伊斯兰堡谈至深夜，连续进行三轮磋商；外媒称区域安全、人道主义重建、解冻资产三大框架已基本确定，霍尔木兹管控是最后核心卡点，或需多边参与解决。特朗普深夜在社媒连发声明，宣称"美国已彻底摧毁伊朗军队，28艘布雷舰已沉入海底"，并称霍尔木兹将"很快恢复通行"。第四轮会谈定于今日（周日）继续。恐慌与贪婪指数升至16，深度恐慌区间。</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">~$73,790</div>
+      <div class="market-change up">▲ 触及止损位</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">~$2,221</div>
+      <div class="market-change up">▲ 区间持稳</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">恐慌指数</div>
+      <div class="market-price">16</div>
+      <div class="market-change down">▲ 深度恐慌</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">原油</div>
+      <div class="market-price">~$93</div>
+      <div class="market-change up">▲ 谈判承压</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,700+</div>
+      <div class="market-change up">▲ 避险支撑</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">SpaceX BTC</div>
+      <div class="market-price">8,285枚</div>
+      <div class="market-change up">▲ ~$6亿</div>
+    </div>
+  </div>
+</div>
+
+<!-- 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">4</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美伊通宵三轮谈判：外媒称仅霍尔木兹管控待解，其余框架已定；第四轮今日周日续谈</div>
+    <div class="news-desc">意大利《共和报》驻伊斯兰堡记者报道，截至当地时间凌晨1:57，美伊代表团仍同处一室谈判近10小时。据称，区域安全、人道主义重建（含所有方面）及解冻资产三大框架已基本确定，霍尔木兹海峡管控问题是最后核心障碍，或需其他地区及全球参与方发挥决定性作用。伊朗国家电视台驻伊斯兰堡记者确认：第四轮会谈将于周日（今日）继续。美伊第三轮谈判结束时，双方在霍尔木兹管控、海外资产解冻、铀浓缩三大核心议题上分歧依然尖锐。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 外交</span>
+      <span class="news-tag">美伊谈判</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340710" target="_blank">BlockBeats（外媒·框架已定）</a> · <a href="https://www.theblockbeats.info/flash/340715" target="_blank">BlockBeats（第四轮今日续）</a> · <a href="https://www.theblockbeats.info/flash/340721" target="_blank">BlockBeats（三轮结束·分歧仍深）</a> · <a href="https://www.theblockbeats.info/flash/340714" target="_blank">BlockBeats（三大议题未解）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">特朗普深夜连发声明："伊朗军队、海军、空军已被彻底摧毁，28艘布雷舰全部沉海"；称霍尔木兹"很快开放"</div>
+    <div class="news-desc">北京时间4月11日深夜至次日凌晨，特朗普在社媒接连发帖：宣称"美国已彻底摧毁伊朗的军队，包括整个海军和空军"，称伊朗28艘布雷舰"现已全部躺在海底"，并表示美军已开始扫雷，将协助日本、韩国、法国、德国等盟国恢复通行。同时批评"假新闻媒体要么疯了要么彻底腐败"。伊朗外交部发言人确认代表团已开始信息交流，强调谈判成败取决于美方是否提出"无理要求"。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 军事</span>
+      <span class="news-tag">霍尔木兹 · 扫雷</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476324" target="_blank">Odaily（摧毁伊朗军队）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476320" target="_blank">Odaily（准备"重启"）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476328" target="_blank">Odaily（伊朗通报进展）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">伊朗警告美军驱逐舰：若继续逼近霍尔木兹将在30分钟内遭打击；美舰随后撤退</div>
+    <div class="news-desc">据报道，伊朗武装力量监测到一艘美国驱逐舰从阿联酋富查伊拉港出发向霍尔木兹方向行进，伊朗随即通过巴基斯坦调停方向美方传递明确警告："若驱逐舰继续靠近霍尔木兹海峡，将在30分钟内遭到打击，谈判将受到影响。"美方随后下令驱逐舰停止前进并后撤。此事件发生于伊斯兰堡谈判进行期间，显示双方军事对峙与外交谈判同步并行，谈判脆弱性极高，任何军事误判均可能导致对话中断。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">地缘 · 军事对峙</span>
+      <span class="news-tag">霍尔木兹 · 美伊</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340690" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">以色列24小时内对黎巴嫩发动200次打击；美方否认已同意解冻伊朗资产</div>
+    <div class="news-desc">以色列国防军声明，过去24小时内对黎巴嫩约200个目标实施空袭，均称与真主党相关，地面行动在黎南部持续推进。与此同时，白宫官员明确否认美国已同意解冻伊朗资产，此前有媒体报道称美方在谈判中做出相关让步，但白宫声明"美国官员否认此事"。两件事叠加说明：谈判桌上的博弈与战场上的交火仍在同步进行，对话窗口面临多重压力。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 黎以冲突</span>
+      <span class="news-tag">资产解冻否认</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340695" target="_blank">BlockBeats（以色列打击黎巴嫩）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476300" target="_blank">Odaily（白宫否认解冻）</a></div>
+  </div>
+</div>
+
+<!-- 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📉</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">恐慌与贪婪指数升至16（深度恐慌区间），较前日略回升；分析师：若历史重演BTC或再有一波下探</div>
+    <div class="news-desc">加密恐慌与贪婪指数今日读数升至16（前日15），仍处于"深度恐慌"区间。分析师Killa指出，"每个周期均包含一次以投降式底部结束的最终下跌"，当前周期的顶部较以往周期出现更早，"若历史重演，BTC或在确立真正底部前还有一波下跌"。当前指数数值历史上往往预示大规模抛售已基本完成，但分析师建议结合多维指标综合判断，不应单独作为入场信号。BTC在谈判消息刺激下短暂触及$73,790触发部分止损，目前区间震荡。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">加密数据 · 情绪</span>
+      <span class="news-tag">BTC · 周期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340720" target="_blank">BlockBeats（恐慌指数16）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476319" target="_blank">Odaily（Killa分析）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">SpaceX持有8,285枚BTC（约$6亿），2025年亏损近$50亿后仍未减持——视BTC为长期战略资产</div>
+    <div class="news-desc">据报道，SpaceX在Coinbase Prime托管账户中持有8,285枚BTC，按当前价格约合$6.03亿。尽管公司2025年因整合马斯克旗下xAI子公司录得接近$50亿亏损，SpaceX自2024年中以来未进行任何减持操作，最近一次调仓也仅为内部再平衡。分析认为，SpaceX将BTC定位为"长期战略资产而非短期流动性缓冲"；随着IPO临近，新会计准则要求披露加密资产，BTC价格波动将成为其财报中的重要可变量，或进一步推动企业资产负债表持有BTC的讨论。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">机构 · BTC持仓</span>
+      <span class="news-tag">SpaceX</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340719" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">合约巨鲸"先定10个大目标"做空BTC止损位$73,500被触及，若执行将亏损约$499万</div>
+    <div class="news-desc">合约交易员"先定10个大目标"（@Jason60704294）此前公开喊单做空BTC，持仓2,567.49枚BTC空头（约$1.84亿名义价值），止损设在$73,500。4月12日早间BTC短暂触及$73,790，超过其公开的止损位，若严格执行纪律平仓，理论亏损约$499.4万。该交易员同时持有38,465枚ETH空头头寸止损待更新。此事件与4月10日同一地址BTC空头$4,333万爆仓案例相呼应，再次警示高杠杆反趋势操作的极高风险。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">链上 · 清算</span>
+      <span class="news-tag">BTC空头</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/340716" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">链上最大HYPE多单4个月累计扣付资金费$200万后，浮盈仍超$500万</div>
+    <div class="news-desc">Lookonchain监测显示，一交易员4个月前以$38.68均价、5倍杠杆做多138万枚HYPE（仓位价值约$5,840万），为当前链上最大HYPE多单。尽管累计承担超过$200万资金费支出，该仓位目前浮盈仍超$500万。此案例展示了高置信度方向判断下，持仓穿越震荡与资金费消耗后依然能够实现正回报的案例；同时也揭示了高杠杆多单在资金费方面的隐性成本不可忽视。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">链上 · 永续合约</span>
+      <span class="news-tag">HYPE</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476310" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">美伊通宵三轮谈判</span>
+    <span class="keyword">第四轮今日续谈</span>
+    <span class="keyword">霍尔木兹仍是卡点</span>
+    <span class="keyword">外媒·其余框架已定</span>
+    <span class="keyword">特朗普称伊朗军队已摧毁</span>
+    <span class="keyword">28艘布雷舰沉海</span>
+    <span class="keyword">美舰驱逐舰被迫撤退</span>
+    <span class="keyword">以色列24小时200次打击</span>
+    <span class="keyword">白宫否认解冻伊朗资产</span>
+    <span class="keyword">恐慌指数16深度恐慌</span>
+    <span class="keyword">分析师警告BTC或再下探</span>
+    <span class="keyword">SpaceX持有8285 BTC约$6亿</span>
+    <span class="keyword">BTC空头止损$499万</span>
+    <span class="keyword">HYPE多单浮盈$500万</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 加密早报 · 2026.04.12<br>
+  数据来源：Odaily · BlockBeats · 吴说区块链 · Bloomberg · The Block · Lookonchain<br>
+  本报告仅供信息参考，不构成任何投资建议。
+</div>
+
+</body>
+</html>
