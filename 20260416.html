@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>加密早报 · 2026年4月16日</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000;
+    color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'SF Pro Text', 'Helvetica Neue', Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    max-width: 480px;
+    margin: 0 auto;
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .header {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(0,0,0,0.9);
+    backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid #1a1a1a;
+    padding: 14px 16px 12px;
+    text-align: center;
+  }
+  .header-date {
+    display: inline-block;
+    background: #111; border: 1px solid #222; border-radius: 20px;
+    padding: 3px 10px; font-size: 11px; color: #888; margin-bottom: 6px;
+  }
+  .header-title { font-size: 20px; font-weight: 700; letter-spacing: 0.5px; line-height: 1.2; }
+  .header-title .green { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #555; margin-top: 4px; }
+  .source-pills {
+    display: flex; gap: 6px; padding: 10px 16px;
+    overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch;
+  }
+  .source-pills::-webkit-scrollbar { display: none; }
+  .pill {
+    flex-shrink: 0; background: #111; border: 1px solid #222; border-radius: 12px;
+    padding: 4px 10px; font-size: 11px; color: #aaa; white-space: nowrap;
+  }
+  .banner {
+    margin: 0 16px 12px;
+    background: #0a0d0a; border: 1px solid #1a2a1a; border-left: 3px solid #BCFF2F;
+    border-radius: 8px; padding: 12px 14px;
+  }
+  .banner-label { font-size: 10px; font-weight: 700; color: #BCFF2F; letter-spacing: 1px; margin-bottom: 6px; text-transform: uppercase; }
+  .banner-title { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 6px; line-height: 1.4; }
+  .banner-body { font-size: 12px; color: #aaa; line-height: 1.5; }
+  .market-wrap { padding: 0 16px 12px; }
+  .market-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 1px; background: #111; border: 1px solid #1a1a1a; border-radius: 10px; overflow: hidden;
+  }
+  .market-cell { background: #0c0c0c; padding: 10px 8px; text-align: center; }
+  .market-name { font-size: 11px; color: #666; margin-bottom: 3px; }
+  .market-price { font-size: 13px; font-weight: 700; color: #fff; margin-bottom: 2px; }
+  .market-change { font-size: 11px; font-weight: 600; }
+  .up { color: #BCFF2F; } .down { color: #FF3B3B; }
+  .section { margin: 0 0 4px; padding: 0 16px; }
+  .section-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 12px 0 8px; border-top: 1px solid #111;
+  }
+  .section-icon { font-size: 16px; }
+  .section-title { font-size: 13px; font-weight: 700; color: #fff; flex: 1; }
+  .section-count { background: #BCFF2F; color: #000; border-radius: 10px; padding: 1px 7px; font-size: 10px; font-weight: 700; }
+  .news-item { padding: 10px 0; border-bottom: 1px solid #0f0f0f; }
+  .news-item:last-child { border-bottom: none; }
+  .news-item:active { background: #0a0a0a; }
+  .news-meta { display: flex; align-items: center; gap: 6px; margin-bottom: 5px; flex-wrap: wrap; }
+  .tag-priority { border-radius: 4px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1); color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-priority.low  { background: rgba(255,255,255,0.05); color: #666; border: 1px solid #222; }
+  .news-title { font-size: 13px; font-weight: 600; color: #f0f0f0; line-height: 1.4; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #777; line-height: 1.5; margin-bottom: 6px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { background: #111; border: 1px solid #1e1e1e; border-radius: 4px; padding: 1px 6px; font-size: 10px; color: #555; }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #BCFF2F; text-decoration: none; opacity: 0.8; }
+  .news-source a:hover { opacity: 1; }
+  .keywords-wrap { padding: 16px 16px 12px; border-top: 1px solid #111; margin-top: 8px; }
+  .keywords-title { font-size: 11px; color: #555; margin-bottom: 8px; text-transform: uppercase; letter-spacing: 1px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; }
+  .keyword { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 12px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .footer { padding: 12px 16px 20px; text-align: center; font-size: 10px; color: #333; line-height: 1.5; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-date">2026 · APR 16 · 星期四</div>
+  <div class="header-title">加密行业热点<span class="green">早报</span></div>
+  <div class="header-sub">抓取时间窗口：4月15日 20:00 — 4月16日 09:30</div>
+</div>
+
+<div class="source-pills">
+  <div class="pill">Odaily</div>
+  <div class="pill">BlockBeats</div>
+  <div class="pill">吴说区块链</div>
+  <div class="pill">Bloomberg</div>
+  <div class="pill">The Block</div>
+  <div class="pill">Lookonchain</div>
+</div>
+
+<div class="banner">
+  <div class="banner-label">📊 市场观察 · 地缘缓和消化期</div>
+  <div class="banner-title">美伊讨论停火延长两周·伊朗否认·ALTS指数+11.46%·BTC维守$75,000·XRP ETF净流入$1711万</div>
+  <div class="banner-body">外媒称美伊正讨论将停火<strong>延长两周</strong>，伊朗外交部发言人称"<strong>无法确认</strong>"，王毅与伊朗外长通话 · 市场延续消化地缘缓和：BTC维守$75,000，ALTS指数单日<strong>+11.46%</strong>，山寨币轮动信号浮现 · XRP ETF净流入$1,711万、SOL ETF净流入$536万 · BNB季度销毁156.9万枚约$10.2亿 · Tether确认Q1采购BTC 951枚($7047万)</div>
+</div>
+
+<div class="market-wrap">
+  <div class="market-grid">
+    <div class="market-cell">
+      <div class="market-name">BTC</div>
+      <div class="market-price">$75,008</div>
+      <div class="market-change up">▲ +1.27%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ETH</div>
+      <div class="market-price">~$2,200</div>
+      <div class="market-change up">▲ ~+2%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">黄金</div>
+      <div class="market-price">$4,822</div>
+      <div class="market-change up">▲ +0.65%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">标普500</div>
+      <div class="market-price">—</div>
+      <div class="market-change up">▲ +0.80%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">纳斯达克</div>
+      <div class="market-price">—</div>
+      <div class="market-change up">▲ +1.59%</div>
+    </div>
+    <div class="market-cell">
+      <div class="market-name">ALTS指数</div>
+      <div class="market-price">—</div>
+      <div class="market-change up">▲ +11.46%</div>
+    </div>
+  </div>
+</div>
+
+<!-- 全球事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">美伊讨论停火延长两周，伊朗否认确认 · 特朗普：协议达成将亲赴巴基斯坦</div>
+    <div class="news-desc">市场消息称美国与伊朗正讨论将现行停火协议延长两周，王毅与伊朗外长阿拉格齐通电话。伊朗外交部发言人随即表态"是否延长停火无法确认"，强调需观察美方是否展现真实外交诚意。同日，据阿拉伯媒体Al Hadath报道，若与伊朗达成正式协议，特朗普本人将前往巴基斯坦参与见证。延长谈判进入关键窗口期，伊朗态度谨慎但未明确否决，停火框架仍在维持中。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">地缘 · 停火</span>
+      <span class="news-tag">风险情绪</span>
+      <span class="news-tag">油价</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476915" target="_blank">Odaily（停火延长）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476935" target="_blank">Odaily（伊朗否认）</a> · <a href="https://www.theblockbeats.info/flash/341390" target="_blank">BlockBeats（特朗普赴巴）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">特朗普签发美加石油运输许可，推动北美能源基础设施互联</div>
+    <div class="news-desc">特朗普政府签发新的跨境输油管道许可，旨在促进美国与加拿大之间的石油运输效率，被视为北美能源整合政策的一部分。在霍尔木兹停火背景下，此举与扩大西半球原油产能的战略布局相呼应，有助于缓解能源供给侧风险。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">能源政策</span>
+      <span class="news-tag">美加关系</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476941" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 宏观数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">宏观数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">贝森特：美联储最终会进一步降息，但需等待合适时机</div>
+    <div class="news-desc">美国财政部长贝森特表示"我理解美联储需要等待降息时机，但最终美联储会进一步降息"，为市场的降息预期提供政策背书。当前市场已定价2026年至少两次降息，贝森特的表态强化了这一预期，对风险资产整体偏利好。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">货币政策</span>
+      <span class="news-tag">利率预期</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476870" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">美国大型银行Q1股票回购$330亿创历史新高，超预期30-50%</div>
+    <div class="news-desc">摩根大通、高盛、花旗集团在2026年Q1合计完成创纪录的$330亿股票回购，大幅超出分析师预期30%-50%。特朗普政府持续放松金融监管，允许银行将更多资本用于股东回报，而非强化资本缓冲。摩根大通、高盛、花旗均创下各自史上最大季度回购记录。银行业的资本充裕信号对加密资产整体风险偏好形成正向支撑。</div>
+    <div class="news-tags">
+      <span class="news-tag">季度级影响</span>
+      <span class="news-tag">传统金融</span>
+      <span class="news-tag">流动性</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476900" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 全球监管 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚖️</span>
+    <span class="section-title">全球监管</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">英国FCA公开征询2027年加密监管框架，9月开放授权申请</div>
+    <div class="news-desc">英国金融监管局（FCA）正式就2027年10月25日生效的全面加密资产监管制度公开征询行业意见，咨询期至2026年6月3日。新规涵盖稳定币发行、加密资产交易、托管及质押等核心业务，目标构建"具备竞争力且可持续"的加密市场。授权申请通道预计2026年9月开放至2027年2月。这是英国脱欧后最系统的加密监管落地节点，直接影响欧英双边加密业务布局。</div>
+    <div class="news-tags">
+      <span class="news-tag">年级影响</span>
+      <span class="news-tag">监管合规</span>
+      <span class="news-tag">英国市场</span>
+      <span class="news-tag">稳定币</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476910" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Cantor Fitzgerald向加密PAC捐赠$1000万，稳定币阵营加码政治投入</div>
+    <div class="news-desc">Cantor Fitzgerald（现由商务部长Lutnick之子主导）向支持加密行业候选人的超级政治行动委员会Fellowship PAC捐款$1,000万，该PAC由Tether美国高管Jesse Spiro担任主席，总承诺资金已超$1亿。Anchorage Digital等机构亦参与捐赠。Cantor自2021年起担任Tether储备资产托管方，此次捐赠进一步强化稳定币生态与华盛顿政治之间的深度联动，押注更明确、可执行的监管框架窗口期。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">政治博弈</span>
+      <span class="news-tag">稳定币</span>
+      <span class="news-tag">Tether</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476930" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/341415" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 加密数据 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">加密数据</span>
+    <span class="section-count">2</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">XRP ETF净流入$1711万·SOL ETF净流入$536万·BTC维守$75,000·ALTS+11.46%</div>
+    <div class="news-desc">美国加密ETF资金流入持续强劲：XRP现货ETF单日总净流入$1,711.42万，SOL现货ETF单日总净流入$536.41万；BTC突破$75,000，24小时涨幅1.27%。美股收盘：道指跌0.15%，标普500涨0.8%，纳指涨1.59%，ALTS替代资产指数单日涨幅达11.46%——山寨币轮动信号在特朗普"战争结束"叙事后明显增强，加密情绪延续修复态势。黄金$4,822日涨0.65%。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">ETF资金流</span>
+      <span class="news-tag">山寨轮动</span>
+      <span class="news-tag">风险情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476946" target="_blank">Odaily（XRP ETF）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476947" target="_blank">Odaily（SOL ETF）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476925" target="_blank">Odaily（BTC $75k）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476945" target="_blank">Odaily（美股收盘）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Meme/DeSci板块普涨：BIO+98%、VITA+82%、NEIRO+25%，山寨季信号初现</div>
+    <div class="news-desc">据HTX行情数据，DeSci板块BIO 24小时涨幅98.45%（$0.0381），VITA+81.97%（$0.43），TIG+22.3%；老牌Meme板块NEIRO+25.42%，PNUT+18.55%，BOME+10.41%。ALTS指数单日+11.46%与山寨板块普涨形成共振，历史上此类现象往往出现在BTC稳定震荡期后机构和散户资金向主流山寨转移的窗口。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">山寨轮动</span>
+      <span class="news-tag">DeSci</span>
+      <span class="news-tag">Meme</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341422" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- 链上事件 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">BNB Foundation完成第30次季度销毁：156.9万枚BNB约$10.2亿</div>
+    <div class="news-desc">BNB Foundation完成本季度自动销毁，共销毁156.9万枚BNB，按当前价格约合$10.2亿。这是BNB季度定期通缩机制的延续，每季度根据网络收入计算销毁量。按当前销毁约合$650/枚BNB（$10.2亿÷156.9万枚≈$650/枚），与市场现价基本吻合。大规模销毁持续缩减流通供应，为BNB长期价值提供支撑。</div>
+    <div class="news-tags">
+      <span class="news-tag">季度级影响</span>
+      <span class="news-tag">通缩机制</span>
+      <span class="news-tag">BNB生态</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476943" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">Tether自Bitfinex提出951枚BTC（$7047万），确认Q1采购 · 持仓9.71万枚浮盈$21.75亿</div>
+    <div class="news-desc">据链上分析师余烬监测，Tether比特币储备地址从Bitfinex提出951枚BTC（价值约$7,047万），与Tether惯例一致：每季度结束后数日将当季用15%公司利润购买的BTC从Bitfinex提出存入储备。目前Tether储备地址持有97,141枚BTC（约$72亿），为全球第五大BTC钱包，历史均价约$51,312/枚，当前浮盈约$21.75亿。数量核验：951枚×$74,100/枚≈$7,047万 ✓</div>
+    <div class="news-tags">
+      <span class="news-tag">季度级影响</span>
+      <span class="news-tag">机构持仓</span>
+      <span class="news-tag">Tether储备</span>
+      <span class="news-tag">Q1采购确认</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476920" target="_blank">Odaily</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority high">HIGH</span></div>
+    <div class="news-title">Matrixport链上巨鲸平仓2.5万枚ETH多单，持仓65天获利$1732万</div>
+    <div class="news-desc">链上监控显示，一个与Matrixport关联的地址平仓2.5万枚ETH（25,000枚）多头仓位，建仓约65天，获利约$1,732万。按获利计算，每枚ETH平均收益约$692.8，推算建仓均价约$1,507，出场价约$2,200，持仓期间ETH涨幅约+46%。该笔操作是Matrixport机构账号近期继BTC获利操作后的又一次成功套利，验证其多资产轮动策略有效性。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">机构动向</span>
+      <span class="news-tag">ETH获利了结</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476942" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- 行业趋势 -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🚀</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">3</span>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">OpenAI放弃挪威Stargate直租计划，微软接手 · TeraWulf募资$9亿扩AI数据中心，HPC收入首超挖矿</div>
+    <div class="news-desc">OpenAI宣布放弃直接租用挪威Narvik"Stargate Norway"230MW数据中心的计划（英国Nscale建设），相关算力由微软接手——OpenAI将通过微软云服务获取挪威算力，财务上更符合既有Stargate框架。同日，矿企TeraWulf宣布拟发行4,740万股募资$9亿，用于在肯塔基州扩建HPC/AI数据中心并偿还桥接融资，Q1高性能计算托管收入首次超过比特币挖矿业务。两则消息共同指向AI算力需求对比特币矿企与云计算生态的结构性重塑。</div>
+    <div class="news-tags">
+      <span class="news-tag">周级影响</span>
+      <span class="news-tag">AI算力</span>
+      <span class="news-tag">云计算竞争</span>
+      <span class="news-tag">矿企转型</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/476880" target="_blank">Odaily（Stargate挪威）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476895" target="_blank">Odaily（TeraWulf）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">Binance推出USD1持有者瓜分WLFI $1500万活动 · 孙宇晨怒批WLFI解锁提案"世界暴政"</div>
+    <div class="news-desc">币安宣布4月17日至5月15日间，平台合格用户持有USD1（World Liberty Financial稳定币）可瓜分总计$1,500万WLFI代币奖励，每周五发放。同日，孙宇晨在社交媒体发文抨击WLFI解锁提案，称其"被包装成治理对齐信号和长期承诺"，实质是"世界暴政，不是世界自由金融"。WLFI生态内部分歧公开化，Binance联合营销与孙宇晨批评同步出现，形成舆论对冲。</div>
+    <div class="news-tags">
+      <span class="news-tag">日级影响</span>
+      <span class="news-tag">WLFI</span>
+      <span class="news-tag">稳定币营销</span>
+      <span class="news-tag">治理分歧</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341423" target="_blank">BlockBeats（Binance活动）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/476949" target="_blank">Odaily（孙宇晨）</a></div>
+  </div>
+
+  <div class="news-item">
+    <div class="news-meta"><span class="tag-priority mid">MID</span></div>
+    <div class="news-title">嘉楠科技持有1808枚BTC+3952枚ETH，加密财库达历史新高</div>
+    <div class="news-desc">嘉楠科技（Canaan）发布截至2026年3月底挖矿更新报告：3月自营挖矿产出89枚BTC，比特币持仓达1,808枚历史新高，另持有3,952枚ETH。全球装机容量达266.3MW，3月新增超10MW。与美股上市矿企普遍采取主动储币策略一致，嘉楠正将挖矿收益直接转化为战略性加密资产储备，两类资产历史持仓量均创下新高。</div>
+    <div class="news-tags">
+      <span class="news-tag">月级影响</span>
+      <span class="news-tag">矿企财库</span>
+      <span class="news-tag">机构持仓</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341360" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<div class="keywords-wrap">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords">
+    <span class="keyword">美伊停火延长两周讨论</span>
+    <span class="keyword">伊朗外交部·无法确认</span>
+    <span class="keyword">特朗普赴巴基斯坦信号</span>
+    <span class="keyword">特朗普美加油管许可</span>
+    <span class="keyword">贝森特·美联储进一步降息</span>
+    <span class="keyword">银行Q1回购$330亿创纪录</span>
+    <span class="keyword">英国FCA 2027加密监管框架</span>
+    <span class="keyword">Cantor Fitzgerald PAC捐赠$1000万</span>
+    <span class="keyword">XRP ETF净流入$1711万</span>
+    <span class="keyword">SOL ETF净流入$536万</span>
+    <span class="keyword">BTC $75,000 +1.27%</span>
+    <span class="keyword">ALTS指数+11.46%</span>
+    <span class="keyword">BIO +98% VITA +82%</span>
+    <span class="keyword">BNB季度销毁156.9万枚$10.2亿</span>
+    <span class="keyword">Tether提出951 BTC $7047万</span>
+    <span class="keyword">Matrixport 2.5万ETH获利$1732万</span>
+    <span class="keyword">OpenAI Stargate挪威转微软</span>
+    <span class="keyword">TeraWulf募资$9亿HPC首超挖矿</span>
+    <span class="keyword">Binance USD1瓜分$1500万WLFI</span>
+    <span class="keyword">孙宇晨·WLFI世界暴政</span>
+    <span class="keyword">嘉楠1808 BTC+3952 ETH历史新高</span>
+  </div>
+</div>
+
+<div class="footer">
+  OKX Research · 内容来源：Odaily / BlockBeats / 吴说区块链 / The Block<br>
+  本报告仅供参考，不构成投资建议 · 数据截至北京时间 04月16日 09:30
+</div>
+
+</body>
+</html>
