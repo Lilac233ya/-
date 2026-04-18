@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密早报 · 2026.04.18</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000; color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    width: 860px; margin: 0 auto; padding: 32px 32px 28px;
+  }
+  .top-bar {
+    height: 3px;
+    background: linear-gradient(90deg, #BCFF2F, #7ACC00, transparent);
+    border-radius: 2px; margin-bottom: 24px;
+  }
+  .header {
+    display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 20px;
+  }
+  .header-title { font-size: 22px; font-weight: 800; letter-spacing: 0.5px; color: #fff; line-height: 1.2; text-align: center; }
+  .header-title span { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #444; margin-top: 5px; letter-spacing: 0.5px; text-align: center; }
+  .header-date { font-size: 13px; color: #BCFF2F; font-weight: 600; letter-spacing: 1px; text-align: right; line-height: 1.4; }
+  .header-date .label { font-size: 10px; color: #444; display: block; margin-bottom: 2px; }
+  .alert-banner {
+    background: rgba(188,255,47,0.04);
+    border: 1px solid rgba(188,255,47,0.2);
+    border-left: 3px solid #BCFF2F;
+    border-radius: 6px; padding: 10px 14px; margin-bottom: 16px;
+    font-size: 12px; color: #888; line-height: 1.6;
+  }
+  .alert-banner .banner-title {
+    font-size: 11px; font-weight: 700; color: #BCFF2F;
+    letter-spacing: 0.5px; margin-bottom: 4px; text-transform: uppercase;
+  }
+  .hl-green  { color: #BCFF2F; font-weight: 600; }
+  .hl-red    { color: #FF3B3B; font-weight: 600; }
+  .hl-yellow { color: #FFD600; font-weight: 600; }
+  .hl-white  { color: #fff;    font-weight: 600; }
+  .blocks { display: flex; flex-direction: column; gap: 8px; }
+  .block {
+    position: relative; background: #0c0c0c;
+    border: 1px solid #1E1E1E; border-radius: 6px; overflow: hidden;
+  }
+  .block::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: #BCFF2F; border-radius: 3px 0 0 3px;
+  }
+  .block.alert::before { background: #FF3B3B; }
+  .block.mid::before   { background: #444; }
+  .block-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px 8px 16px; border-bottom: 1px solid #161616;
+  }
+  .block-cat { font-size: 11px; font-weight: 700; color: #aaa; letter-spacing: 0.5px; flex: 1; }
+  .block-cat .icon { margin-right: 4px; }
+  .tag-priority { border-radius: 3px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1);  color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-count { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 1px 7px; font-size: 10px; color: #555; }
+  .block-body { padding: 8px 14px 4px 16px; }
+  .news-item { padding: 8px 0; border-bottom: 1px solid #111; }
+  .news-item:last-child { border-bottom: none; padding-bottom: 10px; }
+  .news-title { font-size: 13px; font-weight: 700; color: #eee; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #888; line-height: 1.65; margin-bottom: 5px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { font-size: 10px; padding: 1px 6px; border-radius: 3px; border: 1px solid #222; color: #555; }
+  .news-tag.high { border-color: rgba(255,59,59,0.3); color: #FF3B3B; background: rgba(255,59,59,0.08); }
+  .news-tag.mid  { border-color: rgba(255,214,0,0.25); color: #FFD600; background: rgba(255,214,0,0.08); }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #555; text-decoration: none; }
+  .news-source a:hover { color: #BCFF2F; }
+  .footer-wrap { margin-top: 18px; padding-top: 14px; border-top: 1px solid #151515; }
+  .footer-label { font-size: 10px; color: #333; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .kw { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .disclaimer { font-size: 10px; color: #333; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+  <div style="flex:1;">
+    <div class="header-title">OKX Research · <span>加密早报</span></div>
+    <div class="header-sub">4月17日 20:00 — 4月18日 09:30（北京时间）</div>
+  </div>
+  <div class="header-date">
+    <span class="label">DATE</span>
+    2026.04.18
+  </div>
+</div>
+
+<div class="alert-banner">
+  <div class="banner-title">🟢 今日核心主线 — 霍尔木兹正式复航·BTC突破7.7万·Payward $5.5亿并购·机构单日购入ETH 32,007枚</div>
+  伊朗外长正式宣布霍尔木兹海峡商业船只通行开放，<span class="hl-green">美布两油日内跌幅达3%</span>，风险情绪回暖推动<span class="hl-green">BTC突破7.7万美元</span>·加密板块全线上涨 · 特朗普宣布伊朗同意<span class="hl-green">"无限期暂停核项目"</span>，核谈判称有望"一两天内"达成协议 · 但伊朗议长随即发声"<span class="hl-red">绝不放弃控制霍尔木兹</span>"——停火叙事内部矛盾持续 · Payward（Kraken母公司）宣布以<span class="hl-green">5.5亿美元</span>并购首家CFTC三证持牌衍生品机构Bitnomial · 机构/鲸鱼单日从币安购入<span class="hl-green">32,007枚ETH</span>（约$7,749万）
+</div>
+
+<div class="blocks">
+
+  <!-- 全球事件 HIGH -->
+  <div class="block alert">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">🌍</span>全球事件 · 伊朗停火与核谈判双线推进</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">3条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">霍尔木兹海峡正式复航：外长宣布商业船只通行开放，美布油-3%</div>
+        <div class="news-desc">
+          伊朗外长阿拉格齐正式宣布：<span class="hl-green">"霍尔木兹海峡商业船只通行已开放"</span>——此前IRGC的封锁威胁彻底解除。美、布两油日内跌幅达<span class="hl-green">3%</span>，分别报<span class="hl-white">$89.70/桶</span>和<span class="hl-white">$91.15/桶</span>；油价回落叠加地缘解压，风险情绪全面好转，BTC在此消息后快速拉升突破7.7万美元，加密板块联动上涨。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">影响价格</span>
+          <span class="news-tag">调动情绪</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477230" target="_blank">Odaily（外长复航）</a> · <a href="https://www.odaily.news/newsflash/477220" target="_blank">Odaily（油价-3%）</a> · <a href="https://www.odaily.news/newsflash/477260" target="_blank">Odaily（BTC7.7万）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">特朗普：伊朗同意无限期暂停核项目，美不释放冻结资金；谈判有望"一两天内"达成</div>
+        <div class="news-desc">
+          特朗普宣布<span class="hl-green">"伊朗已同意无限期暂停核项目"</span>，并明确表态美国<span class="hl-red">不会释放被冻结的伊朗资金</span>；随后又称美伊谈判有望在<span class="hl-green">"一两天内"</span>达成协议，并暗示协议将带来"免费霍尔木兹"。伊朗高官也表态"未来几天内可能达成初步协议，并有可能延长停火"。核协议谈判进入最后冲刺阶段，为全球能源和风险资产带来明确利好预期。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 月级</span>
+          <span class="news-tag">影响价格</span>
+          <span class="news-tag">改变流动性</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477280" target="_blank">Odaily（核项目停止）</a> · <a href="https://www.odaily.news/newsflash/477288" target="_blank">Odaily（一两天协议）</a> · <a href="https://www.theblockbeats.info/flash/341810" target="_blank">BlockBeats（伊朗高官）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">矛盾声音：伊朗议长"绝不放弃霍尔木兹"，官方表态内部撕裂</div>
+        <div class="news-desc">
+          伊朗议长强势发声：<span class="hl-red">"绝不放弃控制霍尔木兹海峡"</span>，并称"特朗普妄言摧毁伊朗文明已失败"；同日议长又声称特朗普在社媒发布的7项声明<span class="hl-red">"均不属实"</span>。与此同时，伊朗外长和高级谈判官员发出的则是积极谈判信号。官方表态的内部撕裂意味着停火协议仍不稳固——一旦强硬派主导，地缘风险将迅速回归。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">调动情绪</span>
+          <span class="news-tag">影响价格</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477293" target="_blank">Odaily（议长绝不放弃）</a> · <a href="https://www.odaily.news/newsflash/477297" target="_blank">Odaily（7项声明不属实）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 全球监管 HIGH -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">⚖️</span>全球监管 · Kraken并购Bitnomial &amp; ETF净流入</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">2条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">Payward（Kraken母公司）以$5.5亿并购Bitnomial，拿下美国首家CFTC三证衍生品机构</div>
+        <div class="news-desc">
+          Payward宣布以现金+股票方式收购Bitnomial，总对价高达<span class="hl-green">5.5亿美元</span>。Bitnomial是全球首家同时持有CFTC指定合约市场（DCM）、衍生品清算机构（DCO）和期货经纪商（FCM）三项牌照的加密原生平台，成为美国合规衍生品基础设施的稀缺资产。收购完成后，Kraken生态（含NinjaTrader、B2B基础设施）将获得一站式美国合规衍生品全栈能力，预计<span class="hl-yellow">2026年上半年完成交割</span>，加速Kraken上市时间表。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 季度级</span>
+          <span class="news-tag">改变参与者结构</span>
+          <span class="news-tag">影响使用方式</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.coindesk.com/business/2026/04/17/kraken-s-parent-company-payward-to-acquire-derivatives-exchange-bitnomial-for-usd550-million-in-cash-and-stock" target="_blank">CoinDesk</a> · <a href="https://www.chaincatcher.com/article/2259315" target="_blank">链捕手</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">XRP ETF单日净流入$1,374万 · SOL ETF$1,303万，山寨ETF持续双线吸金</div>
+        <div class="news-desc">
+          4月17日数据：美国XRP现货ETF单日总净流入<span class="hl-green">$1,374.46万美元</span>；美国SOL现货ETF单日总净流入<span class="hl-green">$1,303.63万美元</span>。两类ETF连续多日录得正向流入，表明机构资金持续布局主流山寨赛道。此外USDC推出官方跨链桥<span class="hl-white">USDC Bridge</span>，支持原生销毁-铸造机制，进一步打通多链稳定币流动性。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">改变参与者结构</span>
+          <span class="news-tag">影响价格</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477302" target="_blank">Odaily（XRP ETF）</a> · <a href="https://www.odaily.news/newsflash/477310" target="_blank">Odaily（SOL ETF）</a> · <a href="https://www.odaily.news/newsflash/477303" target="_blank">Odaily（USDC Bridge）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 加密数据 HIGH -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">📈</span>加密数据 · BTC7.7万与山寨分化</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">2条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">BTC突破7.7万美元，加密板块全线上涨；BTC短时跌破7.7万后企稳</div>
+        <div class="news-desc">
+          霍尔木兹复航消息刺激风险情绪，BTC快速拉升突破<span class="hl-green">$77,000</span>，ETH同步突破<span class="hl-green">$2,400</span>（24H涨+2.35%），主流山寨普涨6-8%。美股收盘加密板块全线上涨：<span class="hl-green">ABTC +15.04%</span>领涨，传统加密股随行情回暖。夜间BTC短时跌破$77,000（24H涨幅一度收窄至2.68%），关键支撑测试后企稳，市场多空博弈持续。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">影响价格</span>
+          <span class="news-tag">调动情绪</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477260" target="_blank">Odaily（BTC7.7万）</a> · <a href="https://www.odaily.news/newsflash/477295" target="_blank">Odaily（短跌7.7万）</a> · <a href="https://www.odaily.news/newsflash/477308" target="_blank">Odaily（美股收盘）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">ORDI日内跌超27%（从$10.7跌至$5.53）vs RAVE涨41%——山寨动能剧烈分化</div>
+        <div class="news-desc">
+          昨日单日+190%创新高的ORDI，在本窗口内急速逆转，<span class="hl-red">日内跌超27%</span>至<span class="hl-red">$5.53</span>，市值跌至$1.25亿，BRC-20热度快速消退。与此同时新任妖币<span class="hl-white">RAVE</span>突破<span class="hl-green">$25.8</span>（<span class="hl-green">日内+41%</span>），接力承接Meme轮动资金。链上数据显示ORDI抛压集中在大量短期获利盘出局，本轮BRC-20叙事高峰或已过，资金已在寻找下一个切换点。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 天级</span>
+          <span class="news-tag">调动情绪</span>
+          <span class="news-tag">影响价格</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477300" target="_blank">Odaily（ORDI-27%）</a> · <a href="https://www.odaily.news/newsflash/477301" target="_blank">Odaily（RAVE+41%）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 链上事件 HIGH -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">⛓️</span>链上事件 · 机构买ETH与巨鲸动向</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">2条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">鲸鱼/机构单日从币安购入32,007枚ETH（约$7,749万），资金源自BitGo</div>
+        <div class="news-desc">
+          链上监测（Onchain Lens）：某大型地址在24小时内向Deribit、Bybit及币安转入约<span class="hl-white">$2.25亿USDC</span>，资金来源为BitGo托管；随后从币安购入<span class="hl-green">32,007枚ETH</span>（合计约<span class="hl-green">$7,749万</span>）。该规模与机构级配置行为吻合。Arthur Hayes关联地址同期向币安充值<span class="hl-yellow">3,000枚ETH</span>（约$726万）。双重ETH大额入场信号叠加，叙事指向ETH价格获机构筹码支撑。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">改变参与者结构</span>
+          <span class="news-tag">影响价格</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477304" target="_blank">Odaily（32007枚ETH）</a> · <a href="https://www.odaily.news/newsflash/477306" target="_blank">Odaily（Arthur Hayes）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">巨鲸转入222万枚TRUMP至币安（约$682万），TRUMP筹码集中向交易所流动</div>
+        <div class="news-desc">
+          链上数据：某巨鲸地址将<span class="hl-yellow">222万枚TRUMP</span>（约<span class="hl-yellow">$682万</span>）转入币安，同日特朗普午宴排行榜第二地址清仓TRUMP、并将钱包ID从[嗯哼NB]改为[WJGZ]。多笔大额TRUMP向交易所归集，市场关注是否为获利了结前兆。加密创新委员会同期收购能源政策机构，强化算力与能源议题布局，与矿企算力向AI转型的叙事方向一致。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag mid">MID · 天级</span>
+          <span class="news-tag">调动情绪</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477305" target="_blank">Odaily（TRUMP巨鲸）</a> · <a href="https://www.odaily.news/newsflash/477291" target="_blank">Odaily（加密创新委员会）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 行业趋势 HIGH -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">🚀</span>行业趋势 · World ID落地 &amp; AI大融资 &amp; ETH安全</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">3条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">World ID重大升级：接入Tinder、Zoom、DocuSign，Sam Altman"人机验证帝国"全面落地</div>
+        <div class="news-desc">
+          Sam Altman旗下World（原Worldcoin）宣布重大生态扩张：<span class="hl-green">Tinder</span>将采用World ID进行年龄验证，<span class="hl-green">Zoom</span>用户可展示经验证身份凭证以打击深度伪造，<span class="hl-green">DocuSign</span>确保合约签署方为真人；另推出<span class="hl-white">Agent Delegation</span>功能，允许用户将World ID委托给AI代理，在网络中以人类身份执行操作。接入Okta（beta）进一步构建人机验证基础设施。WLD代币实用性大幅提升，AI Agent+人机验证赛道标杆地位确立。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 月级</span>
+          <span class="news-tag">影响使用方式</span>
+          <span class="news-tag">改变参与者结构</span>
+        </div>
+        <div class="news-source">来源：<a href="https://techcrunch.com/2026/04/17/sam-altmans-project-world-looks-to-scale-its-human-verification-empire-first-stop-tinder/" target="_blank">TechCrunch</a> · <a href="https://tech.yahoo.com/ai/articles/tinder-docusign-zoom-integrate-sam-180423399.html" target="_blank">Yahoo Tech</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">以太坊基金会ETH Rangers报告：识别~100名国家级黑客（朝鲜背景），冻结$580万，记录785个漏洞</div>
+        <div class="news-desc">
+          以太坊基金会ETH Rangers安全项目发布重要报告：识别出约<span class="hl-red">100名疑似国家资助网络行动人员</span>，其中包含<span class="hl-red">朝鲜（Lazarus Group）渗透者</span>。攻击手段包括以虚假身份渗透开发团队、充当"远程IT工作者"参与技术工作等。项目成果：向<span class="hl-yellow">53个区块链项目</span>发出预警；处理<span class="hl-yellow">36起安全事件</span>；冻结或追回资金<span class="hl-yellow">$580万以上</span>；记录漏洞<span class="hl-yellow">785个</span>。"Ketman Project"将情报纳入Lazarus Group威胁分析。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 月级</span>
+          <span class="news-tag">影响使用方式</span>
+          <span class="news-tag">改变参与者结构</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341780" target="_blank">BlockBeats（ETH Rangers）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">Cursor接近完成$20亿融资（估值$500亿，半年翻倍）；DeepSeek启动首次外部融资（估值超$100亿）</div>
+        <div class="news-desc">
+          AI代码编辑器<span class="hl-white">Cursor</span>接近敲定<span class="hl-green">$20亿</span>新融资轮，估值升至<span class="hl-green">$500亿</span>（较半年前翻倍）；中国AI独角兽<span class="hl-green">DeepSeek</span>首次向外部资本开放融资洽谈，估值超<span class="hl-green">$100亿</span>——此前是全球唯一未接受外部资金的头部AI实验室。两笔大型AI融资集中落地，反映美中AI军备竞赛进入新阶段；AI叙事加热对加密AI赛道（DePIN、AI Agent类代币）形成催化。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 季度级</span>
+          <span class="news-tag">改变参与者结构</span>
+          <span class="news-tag">行业趋势</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477299" target="_blank">Odaily（Cursor融资）</a> · <a href="https://www.odaily.news/newsflash/477309" target="_blank">Odaily星球早讯（DeepSeek）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 传统金融 MID -->
+  <div class="block mid">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">📊</span>传统金融 · 宏观与美股</span>
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-count">2条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">美股收盘加密板块全线上涨（ABTC +15%），SpaceX IPO预计6月15日当周定价</div>
+        <div class="news-desc">
+          4月17日美股收盘：加密板块全线收涨，<span class="hl-green">ABTC +15.04%</span>领涨，主流加密股随BTC行情回暖。另据彭博社报道，<span class="hl-white">SpaceX IPO</span>预计在<span class="hl-yellow">2026年6月15日</span>当周定价，若落实将是年度最大科技IPO，带动风险资产整体情绪。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag mid">MID · 天/周级</span>
+          <span class="news-tag">调动情绪</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477308" target="_blank">Odaily（美股收盘）</a> · <a href="https://www.odaily.news/newsflash/477212" target="_blank">Odaily（SpaceX IPO）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">易理华：持续看好当前反弹行情，暂无止盈理由；带带带比特仅持BTC+ETH</div>
+        <div class="news-desc">
+          知名KOL<span class="hl-white">易理华</span>表态继续看好当前反弹，称"暂时没有理由止盈"。另一知名交易员<span class="hl-white">带带带比特</span>则透露目前仅持有BTC与ETH，认为山寨资产"尚未完成出清"，整体偏防守。两种观点一多一空折射出当前市场分歧：宏观利好驱动的多头情绪 vs 山寨流动性仍未完全修复的谨慎。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag mid">MID · 天级</span>
+          <span class="news-tag">调动情绪</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341790" target="_blank">BlockBeats（易理华）</a> · <a href="https://www.odaily.news/newsflash/477275" target="_blank">Odaily（带带带比特）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-wrap">
+  <div class="footer-label">今日关键词</div>
+  <div class="keywords">
+    <span class="kw">霍尔木兹正式复航</span>
+    <span class="kw">美布油价-3%</span>
+    <span class="kw">伊朗同意无限期暂停核项目</span>
+    <span class="kw">特朗普·一两天内达成协议</span>
+    <span class="kw">伊朗议长·绝不放弃霍尔木兹</span>
+    <span class="kw">BTC突破7.7万</span>
+    <span class="kw">ETH突破2400</span>
+    <span class="kw">Payward收购Bitnomial $5.5亿</span>
+    <span class="kw">Bitnomial CFTC三证</span>
+    <span class="kw">XRP ETF净流入$1374万</span>
+    <span class="kw">SOL ETF净流入$1303万</span>
+    <span class="kw">机构购入32007枚ETH $7749万</span>
+    <span class="kw">Arthur Hayes充值3000 ETH</span>
+    <span class="kw">ORDI -27% 跌破$5.53</span>
+    <span class="kw">RAVE +41% $25.8</span>
+    <span class="kw">巨鲸222万TRUMP入币安</span>
+    <span class="kw">World ID接入Tinder·Zoom·DocuSign</span>
+    <span class="kw">Agent Delegation功能</span>
+    <span class="kw">ETH基金会·100名朝鲜黑客</span>
+    <span class="kw">ETH Rangers冻结$580万</span>
+    <span class="kw">Cursor融资$20亿估值$500亿</span>
+    <span class="kw">DeepSeek首次外部融资$100亿估值</span>
+    <span class="kw">ABTC +15.04%</span>
+    <span class="kw">SpaceX IPO 6月15日</span>
+    <span class="kw">USDC Bridge官方跨链桥</span>
+  </div>
+  <div class="disclaimer">⚠️ 本早报内容仅供参考，不构成任何投资建议。加密资产价格高度波动，请做好风险管理。OKX Research · 2026.04.18</div>
+</div>
+
+</body>
+</html>
