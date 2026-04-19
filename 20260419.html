@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密早报 · 2026.04.19</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #000; color: #fff;
+    font-family: -apple-system, 'PingFang SC', 'Helvetica Neue', Arial, sans-serif;
+    width: 860px; margin: 0 auto; padding: 32px 32px 28px;
+  }
+  .top-bar {
+    height: 3px;
+    background: linear-gradient(90deg, #FF3B3B, #cc2200, transparent);
+    border-radius: 2px; margin-bottom: 24px;
+  }
+  .header {
+    display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 20px;
+  }
+  .header-title { font-size: 22px; font-weight: 800; letter-spacing: 0.5px; color: #fff; line-height: 1.2; text-align: center; }
+  .header-title span { color: #BCFF2F; }
+  .header-sub { font-size: 11px; color: #444; margin-top: 5px; letter-spacing: 0.5px; text-align: center; }
+  .header-date { font-size: 13px; color: #BCFF2F; font-weight: 600; letter-spacing: 1px; text-align: right; line-height: 1.4; }
+  .header-date .label { font-size: 10px; color: #444; display: block; margin-bottom: 2px; }
+  .alert-banner {
+    background: rgba(255,59,59,0.05);
+    border: 1px solid rgba(255,59,59,0.22);
+    border-left: 3px solid #FF3B3B;
+    border-radius: 6px; padding: 10px 14px; margin-bottom: 16px;
+    font-size: 12px; color: #888; line-height: 1.65;
+  }
+  .alert-banner .banner-title {
+    font-size: 11px; font-weight: 700; color: #FF3B3B;
+    letter-spacing: 0.5px; margin-bottom: 4px; text-transform: uppercase;
+  }
+  .hl-green  { color: #BCFF2F; font-weight: 600; }
+  .hl-red    { color: #FF3B3B; font-weight: 600; }
+  .hl-yellow { color: #FFD600; font-weight: 600; }
+  .hl-white  { color: #fff;    font-weight: 600; }
+  .blocks { display: flex; flex-direction: column; gap: 8px; }
+  .block {
+    position: relative; background: #0c0c0c;
+    border: 1px solid #1E1E1E; border-radius: 6px; overflow: hidden;
+  }
+  .block::before {
+    content: ''; position: absolute; left: 0; top: 0; bottom: 0;
+    width: 3px; background: #BCFF2F; border-radius: 3px 0 0 3px;
+  }
+  .block.alert::before { background: #FF3B3B; }
+  .block.mid::before   { background: #444; }
+  .block-header {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 14px 8px 16px; border-bottom: 1px solid #161616;
+  }
+  .block-cat { font-size: 11px; font-weight: 700; color: #aaa; letter-spacing: 0.5px; flex: 1; }
+  .block-cat .icon { margin-right: 4px; }
+  .tag-priority { border-radius: 3px; padding: 1px 6px; font-size: 10px; font-weight: 700; letter-spacing: 0.5px; }
+  .tag-priority.high { background: rgba(255,59,59,0.15); color: #FF3B3B; border: 1px solid rgba(255,59,59,0.3); }
+  .tag-priority.mid  { background: rgba(255,214,0,0.1);  color: #FFD600; border: 1px solid rgba(255,214,0,0.25); }
+  .tag-count { background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 10px; padding: 1px 7px; font-size: 10px; color: #555; }
+  .block-body { padding: 8px 14px 4px 16px; }
+  .news-item { padding: 8px 0; border-bottom: 1px solid #111; }
+  .news-item:last-child { border-bottom: none; padding-bottom: 10px; }
+  .news-title { font-size: 13px; font-weight: 700; color: #eee; margin-bottom: 4px; }
+  .news-desc { font-size: 12px; color: #888; line-height: 1.65; margin-bottom: 5px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 4px; margin-bottom: 5px; }
+  .news-tag { font-size: 10px; padding: 1px 6px; border-radius: 3px; border: 1px solid #222; color: #555; }
+  .news-tag.high { border-color: rgba(255,59,59,0.3); color: #FF3B3B; background: rgba(255,59,59,0.08); }
+  .news-tag.mid  { border-color: rgba(255,214,0,0.25); color: #FFD600; background: rgba(255,214,0,0.08); }
+  .news-source { font-size: 11px; color: #444; }
+  .news-source a { color: #555; text-decoration: none; }
+  .news-source a:hover { color: #BCFF2F; }
+  .footer-wrap { margin-top: 18px; padding-top: 14px; border-top: 1px solid #151515; }
+  .footer-label { font-size: 10px; color: #333; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+  .keywords { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+  .kw { background: #0d0d0d; border: 1px solid #1a1a1a; border-radius: 10px; padding: 3px 10px; font-size: 11px; color: #BCFF2F; }
+  .disclaimer { font-size: 10px; color: #333; line-height: 1.6; }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+  <div style="flex:1;">
+    <div class="header-title">OKX Research · <span>加密早报</span></div>
+    <div class="header-sub">4月18日 20:00 — 4月19日 09:30（北京时间）</div>
+  </div>
+  <div class="header-date">
+    <span class="label">DATE</span>
+    2026.04.19
+  </div>
+</div>
+
+<div class="alert-banner">
+  <div class="banner-title">🚨 今日双线危机 — 2026年最大DeFi攻击 · 霍尔木兹24小时内再次关闭</div>
+  Kelp DAO rsETH桥接遭LayerZero漏洞攻击：凭空铸造<span class="hl-red">11.65万枚rsETH（$2.92亿）</span>，黑客套现获利约<span class="hl-red">74,000枚ETH</span>，Aave/Compound/Euler合计坏账超<span class="hl-red">$2.36亿</span>，<span class="hl-red">AAVE跌约10%</span>，为2026年最大DeFi攻击 · Justin Sun攻击发生前5小时神秘提走<span class="hl-yellow">53,665枚ETH（$1.26亿）</span> · 霍尔木兹航运在昨日复航后<span class="hl-red">24小时内再次停滞</span>，伊朗最高国家安全机构宣称"控制霍尔木兹直到战争彻底结束" · BTC现货ETF单日净流入<span class="hl-green">$6.64亿</span>（IBIT $2.84亿·连续8日净流入）
+</div>
+
+<div class="blocks">
+
+  <!-- 链上安全 HIGH -->
+  <div class="block alert">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">🔐</span>链上事件 · Kelp DAO $2.92亿攻击 &amp; DeFi坏账扩散</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">2条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">Kelp DAO rsETH遭LayerZero漏洞攻击：凭空铸造11.65万枚rsETH，黑客套现74,000 ETH（2026年最大DeFi攻击）</div>
+        <div class="news-desc">
+          4月18日17:35 UTC，攻击者利用LayerZero <span class="hl-white">EndpointV2</span> 合约的 <span class="hl-red">lzReceive函数漏洞</span>，伪造跨链消息触发Kelp DAO桥接协议，凭空铸造<span class="hl-red">116,500枚rsETH</span>（占流通量约18%，价值$2.92亿）。黑客随即将大部分rsETH存入Aave/Compound/Euler作为抵押借出ETH，少部分直接抛售，合计套现约<span class="hl-red">74,000枚ETH</span>（$2.8亿+）。Kelp紧急暂停合约（攻击后46分钟），但后续又发生两次尝试性攻击（各40,000枚rsETH，均被拦截）。事故导致Aave等协议出现超<span class="hl-red">$2.36亿坏账</span>，<span class="hl-red">AAVE代币跌约10%</span>。rsETH代币被搁置在超20条链上，为2026年DeFi史上最大攻击，超越此前Drift事件。攻击者10小时前已通过<span class="hl-yellow">Tornado Cash</span>（1-ETH池）完成资金混淆预备。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 月级</span>
+          <span class="news-tag">改变流动性</span>
+          <span class="news-tag">影响价格</span>
+          <span class="news-tag">改变使用方式</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477371" target="_blank">Odaily（Kelp攻击）</a> · <a href="https://www.theblockbeats.info/flash/341922" target="_blank">BlockBeats（详情）</a> · <a href="https://www.coindesk.com/tech/2026/04/19/2026-s-biggest-crypto-exploit-kelp-dao-hit-for-usd292-million-with-wrapped-ether-stranded-across-20-chains" target="_blank">CoinDesk</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">Justin Sun攻击发生前5小时从Aave赎回53,665枚ETH（$1.26亿），资金仍在钱包未移动</div>
+        <div class="news-desc">
+          链上数据（BlockBeats）：攻击发生前约5小时，<span class="hl-yellow">Justin Sun</span>关联地址从Aave提取<span class="hl-yellow">53,665枚ETH</span>（价值约<span class="hl-yellow">$1.26亿</span>）。数据确认资金仍留存在其钱包中，未进一步转移。时机的高度巧合引发市场广泛质疑，但目前无证据显示二者存在直接关联。同期，ZachXBT也在社交媒体提示：<span class="hl-white">"不建议对高控盘代币进行做空"</span>（隐含对RAVE等代币的警示）。Aave协议因rsETH作为抵押品产生坏账，核心团队已宣布冻结rsETH相关市场，SparkLend、Fluid、Upshift等协议同步冻结。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">改变流动性</span>
+          <span class="news-tag">调动情绪</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341919" target="_blank">BlockBeats（Justin Sun）</a> · <a href="https://www.odaily.news/newsflash/477372" target="_blank">Odaily（Aave坏账）</a> · <a href="https://www.odaily.news/newsflash/477357" target="_blank">Odaily（ZachXBT）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 全球事件 HIGH -->
+  <div class="block alert">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">🌍</span>全球事件 · 霍尔木兹24小时内再次关闭</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">2条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">霍尔木兹航运24小时内再次停滞：伊朗最高安全机构"控制直到战争结束"，议长"战争随时重启"</div>
+        <div class="news-desc">
+          昨日复航消息今日全面反转：<span class="hl-red">霍尔木兹海峡航运再次停滞</span>，多艘船只尝试通行后折返。伊朗最高国家安全机构连发强硬声明：<span class="hl-red">"伊朗决心控制霍尔木兹海峡交通直到战争彻底结束"</span>，并将控制权定义为包括向过往船只<span class="hl-red">收取费用</span>；伊朗议长随后表态<span class="hl-red">"战争随时可能重启"</span>，称"距离最终协议仍有很长的路要走"。专家评论：伊朗"短暂重开后再次关闭"表明停火协议稳定性极差，特朗普此前的乐观谈判前景正遭质疑。油价承压反弹预期升温，地缘风险溢价重新回归。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">影响价格</span>
+          <span class="news-tag">调动情绪</span>
+          <span class="news-tag">改变流动性</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477376" target="_blank">Odaily（停滞）</a> · <a href="https://www.odaily.news/newsflash/477366" target="_blank">Odaily（安全机构声明）</a> · <a href="https://www.theblockbeats.info/flash/341925" target="_blank">BlockBeats（议长战争重启）</a> · <a href="https://www.theblockbeats.info/flash/341916" target="_blank">BlockBeats（专家评论）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">特朗普：与伊朗进行"非常好的对话"；下周美伊谈判或在伊斯兰堡举行，伊拉克石油出口将恢复</div>
+        <div class="news-desc">
+          特朗普表态与伊朗正在进行<span class="hl-green">"非常好的对话"</span>，并称"伊朗无法对我们进行勒索"，展示谈判强势姿态。伊斯兰堡（巴基斯坦）已升级交通管控，为下周美伊谈判会面做准备——下周将同时面临<span class="hl-yellow">美伊谈判</span>与<span class="hl-yellow">美联储人事变局</span>两大宏观风险。与此同时，伊拉克石油部宣布<span class="hl-green">所有油田石油出口将在数天内恢复</span>，南部出口已重启——霍尔木兹与伊拉克两条能源通道同步博弈，油价走向高度分裂。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">调动情绪</span>
+          <span class="news-tag">影响价格</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477367" target="_blank">Odaily（特朗普）</a> · <a href="https://www.odaily.news/newsflash/477365" target="_blank">Odaily（伊斯兰堡）</a> · <a href="https://www.theblockbeats.info/flash/341895" target="_blank">BlockBeats（下周宏观展望）</a> · <a href="https://www.theblockbeats.info/flash/341885" target="_blank">BlockBeats（伊拉克石油）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 加密数据 HIGH -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">📈</span>加密数据 · ETF破纪录净流入 &amp; Meme极端行情</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">2条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">BTC现货ETF单日净流入$6.64亿创近期高峰，IBIT $2.84亿领跑·连续8天净流入·BTC区间~$77,000</div>
+        <div class="news-desc">
+          4月18日数据：美国BTC现货ETF全日总净流入<span class="hl-green">$6.64亿</span>，为近期最高纪录。其中BlackRock IBIT单日净流入<span class="hl-green">$2.84亿</span>领跑所有ETF，已连续<span class="hl-green">8天</span>保持净流入；IBIT近8日累计净流入约$13.4亿，累计总净流入升至<span class="hl-green">$646.33亿</span>。BTC价格区间维持~$77,000附近（曾短暂触及$78,300后回调），ETH日内触及<span class="hl-green">$2,400</span>+（日涨+4%）。机构资金持续托底，ETF吸盘力度支撑BTC关键价位。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 周级</span>
+          <span class="news-tag">改变参与者结构</span>
+          <span class="news-tag">影响价格</span>
+          <span class="news-tag">改变流动性</span>
+        </div>
+        <div class="news-source">来源：<a href="https://coinedition.com/blackrock-ibit-leads-664m-etf-inflows-with-284m-daily-surge/" target="_blank">CoinEdition（IBIT $6.64亿）</a> · <a href="https://www.theblock.co/post/397988/kelp-daos-rseth-bridge-apparently-exploited-for-roughly-292-million-in-layerzero-based-attack" target="_blank">The Block（市场背景）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">RAVE崩盘88%·全网合约爆仓$4,371万；ASTEROID +400%·马斯克同意成为SpaceX吉祥物</div>
+        <div class="news-desc">
+          Meme币行情极端分化：昨日妖币<span class="hl-white">RAVE</span>今日急速崩盘<span class="hl-red">-88%</span>，全网RAVE合约<span class="hl-red">爆仓$4,371万</span>（多单为主）；RaveDAO发声否认价格操纵，但承认将"择机出售代币支付运营成本"——实为隐性看空确认。疑似庄家地址持有<span class="hl-yellow">7.5亿枚RAVE</span>（占存量极高比例）已引发ZachXBT警告。与此同时，ETH链新妖币<span class="hl-white">ASTEROID</span>爆发<span class="hl-green">+400%</span>，市值短时突破<span class="hl-green">1.6亿美元</span>——马斯克在X上同意ASTEROID成为SpaceX吉祥物，催化链上热度。Meme赛道资金从RAVE迅速轮动至ASTEROID。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 天级</span>
+          <span class="news-tag">调动情绪</span>
+          <span class="news-tag">影响价格</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341923" target="_blank">BlockBeats（RAVE-88%爆仓）</a> · <a href="https://www.theblockbeats.info/flash/341920" target="_blank">BlockBeats（ASTEROID/马斯克）</a> · <a href="https://www.odaily.news/newsflash/477373" target="_blank">Odaily（ASTEROID突破1.3亿）</a> · <a href="https://www.odaily.news/newsflash/477370" target="_blank">Odaily（RaveDAO回应）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 行业趋势 HIGH -->
+  <div class="block">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">🚀</span>行业趋势 · OpenAI高层震荡</span>
+      <span class="tag-priority high">HIGH</span>
+      <span class="tag-count">1条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">OpenAI单日三位核心高管出走·Sora项目关停·股东私下密谋让Bret Taylor接替Altman</div>
+        <div class="news-desc">
+          4月18日，OpenAI在IPO推进关键阶段单日流失三位核心高管：<span class="hl-red">Bill Peebles</span>（Sora项目负责人）、<span class="hl-red">Kevin Weil</span>（AI for Science副总裁）、<span class="hl-red">Srinivas Narayanan</span>（企业应用CTO）同日出走，<span class="hl-red">Sora项目随即被关停</span>，团队"转向其他方向"。伴随此次动荡，《华尔街日报》披露部分股东对Altman个人投资（核聚变公司Helion、脑机接口公司Merge Labs、航天Stoke Space）存在<span class="hl-red">利益冲突</span>指控；多位知情人士透露<span class="hl-red">"部分股东已私下讨论由董事会主席Bret Taylor接替Altman出任CEO的可能性"</span>。此次人事地震发生在OpenAI IPO倒计时阶段，对AI叙事估值形成压制，但Cursor/DeepSeek等替代性AI融资热度不减（本窗口前日刚完成大轮），市场重新审视OpenAI的核心地位。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag high">HIGH · 月级</span>
+          <span class="news-tag">改变参与者结构</span>
+          <span class="news-tag">调动情绪</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341900" target="_blank">BlockBeats（OpenAI震荡）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 宏观 MID -->
+  <div class="block mid">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">📊</span>宏观数据 · 传统市场</span>
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-count">1条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">下周双重宏观风险：美伊谈判（伊斯兰堡）+ 美联储人事变局；伊拉克石油出口恢复</div>
+        <div class="news-desc">
+          BlockBeats宏观展望指出下周有两大关键变量：①<span class="hl-yellow">美伊谈判</span>——会谈地点确认为巴基斯坦首都伊斯兰堡，美方由贝森特带队，伊方由外长阿拉格齐出席，中东油价走势受此左右；②<span class="hl-yellow">美联储人事变局</span>——特朗普提名沃什为新主席，参议员批评沃什"不符道德规范"，政策不确定性上升。另，伊拉克石油部宣布<span class="hl-green">南部油田石油出口已恢复</span>，全部油田将在数日内回归正常——伊拉克与霍尔木兹两条能源通道走势分歧，短期油价博弈加剧。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag mid">MID · 周级</span>
+          <span class="news-tag">影响价格</span>
+          <span class="news-tag">改变流动性</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341895" target="_blank">BlockBeats（下周宏观展望）</a> · <a href="https://www.theblockbeats.info/flash/341885" target="_blank">BlockBeats（伊拉克石油）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- 观点研报 MID -->
+  <div class="block mid">
+    <div class="block-header">
+      <span class="block-cat"><span class="icon">💬</span>观点研报</span>
+      <span class="tag-priority mid">MID</span>
+      <span class="tag-count">2条</span>
+    </div>
+    <div class="block-body">
+
+      <div class="news-item">
+        <div class="news-title">Blockstream CEO Adam Back：BTC价格或将"很快"逼近50万至100万美元</div>
+        <div class="news-desc">
+          Blockstream CEO、比特币OG <span class="hl-white">Adam Back</span> 在社交媒体发声：<span class="hl-green">"比特币价格将很快逼近50万至100万美元"</span>。虽属长期看涨观点，但考虑到其在比特币领域的影响力（发明了HashCash工作量证明机制），叠加当前ETF机构吸盘创历史新高，该预测在市场情绪层面有一定催化作用。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag mid">MID · 月/年级</span>
+          <span class="news-tag">调动情绪</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477364" target="_blank">Odaily（Adam Back）</a></div>
+      </div>
+
+      <div class="news-item">
+        <div class="news-title">X（Twitter）API再次涨价：自有数据读取降至$1/千次，发帖接口反向提价</div>
+        <div class="news-desc">
+          马斯克旗下X平台调整API定价：<span class="hl-yellow">自有数据读取（个人账号数据）降至每千次$1</span>，但发帖类接口反向提价。此举被分析认为是推动数据商业化的一步，同时进一步压缩第三方分析工具和情报平台的利润空间。对加密领域的直接影响：依赖X数据的链上情报平台（如Nansen、LookIntoBitcoin等）及KOL舆情监测工具成本上升。
+        </div>
+        <div class="news-tags">
+          <span class="news-tag mid">MID · 月级</span>
+          <span class="news-tag">影响使用方式</span>
+        </div>
+        <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/341924" target="_blank">BlockBeats（X API涨价）</a></div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<div class="footer-wrap">
+  <div class="footer-label">今日关键词</div>
+  <div class="keywords">
+    <span class="kw">Kelp DAO rsETH攻击 $2.92亿</span>
+    <span class="kw">LayerZero lzReceive漏洞</span>
+    <span class="kw">黑客获利74,000 ETH</span>
+    <span class="kw">Aave/Compound/Euler坏账$2.36亿</span>
+    <span class="kw">AAVE跌约10%</span>
+    <span class="kw">2026年最大DeFi攻击</span>
+    <span class="kw">Justin Sun提前5小时撤出53665 ETH</span>
+    <span class="kw">霍尔木兹24小时内再次停滞</span>
+    <span class="kw">伊朗控制霍尔木兹到战争结束</span>
+    <span class="kw">伊朗议长·战争随时重启</span>
+    <span class="kw">特朗普·非常好的对话</span>
+    <span class="kw">下周美伊谈判·伊斯兰堡</span>
+    <span class="kw">美联储人事变局·沃什</span>
+    <span class="kw">BTC ETF净流入$664M</span>
+    <span class="kw">BlackRock IBIT $284M连续8日</span>
+    <span class="kw">BTC~$77,000 ETH~$2,400</span>
+    <span class="kw">RAVE -88% 爆仓$4371万</span>
+    <span class="kw">ASTEROID +400% 马斯克SpaceX吉祥物</span>
+    <span class="kw">OpenAI三高管出走</span>
+    <span class="kw">Sora项目关停</span>
+    <span class="kw">股东密谋Bret Taylor换Altman</span>
+    <span class="kw">Adam Back·BTC $50万-$100万</span>
+    <span class="kw">伊拉克石油出口恢复</span>
+    <span class="kw">X API涨价</span>
+  </div>
+  <div class="disclaimer">⚠️ 本早报内容仅供参考，不构成任何投资建议。加密资产价格高度波动，请做好风险管理。OKX Research · 2026.04.19</div>
+</div>
+
+</body>
+</html>
