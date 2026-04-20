@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密早报 · 4月20日 · OKX Research</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000000;
+    color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+  /* ── Header ── */
+  .header { text-align: center; padding: 40px 0 32px; }
+  .date-badge {
+    display: inline-block;
+    background: #BCFF2F;
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header-title {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header-title .neon { color: #BCFF2F; }
+  .header-sub {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .source-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .source-tag {
+    background: #191919;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: #aaa;
+  }
+
+  /* ── Alert Banner ── */
+  .alert-banner {
+    background: #1a0000;
+    border-left: 4px solid #FF3B3B;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+  }
+  .alert-banner .alert-label {
+    color: #FF3B3B;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .alert-banner p { color: #ffcfcf; font-size: 14px; line-height: 1.7; }
+  .alert-banner strong { color: #FF6B6B; }
+
+  /* ── Section ── */
+  .section { margin-bottom: 40px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .section-icon { font-size: 18px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #fff; }
+  .section-count {
+    margin-left: auto;
+    background: #BCFF2F;
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+
+  /* ── News Item ── */
+  .news-item {
+    background: #111111;
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .news-item:hover { border-color: #333; }
+  .news-item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .priority-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+  .priority-badge.high { background: rgba(188,255,47,0.15); color: #BCFF2F; border: 1px solid rgba(188,255,47,0.3); }
+  .priority-badge.mid  { background: rgba(255,193,7,0.12);  color: #FFC107; border: 1px solid rgba(255,193,7,0.25); }
+  .priority-badge.low  { background: rgba(255,255,255,0.06); color: #888;   border: 1px solid #2a2a2a; }
+  .news-title { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.5; }
+  .news-desc { font-size: 13px; color: #bbb; line-height: 1.7; margin-bottom: 10px; }
+  .news-desc strong { color: #e0e0e0; }
+  .news-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .news-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #1a1a1a;
+    color: #777;
+    border: 1px solid #2a2a2a;
+  }
+  .news-source { font-size: 11px; color: #666; }
+  .news-source a { color: #BCFF2F; text-decoration: none; }
+  .news-source a:hover { text-decoration: underline; }
+
+  /* ── Keywords ── */
+  .keywords-section {
+    background: #0a0a0a;
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  .keywords-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #BCFF2F;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .keywords-list { color: #888; font-size: 12px; line-height: 2; }
+  .keyword-item {
+    display: inline-block;
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin: 2px 3px;
+    font-size: 11px;
+    color: #999;
+  }
+
+  /* ── Divider ── */
+  .divider { border: none; border-top: 1px solid #1a1a1a; margin: 32px 0; }
+
+  /* ── Footer ── */
+  .footer { text-align: center; padding: 24px 0 40px; color: #555; font-size: 11px; }
+  .footer p { margin-bottom: 6px; }
+  .footer .disclaimer { color: #444; font-size: 10px; max-width: 500px; margin: 12px auto 0; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026 · APR 20 · OKX RESEARCH</div>
+    <h1 class="header-title">加密<span class="neon">早报</span> · 4月20日</h1>
+    <p class="header-sub">时间窗口：4月19日 20:00 — 4月20日 09:30（北京时间）</p>
+    <div class="source-tags">
+      <span class="source-tag">📡 Odaily</span>
+      <span class="source-tag">⚡ BlockBeats</span>
+      <span class="source-tag">🌐 吴说区块链</span>
+      <span class="source-tag">📰 CoinDesk</span>
+      <span class="source-tag">🔍 The Block</span>
+    </div>
+  </div>
+
+  <!-- Alert Banner -->
+  <div class="alert-banner">
+    <div class="alert-label">🔴 三线危机警报</div>
+    <p>
+      <strong>【军事升级】</strong>美军驱逐舰USS Spruance在阿曼湾扣押伊朗货船TOUSKA·伊朗IRGC划定拉腊克走廊新航线并开征过路费（违反UNCLOS）·35艘船过去36小时掉头。
+      <strong>【市场恐慌】</strong>BTC跌破$74,000·ETH跌破$2,300·恐慌贪婪指数27（3周最低）。
+      <strong>【DeFi失血】</strong>Aave净撤资$62亿（总流出$101亿）·USDT借款利率飙升至15%·坏账$1.77-2亿·TVL单日-31.7%。
+    </p>
+  </div>
+
+  <!-- Section 1: 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">3 HIGH</span>
+    </div>
+
+    <!-- 新闻1 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">美军驱逐舰USS Spruance在阿曼湾扣押伊朗货船TOUSKA·海军陆战队强制接管</div>
+      </div>
+      <p class="news-desc">
+        USS Spruance（导弹驱逐舰）在阿曼湾拦截伊朗货船TOUSKA，发出6小时警告无响应后对机舱开洞强制停船，美国海军陆战队随后登船扣押并接管控制权。TOUSKA此前已被美国财政部列为制裁对象（运输受限石油）。这是近期美伊博弈中首次实质性军事接触，显著提升局势升级风险。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 周级+影响</span>
+        <span class="news-tag">🪖 军事对抗</span>
+        <span class="news-tag">🛢️ 石油航运</span>
+        <span class="news-tag">⚠️ 风险溢价</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477444" target="_blank">Odaily</a> · <a href="https://www.npr.org/2026/04/19/us-navy-seizes-iranian-vessel-oman-gulf" target="_blank">NPR</a></div>
+    </div>
+
+    <!-- 新闻2 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">伊朗IRGC划定"拉腊克走廊"新航线·收过路费·违反UNCLOS·35艘船掉头</div>
+      </div>
+      <p class="news-desc">
+        伊朗伊斯兰革命卫队（IRGC）海军宣布在霍尔木兹岛以南至拉腊克岛以南划设"拉腊克走廊"，声明所有船只通行须获IRGC许可，并征收过路费。法律层面：此举违反UNCLOS国际海洋法公约的公海通行权。实际影响：过去36小时已有35艘船只尝试通过后掉头返航，波斯湾石油航运实质上仍处于封锁状态。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 月级影响</span>
+        <span class="news-tag">🛢️ 能源供应</span>
+        <span class="news-tag">⚖️ 国际法</span>
+        <span class="news-tag">🚢 航运封锁</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477445" target="_blank">Odaily（走廊声明）</a> · <a href="https://www.odaily.news/newsflash/477453" target="_blank">Odaily（掉头数据）</a></div>
+    </div>
+
+    <!-- 新闻3 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">美伊谈判：威特科夫+库什纳20日抵伊斯兰堡·万斯率团·韩国考虑派兵保障霍尔木兹</div>
+      </div>
+      <p class="news-desc">
+        特朗普称谈判"总归会实现"；美方代表威特科夫与库什纳计划4月20日抵达伊斯兰堡，副总统万斯率团（安保措施升级）。伊朗方面对谈判表示怀疑——指责美方可能以谈判为掩护实施"突袭行动"，谈判气氛高度紧张。与此同时，韩国正式讨论向霍尔木兹海峡派驻海军力量以保障本国石油进口通道，日本亦同步研究类似方案。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 周级影响</span>
+        <span class="news-tag">🤝 外交谈判</span>
+        <span class="news-tag">🌏 盟国反应</span>
+        <span class="news-tag">📉 风险资产</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477420" target="_blank">Odaily（谈判进展）</a> · <a href="https://www.odaily.news/newsflash/477452" target="_blank">Odaily（韩国派兵）</a> · <a href="https://www.theblockbeats.info/flash/342010" target="_blank">BlockBeats</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 2: 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">1 HIGH</span>
+    </div>
+
+    <!-- 新闻4 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">BTC跌破$74,000·ETH $2,300失守·恐慌贪婪指数27·AAVE单日-16%</div>
+      </div>
+      <p class="news-desc">
+        受地缘风险升级与Aave流动性危机双重打压，BTC于北京时间4月19日晚相继跌破$75,000（01:50）、$74,000（06:01），日内最低触及$73,800；ETH跌破$2,300（08:31），日跌幅-7.2%；AAVE单日-16%至$90.13（受Kelp坏账与大规模撤资冲击）；加密市场恐慌贪婪指数降至27，为3周以来最低，市场处于"恐慌"区间。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 日级影响</span>
+        <span class="news-tag">📉 BTC价格</span>
+        <span class="news-tag">😱 市场情绪</span>
+        <span class="news-tag">🔴 风险规避</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477441" target="_blank">Odaily（BTC跌破75K）</a> · <a href="https://www.odaily.news/newsflash/477442" target="_blank">Odaily（BTC跌破74K）</a> · <a href="https://www.theblockbeats.info/flash/342026" target="_blank">BlockBeats（ETH/恐慌指数）</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 3: 链上事件 DeFi危机 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件 · DeFi危机</span>
+      <span class="section-count">2 HIGH</span>
+    </div>
+
+    <!-- 新闻5 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">Aave流动性危机：净撤资$62亿·总流出$101亿·USDT借款利率飙至15%·坏账$1.77-2亿</div>
+      </div>
+      <p class="news-desc">
+        Kelp DAO攻击余波持续冲击Aave生态：<strong>Abraxas Capital</strong>单笔撤资$3.92亿、<strong>MEXC</strong>撤资$4.31亿、巨鲸地址0x7CD0撤资$4.057亿，三者合计超$12亿。Aave协议净撤资$62亿，存款降至$357亿；TVL从264亿急降至180亿（-31.7%）；核心借贷池利用率达100%；USDT借款年化利率飙升至15%；rsETH相关坏账估计$1.77-2亿（未计入二次价格压力）。Aave DAO紧急暂停rsETH市场；SparkLend、Fluid、Upshift同步冻结。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 周级影响</span>
+        <span class="news-tag">💧 流动性危机</span>
+        <span class="news-tag">🏦 DeFi系统性</span>
+        <span class="news-tag">📉 协议风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477450" target="_blank">Odaily（撤资数据）</a> · <a href="https://www.odaily.news/newsflash/477451" target="_blank">Odaily（坏账）</a> · <a href="https://www.theblockbeats.info/flash/341965" target="_blank">BlockBeats（Abraxas）</a> · <a href="https://www.theblockbeats.info/flash/341985" target="_blank">BlockBeats（MEXC）</a> · <a href="https://www.theblockbeats.info/flash/342028" target="_blank">BlockBeats（利率）</a></div>
+    </div>
+
+    <!-- 新闻6 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">Kelp/rsETH余波持续：Ethena延长桥暂停·Reserve关停铸造·RAVE团队2300万枚转Bitget</div>
+      </div>
+      <p class="news-desc">
+        rsETH事件持续发酵：<strong>Ethena</strong>宣布延长OFT桥暂停（理由：尚未收到Kelp的根因分析报告）；<strong>Reserve</strong>暂停eUSD/USD3铸造（含rsETH敞口）；Ether.fi与Polygon官方声明未受rsETH直接影响。另外，<strong>RAVE代币</strong>——昨日暴跌88%的妖币——团队多签地址将2300万枚RAVE（约$460万）转移至Bitget交易所，被市场解读为明显出货信号，RaveDAO否认操纵。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 周级影响</span>
+        <span class="news-tag">🌉 跨链桥暂停</span>
+        <span class="news-tag">🔗 连锁反应</span>
+        <span class="news-tag">🎰 Meme出货</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477455" target="_blank">Odaily（Ethena）</a> · <a href="https://www.odaily.news/newsflash/477454" target="_blank">Odaily（Reserve）</a> · <a href="https://www.odaily.news/newsflash/477446" target="_blank">Odaily（Ether.fi）</a> · <a href="https://www.odaily.news/newsflash/477448" target="_blank">Odaily（RAVE转账）</a> · <a href="https://www.theblockbeats.info/flash/342033" target="_blank">BlockBeats</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 4: 链上动向 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🐋</span>
+      <span class="section-title">链上动向</span>
+      <span class="section-count">3 MID</span>
+    </div>
+
+    <!-- 新闻7 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">止盈$6847万ETH巨鲸回调后重新开多·持仓1亿美元4.4万ETH@$2289</div>
+      </div>
+      <p class="news-desc">
+        此前在ETH高点止盈$6847万的知名链上巨鲸，在ETH回调至$2,289后重新开仓做多，新持仓规模1亿美元（4.4万枚ETH）。同时，另一巨鲸以3倍杠杆开多原油合约，押注金额$599万（判断霍尔木兹封锁将持续推高油价）；此外第三巨鲸批量卖出9,765枚ETH（$2246万，均价约$2,300），操作方向相反。链上多空博弈在极端行情中加剧。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 日级影响</span>
+        <span class="news-tag">🐳 巨鲸操作</span>
+        <span class="news-tag">📈 多空博弈</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477456" target="_blank">Odaily（ETH开多）</a> · <a href="https://www.odaily.news/newsflash/477449" target="_blank">Odaily（原油多单）</a> · <a href="https://www.theblockbeats.info/flash/342032" target="_blank">BlockBeats（抛ETH）</a> · <a href="https://www.theblockbeats.info/flash/342024" target="_blank">BlockBeats（巨鲸）</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 5: 宏观/行业 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <span class="section-title">宏观 · 行业</span>
+      <span class="section-count">2 MID</span>
+    </div>
+
+    <!-- 新闻8 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">本周大额代币解锁：XPL、ZRO、H等待释放</div>
+      </div>
+      <p class="news-desc">
+        本周（4月20日起）计划解锁的主要代币包括XPL（规模待确认）、ZRO（LayerZero）、H等，建议持仓者关注潜在抛压。在市场已处于恐慌区间时，代币大额解锁可能进一步压制价格，需纳入本周风险评估。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 周级关注</span>
+        <span class="news-tag">🔓 代币解锁</span>
+        <span class="news-tag">⚠️ 抛压风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/342029" target="_blank">BlockBeats</a></div>
+    </div>
+
+    <!-- 新闻9 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">著名经济学家付鹏加入港股上市公司新火集团·任首席经济学家</div>
+      </div>
+      <p class="news-desc">
+        前东北证券首席经济学家付鹏宣布加入新火科技集团（港股上市，加密矿机/AI算力赛道），出任集团首席经济学家。付鹏以宏观研判与泼辣直言闻名，此次入局加密赛道被视为传统宏观分析师向数字资产行业渗透的标志性事件。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 月级影响</span>
+        <span class="news-tag">🎓 行业人才</span>
+        <span class="news-tag">🔗 传统金融入局</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/342027" target="_blank">BlockBeats</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字 & 词汇</div>
+    <div>
+      <span class="keyword-item">美军扣押TOUSKA</span>
+      <span class="keyword-item">拉腊克走廊</span>
+      <span class="keyword-item">IRGC收过路费</span>
+      <span class="keyword-item">35艘船掉头</span>
+      <span class="keyword-item">韩国考虑派兵</span>
+      <span class="keyword-item">万斯率团伊斯兰堡</span>
+      <span class="keyword-item">威特科夫+库什纳</span>
+      <span class="keyword-item">BTC $74,000失守</span>
+      <span class="keyword-item">ETH $2,300跌破</span>
+      <span class="keyword-item">恐慌贪婪指数 27</span>
+      <span class="keyword-item">AAVE -16%</span>
+      <span class="keyword-item">Aave净撤资 $62亿</span>
+      <span class="keyword-item">总流出 $101亿</span>
+      <span class="keyword-item">TVL -31.7%</span>
+      <span class="keyword-item">USDT借款 15%</span>
+      <span class="keyword-item">坏账 $1.77-2亿</span>
+      <span class="keyword-item">Abraxas Capital $3.92亿</span>
+      <span class="keyword-item">MEXC $4.31亿</span>
+      <span class="keyword-item">Ethena桥延长暂停</span>
+      <span class="keyword-item">RAVE 2300万转Bitget</span>
+      <span class="keyword-item">巨鲸1亿ETH开多</span>
+      <span class="keyword-item">原油3倍多 $599万</span>
+      <span class="keyword-item">代币解锁 XPL/ZRO/H</span>
+      <span class="keyword-item">付鹏加入新火集团</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>🤖 <strong>OKX Research</strong> · 加密早报 · 时间窗口：4月19日 20:00 — 4月20日 09:30</p>
+    <p>数据截至 09:30 BJT · 仅供参考，不构成投资建议</p>
+    <p class="disclaimer">本早报内容由 AI 辅助整理，来源于公开信息平台。加密货币市场波动剧烈，投资有风险，请独立判断并谨慎决策。</p>
+  </div>
+
+</div>
+</body>
+</html>
