@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密早报 · 4月21日 · OKX Research</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: #000000;
+    color: #FFFFFF;
+    font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .container { max-width: 860px; margin: 0 auto; padding: 24px 16px; }
+
+  /* ── Header ── */
+  .header { text-align: center; padding: 40px 0 32px; }
+  .date-badge {
+    display: inline-block;
+    background: #BCFF2F;
+    color: #000;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    margin-bottom: 16px;
+    text-transform: uppercase;
+  }
+  .header-title {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header-title .neon { color: #BCFF2F; }
+  .header-sub {
+    color: #888;
+    font-size: 13px;
+    margin-bottom: 20px;
+  }
+  .source-tags { display: flex; gap: 8px; justify-content: center; flex-wrap: wrap; }
+  .source-tag {
+    background: #191919;
+    border: 1px solid #2a2a2a;
+    border-radius: 20px;
+    padding: 4px 12px;
+    font-size: 11px;
+    color: #aaa;
+  }
+
+  /* ── Alert Banner ── */
+  .alert-banner {
+    border-left: 4px solid #3B82F6;
+    border-radius: 0 8px 8px 0;
+    padding: 16px 20px;
+    margin-bottom: 32px;
+  }
+  .alert-banner.blue { background: #00102a; border-color: #3B82F6; }
+  .alert-banner .alert-label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .alert-banner.blue .alert-label { color: #60A5FA; }
+  .alert-banner p { color: #c8d8f0; font-size: 14px; line-height: 1.7; }
+  .alert-banner strong { color: #93C5FD; }
+
+  /* ── Section ── */
+  .section { margin-bottom: 40px; }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #1e1e1e;
+  }
+  .section-icon { font-size: 18px; }
+  .section-title { font-size: 15px; font-weight: 700; color: #fff; }
+  .section-count {
+    margin-left: auto;
+    background: #BCFF2F;
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+  }
+  .section-count.mid { background: #FFC107; }
+
+  /* ── News Item ── */
+  .news-item {
+    background: #111111;
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    padding: 16px 18px;
+    margin-bottom: 12px;
+    transition: border-color 0.2s;
+  }
+  .news-item:hover { border-color: #333; }
+  .news-item-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+  .priority-badge {
+    flex-shrink: 0;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-top: 2px;
+    letter-spacing: 0.5px;
+  }
+  .priority-badge.high { background: rgba(188,255,47,0.15); color: #BCFF2F; border: 1px solid rgba(188,255,47,0.3); }
+  .priority-badge.mid  { background: rgba(255,193,7,0.12);  color: #FFC107; border: 1px solid rgba(255,193,7,0.25); }
+  .priority-badge.low  { background: rgba(255,255,255,0.06); color: #888;   border: 1px solid #2a2a2a; }
+  .news-title { font-size: 14px; font-weight: 700; color: #fff; line-height: 1.5; }
+  .news-desc { font-size: 13px; color: #bbb; line-height: 1.7; margin-bottom: 10px; }
+  .news-desc strong { color: #e0e0e0; }
+  .news-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-bottom: 8px; }
+  .news-tag {
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    background: #1a1a1a;
+    color: #777;
+    border: 1px solid #2a2a2a;
+  }
+  .news-source { font-size: 11px; color: #666; }
+  .news-source a { color: #BCFF2F; text-decoration: none; }
+  .news-source a:hover { text-decoration: underline; }
+
+  /* ── Keywords ── */
+  .keywords-section {
+    background: #0a0a0a;
+    border: 1px solid #1e1e1e;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 40px;
+  }
+  .keywords-title {
+    font-size: 11px;
+    font-weight: 700;
+    color: #BCFF2F;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .keyword-item {
+    display: inline-block;
+    background: #141414;
+    border: 1px solid #222;
+    border-radius: 6px;
+    padding: 2px 8px;
+    margin: 2px 3px;
+    font-size: 11px;
+    color: #999;
+  }
+
+  /* ── Divider ── */
+  .divider { border: none; border-top: 1px solid #1a1a1a; margin: 32px 0; }
+
+  /* ── Footer ── */
+  .footer { text-align: center; padding: 24px 0 40px; color: #555; font-size: 11px; }
+  .footer p { margin-bottom: 6px; }
+  .footer .disclaimer { color: #444; font-size: 10px; max-width: 500px; margin: 12px auto 0; line-height: 1.6; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026 · APR 21 · OKX RESEARCH</div>
+    <h1 class="header-title">加密<span class="neon">早报</span> · 4月21日</h1>
+    <p class="header-sub">时间窗口：4月20日 20:00 — 4月21日 09:30（北京时间）</p>
+    <div class="source-tags">
+      <span class="source-tag">📡 Odaily</span>
+      <span class="source-tag">⚡ BlockBeats</span>
+      <span class="source-tag">📰 CNBC</span>
+      <span class="source-tag">🦊 Fox Business</span>
+      <span class="source-tag">🌐 新浪财经</span>
+    </div>
+  </div>
+
+  <!-- Alert Banner -->
+  <div class="alert-banner blue">
+    <div class="alert-label">📡 今日四线共振</div>
+    <p>
+      <strong>【科技震荡】</strong>苹果官宣CEO换帅·库克9月卸任·特纳斯接任·15年执掌划上句号；Amazon追加Anthropic投资最高$250亿·Anthropic承诺10年$1000亿AWS采购。
+      <strong>【地缘博弈】</strong>美伊停火协议华盛顿时间周三到期·特朗普"极不可能"延长·万斯赴伊斯兰堡·BTC逆势走强至$75,853。
+      <strong>【宏观松动】</strong>美国最高法院裁定IEEPA关税非法·政府启动CAPE退款系统·$1660亿退还33万家进口商。
+      <strong>【DeFi收尾】</strong>Kelp确认被盗原因·Aave正式披露坏账区间·最坏情况Aave坏账$3.41亿。
+    </p>
+  </div>
+
+  <!-- Section 1: 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🤖</span>
+      <span class="section-title">行业趋势 · AI大厂格局重塑</span>
+      <span class="section-count">2 HIGH · 2 MID</span>
+    </div>
+
+    <!-- 新闻1: 苹果CEO换帅 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">苹果官宣CEO换帅：库克9月1日卸任，约翰·特纳斯接任，出任苹果第八任CEO</div>
+      </div>
+      <p class="news-desc">
+        苹果公司宣布重大人事决定（董事会4月17日通过）：现任硬件工程高级副总裁<strong>约翰·特纳斯（John Ternus）</strong>将于2026年9月1日正式出任CEO，蒂姆·<strong>库克</strong>同日转任执行董事长并进入董事会。特纳斯50岁，2001年以机械工程师加入苹果，监管iPhone/iPad/Mac/AW/AirPods/Vision Pro全线硬件；硬件工程部门由新任首席硬件官Johny Srouji接手。库克任期内苹果市值从3500亿增至4万亿美元（+24倍）。特纳斯接任后首要挑战：AI布局、特朗普关税、芯片内存紧缺。这是2011年以来15年首次CEO更替。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 季度级影响</span>
+        <span class="news-tag">🍎 苹果$4T</span>
+        <span class="news-tag">🔄 权力交接</span>
+        <span class="news-tag">🤖 AI战略</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/342178" target="_blank">BlockBeats</a> · <a href="https://finance.sina.com.cn/tech/roll/2026-04-21/doc-inhvfcpn6367725.shtml" target="_blank">新浪科技</a></div>
+    </div>
+
+    <!-- 新闻2: Amazon+Anthropic -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">Amazon追加投资Anthropic最高$250亿·Anthropic承诺10年$1000亿AWS采购·估值$3800亿</div>
+      </div>
+      <p class="news-desc">
+        Amazon与Anthropic签署扩大战略合作协议：初始注资<strong>$50亿</strong>（Anthropic最新估值$3800亿），未来绑定商业里程碑追加最高<strong>$200亿</strong>，合计上限$250亿。作为对价，Anthropic承诺未来10年在AWS上消费超<strong>$1000亿</strong>，并锁定<strong>5GW算力容量</strong>（含Trainium3芯片）。此前两个月Amazon刚宣布投资OpenAI最高$500亿——此举被解读为双线押注AI基础模型赛道。谷歌DeepMind随即宣布布林亲自督战，组建专项编码突击队追赶Anthropic。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 年级影响</span>
+        <span class="news-tag">☁️ 云计算绑定</span>
+        <span class="news-tag">🤖 AI军备</span>
+        <span class="news-tag">💰 $3800亿估值</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.cnbc.com/2026/04/20/amazon-invest-up-to-25-billion-in-anthropic-part-of-ai-infrastructure.html" target="_blank">CNBC</a> · <a href="https://www.odaily.news/newsflash/477620" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/342198" target="_blank">BlockBeats（谷歌反应）</a></div>
+    </div>
+
+    <!-- 新闻3: OpenAI宕机 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">OpenAI全线宕机4小时·同期测试新一代图像模型gpt-image-2</div>
+      </div>
+      <p class="news-desc">
+        OpenAI于北京时间4月21日凌晨发生全线服务中断，持续约4小时影响ChatGPT、API及企业服务，随后恢复正常。宕机期间OpenAI内部仍在推进产品迭代——gpt-image-2新模型正在测试，主攻复杂图表生成与真实感提升，被视为对Gemini和Claude图像能力的直接竞争应对。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 日级影响</span>
+        <span class="news-tag">🔴 服务中断</span>
+        <span class="news-tag">🖼️ 图像模型</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/342190" target="_blank">BlockBeats（宕机）</a> · <a href="https://www.theblockbeats.info/flash/342200" target="_blank">BlockBeats（gpt-image-2）</a></div>
+    </div>
+
+    <!-- 新闻4: 慢雾Claude Desktop -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">慢雾警告：Claude Desktop安装时秘密向所有Chromium浏览器写入预授权后门文件</div>
+      </div>
+      <p class="news-desc">
+        慢雾首席信息安全官23pds在X平台发文警示：Claude Desktop应用在安装时会在用户完全不知情的情况下，向电脑内所有基于Chromium内核的浏览器（Chrome/Edge/Brave等）写入一个特殊文件。该文件"相当于一个预先授权的后门"——配合特定浏览器扩展可获得对用户浏览器的完全控制权。慢雾将此定性为软件供应链污染，利用用户对Anthropic的信任实施攻击，隐蔽性强，潜伏期长。建议用户审查Claude Desktop安装目录并检查Chromium浏览器扩展权限。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 即时影响</span>
+        <span class="news-tag">🔒 供应链安全</span>
+        <span class="news-tag">🌐 浏览器后门</span>
+        <span class="news-tag">⚠️ AI安全风险</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/342193" target="_blank">BlockBeats（慢雾）</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 2: 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件 · 美伊停火到期倒计时</span>
+      <span class="section-count">1 HIGH</span>
+    </div>
+
+    <!-- 新闻5: 美伊停火 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">美伊停火协议华盛顿时间周三到期·特朗普"极不可能"延长·万斯赴伊斯兰堡·BTC逆势$75,853</div>
+      </div>
+      <p class="news-desc">
+        特朗普明确表态：停火协议将于华盛顿时间周三晚到期，"极不可能"延长，签署最终协议前不会开放霍尔木兹海峡。美方代表团（万斯率领，威特科夫+库什纳随行）计划周二抵达伊斯兰堡展开第二轮谈判。伊朗方面态度暧昧：伊朗总统称"对美国深刻历史性不信任依然存在"，谈判定策未定；但多名伊朗官员透露代表团计划出发，若万斯出席则议长卡利巴夫随行。市场解读：<strong>BTC逆势走强至$75,853（+0.19%）</strong>，被视为避险资产属性彰显；布伦特原油+2.51%至$90.39，能源市场封锁预期升温；美股标普-0.24%、纳指-0.26%。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 周级影响</span>
+        <span class="news-tag">⏰ 停火到期</span>
+        <span class="news-tag">🛢️ 油价+2.51%</span>
+        <span class="news-tag">₿ BTC避险</span>
+        <span class="news-tag">🤝 万斯出行</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477593" target="_blank">Odaily（特朗普表态）</a> · <a href="https://www.theblockbeats.info/flash/342176" target="_blank">BlockBeats（市场反应）</a> · <a href="https://www.theblockbeats.info/flash/342201" target="_blank">BlockBeats（万斯出行）</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 3: 宏观数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏛️</span>
+      <span class="section-title">宏观数据 · 关税退款历史性松动</span>
+      <span class="section-count">1 HIGH</span>
+    </div>
+
+    <!-- 新闻6: 关税退款 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">美国最高法院裁定IEEPA关税非法·政府启动CAPE系统·$1660亿分批退还33万家进口商</div>
+      </div>
+      <p class="news-desc">
+        美国最高法院早前裁定特朗普政府依据《国际紧急经济权力法》（IEEPA）征收全球关税的行为超越授权、违反法律。美国海关与边境保护局（CBP）随即于北京时间4月21日08:00启动CAPE（综合申请处理系统），允许进口商提交退款申请。规模：超<strong>33万家</strong>进口商涉及<strong>5300万</strong>批次货物，退款总额约<strong>$1660亿</strong>；退款周期60-90天到账。市场含义：对进口型企业的成本压力显著减轻；大量企业获得意外资金回流，但贸易政策不确定性仍高。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 季度级影响</span>
+        <span class="news-tag">⚖️ 最高法院裁定</span>
+        <span class="news-tag">💰 $1660亿退款</span>
+        <span class="news-tag">🏭 进口商利好</span>
+        <span class="news-tag">📉 关税松动</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.foxbusiness.com/economy/trump-admin-begin-refunding-166b-businesses-wake-supreme-court-decision" target="_blank">Fox Business</a> · <a href="https://www.npr.org/2026/04/19/nx-s1-5786635/tariff-refunds-customs-ace-portal" target="_blank">NPR</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 4: 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔗</span>
+      <span class="section-title">链上事件 · Kelp/Aave后续收尾</span>
+      <span class="section-count">1 HIGH · 1 MID</span>
+    </div>
+
+    <!-- 新闻7: Kelp后续 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge high">HIGH</span>
+        <div class="news-title">Kelp确认被盗原因：LayerZero RPC节点被攻破+1/1 DVN默认配置；Aave披露坏账$1.237-2.301亿；DefiLlama：最坏坏账$3.41亿</div>
+      </div>
+      <p class="news-desc">
+        Kelp官方公布根因分析：攻击者入侵了LayerZero的RPC节点并利用<strong>1/1 DVN（去中心化验证节点）默认配置</strong>漏洞，成功伪造跨链消息并触发rsETH的凭空铸造。Aave DAO正式披露坏账数据：两种处置方案对应<strong>$1.237亿</strong>或<strong>$2.301亿</strong>坏账。DefiLlama创始人0xngmi独立测算：若选择放弃L2市场，最坏情况坏账达<strong>$3.41亿</strong>，Umbrella+国库覆盖后仍有大额缺口。Lido EarnETH：$2160万敞口，已暂停存取款；Ethena OFT桥延长暂停。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 周级影响</span>
+        <span class="news-tag">🔍 根因确认</span>
+        <span class="news-tag">💸 坏账$1.2-3.4亿</span>
+        <span class="news-tag">🌉 DVN漏洞</span>
+        <span class="news-tag">🏦 Aave处置</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477622" target="_blank">Odaily（Kelp根因）</a> · <a href="https://www.odaily.news/newsflash/477625" target="_blank">Odaily（Aave坏账）</a> · <a href="https://www.odaily.news/newsflash/477610" target="_blank">Odaily（DefiLlama分析）</a> · <a href="https://www.odaily.news/newsflash/477605" target="_blank">Odaily（Lido）</a></div>
+    </div>
+
+    <!-- 新闻8: Justin Sun -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">Justin Sun向Spark存入$1.74亿资产·易理华Trend Research转移$2332万DeFi代币</div>
+      </div>
+      <p class="news-desc">
+        Justin Sun关联地址向Spark协议存入价值<strong>$1.74亿</strong>资产，继昨日攻击前撤出$1.26亿ETH引发争议后，又一大规模链上操作引发关注。另外，链上分析师Ai姨监测发现，易理华旗下Trend Research时隔一个月再次操作：转移<strong>541万枚UNI+22.8万枚COMP</strong>至新地址0xfa9（总值$2332万）；该机构因建仓成本@$3100+ETH、2.2倍高杠杆而浮亏超$2亿，此次转移被解读为资产重组或减仓信号。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 日级影响</span>
+        <span class="news-tag">🐋 大户动向</span>
+        <span class="news-tag">🏦 Spark存款</span>
+        <span class="news-tag">📉 高杠杆暴露</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/342184" target="_blank">BlockBeats（Justin Sun）</a> · <a href="https://www.theblockbeats.info/flash/342180" target="_blank">BlockBeats（Trend Research）</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 5: 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">加密数据 · BTC止跌·机构持续买入</span>
+      <span class="section-count">2 MID</span>
+    </div>
+
+    <!-- 新闻9: BTC行情 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">BTC止跌回升至$75,853（+0.19%）·ETH $2,306·资金费率全面看跌·布伦特原油+2.51%至$90.39</div>
+      </div>
+      <p class="news-desc">
+        经历昨日最低$73,800后，BTC在地缘政治不确定性中逆势企稳至<strong>$75,853</strong>（+0.19%），被分析师解读为「非主权避险属性」显现——美股下跌而BTC走强。ETH报<strong>$2,306</strong>（-1.05%），较昨日低点有所回升。永续合约资金费率全面偏负（空头占优，看跌区间），多空博弈持续。大宗商品联动：布伦特原油+2.51%至<strong>$90.39</strong>（霍尔木兹封锁预期维持），黄金偏强震荡，白银跟随。美股：标普-0.24%，纳指-0.26%；Hut 8加密矿机+5%，加密板块涨跌分化。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 日级影响</span>
+        <span class="news-tag">₿ BTC $75,853</span>
+        <span class="news-tag">Ξ ETH $2,306</span>
+        <span class="news-tag">🛢️ 布伦特 $90.39</span>
+        <span class="news-tag">📉 资金费率负</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/342176" target="_blank">BlockBeats（行情综述）</a> · <a href="https://www.theblockbeats.info/flash/342130" target="_blank">BlockBeats（资金费率）</a></div>
+    </div>
+
+    <!-- 新闻10: 机构ETF增持 -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">摩根士丹利增持215枚BTC（$1643万）·贝莱德ETF增持3372枚BTC·SOL ETF $328万·XRP ETF $299万</div>
+      </div>
+      <p class="news-desc">
+        机构在行情下跌中逆势加仓：<strong>摩根士丹利</strong>通过ETF增持215枚BTC（价值$1643万）；<strong>贝莱德IBIT</strong>单日净增持3372枚BTC，表明机构在$74-76K区间视为中期支撑位建仓。现货替代产品方面：美国SOL现货ETF单日净流入<strong>$328万</strong>，XRP现货ETF净流入<strong>$299万</strong>，显示机构资金在主流ETF中持续扩张。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 周级影响</span>
+        <span class="news-tag">🏦 机构逆势建仓</span>
+        <span class="news-tag">📈 IBIT增持</span>
+        <span class="news-tag">🪙 SOL/XRP ETF</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477623" target="_blank">Odaily（摩根士丹利）</a> · <a href="https://www.theblockbeats.info/flash/342197" target="_blank">BlockBeats（贝莱德）</a> · <a href="https://www.odaily.news/newsflash/477626" target="_blank">Odaily（SOL ETF）</a> · <a href="https://www.odaily.news/newsflash/477624" target="_blank">Odaily（XRP ETF）</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Section 6: 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⚖️</span>
+      <span class="section-title">全球监管 · ETF格局调整</span>
+      <span class="section-count">2 MID</span>
+    </div>
+
+    <!-- 新闻11: 灰度Hyperliquid ETF -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">灰度修订Hyperliquid ETF申请：更换托管方为Anchorage Digital Bank·移除Coinbase</div>
+      </div>
+      <p class="news-desc">
+        灰度（Grayscale）向美SEC提交Hyperliquid现货ETF申请修订案，核心变动：将托管机构从Coinbase更换为<strong>Anchorage Digital Bank</strong>。这是灰度在HYPE ETF审批流程中的关键合规调整，Anchorage为OCC持牌的数字资产银行，托管合规级别更高。此举反映ETF发行方正积极应对SEC对托管资质的审查关切。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 月级影响</span>
+        <span class="news-tag">📋 SEC申请修订</span>
+        <span class="news-tag">🏦 托管换仓</span>
+        <span class="news-tag">🔄 HYPE ETF</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477631" target="_blank">Odaily</a> · <a href="https://www.theblockbeats.info/flash/342199" target="_blank">BlockBeats</a></div>
+    </div>
+
+    <!-- 新闻12: Strategy BTC -->
+    <div class="news-item">
+      <div class="news-item-header">
+        <span class="priority-badge mid">MID</span>
+        <div class="news-title">Strategy CEO：STRC今年内购入比特币规模已达全市场BTC现货ETF总和的10倍</div>
+      </div>
+      <p class="news-desc">
+        Strategy（前MicroStrategy）CEO发布数据：旗下STRC工具今年累计购入BTC规模已超全市场BTC现货ETF年度净流入总和的10倍，进一步巩固Strategy作为全球最大企业级BTC持有方的地位。该数据反映Strategy通过发行优先股（STRC）筹资后持续加仓的策略效果显著，同时表明机构直接持币规模远超ETF渠道。
+      </p>
+      <div class="news-tags">
+        <span class="news-tag">📅 月级影响</span>
+        <span class="news-tag">₿ 企业持币</span>
+        <span class="news-tag">📈 Strategy加仓</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/477632" target="_blank">Odaily</a></div>
+    </div>
+  </div>
+
+  <hr class="divider">
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">📌 今日关键数字 &amp; 词汇</div>
+    <div>
+      <span class="keyword-item">苹果CEO换帅·库克→特纳斯</span>
+      <span class="keyword-item">9月1日生效</span>
+      <span class="keyword-item">苹果市值 $4万亿</span>
+      <span class="keyword-item">Amazon+Anthropic $250亿</span>
+      <span class="keyword-item">Anthropic估值 $3800亿</span>
+      <span class="keyword-item">10年$1000亿AWS协议</span>
+      <span class="keyword-item">5GW算力容量</span>
+      <span class="keyword-item">OpenAI宕机4小时</span>
+      <span class="keyword-item">Claude Desktop浏览器后门</span>
+      <span class="keyword-item">美伊停火周三到期</span>
+      <span class="keyword-item">特朗普极不可能延长</span>
+      <span class="keyword-item">万斯赴伊斯兰堡</span>
+      <span class="keyword-item">BTC $75,853</span>
+      <span class="keyword-item">ETH $2,306</span>
+      <span class="keyword-item">布伦特 $90.39 +2.51%</span>
+      <span class="keyword-item">关税退款 $1660亿</span>
+      <span class="keyword-item">CAPE系统上线</span>
+      <span class="keyword-item">33万家进口商</span>
+      <span class="keyword-item">Kelp LayerZero RPC节点被攻破</span>
+      <span class="keyword-item">1/1 DVN默认配置</span>
+      <span class="keyword-item">Aave坏账 $1.237-2.301亿</span>
+      <span class="keyword-item">最坏坏账 $3.41亿</span>
+      <span class="keyword-item">摩根士丹利增持 215 BTC</span>
+      <span class="keyword-item">贝莱德IBIT增持 3372 BTC</span>
+      <span class="keyword-item">SOL ETF $328万</span>
+      <span class="keyword-item">XRP ETF $299万</span>
+      <span class="keyword-item">灰度换托管Anchorage</span>
+      <span class="keyword-item">Strategy STRC BTC×10倍ETF</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <p>🤖 <strong>OKX Research</strong> · 加密早报 · 时间窗口：4月20日 20:00 — 4月21日 09:30</p>
+    <p>数据截至 09:30 BJT · 仅供参考，不构成投资建议</p>
+    <p class="disclaimer">本早报内容由 AI 辅助整理，来源于公开信息平台。加密货币市场波动剧烈，投资有风险，请独立判断并谨慎决策。</p>
+  </div>
+
+</div>
+</body>
+</html>
