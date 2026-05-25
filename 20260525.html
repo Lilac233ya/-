@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密早报 · 5月25日 · OKX Research</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000000; color: #FFFFFF; font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Helvetica Neue', sans-serif; line-height: 1.6; }
+  .container { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+
+  /* Header */
+  .header { text-align: center; margin-bottom: 40px; }
+  .date-badge { display: inline-block; background: #191919; border: 1px solid #333; color: #999; font-size: 12px; padding: 4px 12px; border-radius: 20px; margin-bottom: 16px; }
+  .header-title { font-size: 36px; font-weight: 700; letter-spacing: -0.5px; margin-bottom: 8px; }
+  .header-title .accent { color: #BCFF2F; }
+  .header-sub { color: #666; font-size: 13px; margin-bottom: 20px; }
+  .source-tags { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+  .source-tag { background: #191919; border: 1px solid #2a2a2a; color: #999; font-size: 11px; padding: 3px 10px; border-radius: 4px; }
+
+  /* Alert banner */
+  .alert-banner { background: #191919; border-left: 3px solid #ff3b3b; padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 32px; }
+  .alert-label { color: #ff3b3b; font-size: 11px; font-weight: 600; letter-spacing: 1px; margin-bottom: 4px; }
+  .alert-text { color: #e0e0e0; font-size: 13px; line-height: 1.5; }
+
+  /* Section */
+  .section { margin-bottom: 36px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #1a1a1a; }
+  .section-icon { font-size: 18px; }
+  .section-title { font-size: 15px; font-weight: 600; color: #FFFFFF; }
+  .section-count { background: #BCFF2F; color: #000; font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 10px; }
+
+  /* News item */
+  .news-item { background: #111111; border: 1px solid #1e1e1e; border-radius: 8px; padding: 16px; margin-bottom: 10px; }
+  .news-item.is-high { border-left: 3px solid #BCFF2F; }
+  .item-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+  .priority-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 3px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; }
+  .priority-badge.high { background: #BCFF2F; color: #000; }
+  .priority-badge.mid { background: #2a2a2a; color: #999; border: 1px solid #333; }
+  .priority-badge.low { background: #1a1a1a; color: #555; border: 1px solid #252525; }
+  .news-title { font-size: 14px; font-weight: 600; color: #FFFFFF; line-height: 1.45; }
+  .news-desc { font-size: 13px; color: #888; line-height: 1.6; margin-bottom: 10px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 3px; }
+  .tag-period { background: #1a1a1a; color: #666; border: 1px solid #252525; }
+  .tag-impact { background: #1a2a1a; color: #4a9; border: 1px solid #1e3a1e; }
+  .news-source { font-size: 11px; color: #555; }
+  .news-source a { color: #666; text-decoration: none; border-bottom: 1px solid #333; }
+  .news-source a:hover { color: #BCFF2F; border-bottom-color: #BCFF2F; }
+
+  /* Keywords */
+  .keywords-section { background: #0a0a0a; border: 1px solid #1a1a1a; border-radius: 8px; padding: 20px; margin-bottom: 32px; }
+  .keywords-title { font-size: 12px; color: #555; font-weight: 600; letter-spacing: 1px; margin-bottom: 12px; }
+  .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .keyword-chip { background: #191919; border: 1px solid #2a2a2a; color: #BCFF2F; font-size: 11px; padding: 4px 10px; border-radius: 4px; }
+
+  /* Footer */
+  .footer { text-align: center; padding-top: 24px; border-top: 1px solid #111; color: #444; font-size: 11px; line-height: 1.8; }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="date-badge">2026年5月25日 · 星期一</div>
+    <div class="header-title">加密<span class="accent">早报</span></div>
+    <div class="header-sub">时间窗口：5月24日 20:00 — 5月25日 09:30 BJT · OKX Research</div>
+    <div class="source-tags">
+      <span class="source-tag">BlockBeats</span>
+      <span class="source-tag">Foresight News</span>
+      <span class="source-tag">金色财经</span>
+      <span class="source-tag">Odaily</span>
+      <span class="source-tag">吴说区块链</span>
+      <span class="source-tag">ChainCatcher</span>
+    </div>
+  </div>
+
+  <!-- Alert Banner -->
+  <div class="alert-banner">
+    <div class="alert-label">⚡ 今日核心主线</div>
+    <div class="alert-text">Vitalik宣布以太坊基金会将精简规模、大幅减少ETH卖出，本人90%净资产为ETH（供给端重大利好）。美伊协议持续推进驱动全球风险资产走强：日经225突破65,000点创历史新高（+2.64%），布伦特原油跌破$96（两周低点-4.6%），美元DXY跌破99，美股期货+0.5%（Memorial Day休市日）。CFTC多名员工因质疑特朗普关联加密公司遭清退，美国监管政治化风险持续升温。HYPE生态多空博弈激烈：Loracle挂出$7,500万美元空单，Garrett Jin四天买入14.5万枚HYPE，Arthur Hayes提走8.57万枚HYPE。</div>
+  </div>
+
+  <!-- Section: 全球事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🌍</span>
+      <span class="section-title">全球事件</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item is-high">
+      <div class="item-top">
+        <span class="priority-badge high">高价值</span>
+        <div class="news-title">美伊协议持续推进驱动全球市场走强：日经225突破65,000历史新高（+2.64%）、布伦特原油两周低点、DXY跌破99，风险资产全面走强</div>
+      </div>
+      <div class="news-desc">受市场对美伊和平协议即将落地的乐观预期持续发酵，周一亚洲早盘全球风险资产全面走强。日本日经225指数一度突破65,000点创历史新高（日内涨幅达2.64%，芯片与建筑类股领涨），随后回落至64,667；受益于美伊关系缓和预期，布伦特原油和WTI均跌至两周低点，布伦特跌破$96/桶（日内跌幅超4.6%）；美元指数DXY跌破99关口（-0.33%），欧元、日元等风险货币走强；美股三大股指期货走高（标普500期货+0.5%，纳斯达克100期货+0.6%）。华侨银行指出，风险资产的涨势主要来自美伊降温预期，但原油将是下阶段的关键摇摆因素，市场不会过于激进地消除地缘政治溢价。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">季度级影响</span>
+        <span class="tag tag-impact">地缘政治</span>
+        <span class="tag tag-impact">日经225</span>
+        <span class="tag tag-impact">油价</span>
+        <span class="tag tag-impact">全球市场</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.jinse2.com/lives/514222.html" target="_blank">金色财经（日经65K历史新高）</a> · <a href="https://www.jinse2.com/lives/514215.html" target="_blank">金色财经（油价大跌/风险货币走强）</a> · <a href="https://www.jinse2.com/lives/514217.html" target="_blank">金色财经（DXY跌破99）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge mid">中优级</span>
+        <div class="news-title">伊朗声明尚未就核细节作出任何承诺；伊朗最高领袖藏匿秘密地点、与外界沟通严重延迟（协议执行存变数）</div>
+      </div>
+      <div class="news-desc">伊朗方面于北京时间5月25日05:23发表声明，否认以色列媒体关于"伊朗在转移浓缩铀前不会获得解冻资金"的报道，并再次强调现阶段对核问题细节尚未作出任何具体承诺。与此同时，据美国哥伦比亚广播公司（CBS）援引美国情报官员信息披露，美国情报显示伊朗最高领袖哈梅内伊实际上藏身于一个与世隔绝的秘密地点，与外界沟通严重延迟，可能影响伊方决策效率与谈判授权链条的顺畅性。以上信息表明，尽管外交曙光已现，协议落地和执行层面仍存在重大不确定性。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">月级影响</span>
+        <span class="tag tag-impact">外交谈判</span>
+        <span class="tag tag-impact">核协议</span>
+        <span class="tag tag-impact">油价</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.jinse2.com/lives/514206.html" target="_blank">金色财经（伊朗否认核承诺）</a> · <a href="https://www.jinse2.com/lives/514216.html" target="_blank">金色财经（最高领袖下落）</a></div>
+    </div>
+  </div>
+
+  <!-- Section: 全球监管 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📋</span>
+      <span class="section-title">全球监管</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item is-high">
+      <div class="item-top">
+        <span class="priority-badge high">高价值</span>
+        <div class="news-title">CFTC多名员工因质疑特朗普关联加密公司（Polymarket/Crypto.com/Gemini）遭清退，美国监管政治化风险升至新高</div>
+      </div>
+      <div class="news-desc">据报道，美国商品期货交易委员会（CFTC）内部发生政治清洗：多名曾对Polymarket、Crypto.com及Gemini关联公司提出监管疑虑的高级官员，先后遭停职、内部调查并被迫离职，上述三家公司均与特朗普家族存在商业关联。CFTC代理主席Caroline Pham的高级顾问Brigitte Weyls同时担任Gemini Titan法律总顾问，存在明显利益冲突。自特朗普执政以来，CFTC已撤销至少5项加密调查，执法案件从拜登时期逾80起骤降至仅2起。此举标志着美国金融监管机构的政治化倾向正在实质影响加密行业的监管公正性，对非亲特朗普系的加密公司构成负面监管环境。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">月级影响</span>
+        <span class="tag tag-impact">监管政治化</span>
+        <span class="tag tag-impact">执法风险</span>
+        <span class="tag tag-impact">合规</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/347560" target="_blank">BlockBeats</a> · <a href="https://www.odaily.news/zh-CN/newsflash/483786" target="_blank">Odaily</a></div>
+    </div>
+  </div>
+
+  <!-- Section: 货币政策 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🏦</span>
+      <span class="section-title">货币政策</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge mid">中优级</span>
+        <div class="news-title">美联储6月维持利率不变概率97.3%；拉加德：欧洲央行6月或上调通胀展望（美欧货币政策分化加剧）</div>
+      </div>
+      <div class="news-desc">CME"美联储观察"数据显示，市场定价美联储6月维持利率不变的概率高达97.3%，累计加息25bps的概率仅2.7%；到7月会议维持不变的概率为79.5%。与此同时，欧洲央行行长拉加德周日表示，欧洲央行"很可能"在6月政策会议上上调通胀展望，此前3月预测今年物价涨幅为2.6%将被修正上调，暗示欧洲央行届时可能不降息或仅小幅降息。在美联储鹰派路径与欧洲央行鸽转鹰的双重背景下，美欧货币政策路径分化进一步加剧，可能推升美元兑欧元汇率并波及风险资产估值。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">月级影响</span>
+        <span class="tag tag-impact">货币政策</span>
+        <span class="tag tag-impact">美联储</span>
+        <span class="tag tag-impact">欧洲央行</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.jinse2.com/lives/514212.html" target="_blank">金色财经（美联储CME数据）</a> · <a href="https://www.jinse2.com/lives/514207.html" target="_blank">金色财经（拉加德ECB）</a></div>
+    </div>
+  </div>
+
+  <!-- Section: 传统金融 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📈</span>
+      <span class="section-title">传统金融</span>
+      <span class="section-count">1</span>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge mid">中优级</span>
+        <div class="news-title">传统金融快照（Memorial Day美股休市）：日经225历史新高65,000点（+2.64%）；布伦特原油跌破$96（-4.6%）；黄金$4,545高开；白银$77.71（+3%）；DXY跌破99</div>
+      </div>
+      <div class="news-desc">美股因Memorial Day（美国阵亡将士纪念日）休市，最新参考为上周五收盘数据（S&P500 +0.37%八连涨，道指+0.58%）。亚盘时段：日经225指数突破65,000点（+2.64%，创历史新高），受益于美伊关系缓和预期，芯片股（日本）和建筑股领涨；英伟达CFO表示提前预判内存价格上涨并提前下单，规避当前行业性内存短缺困境。大宗商品：布伦特原油跌破$96/桶（日内跌超4.6%，两周低点）；现货黄金高开报$4,545/盎司；现货白银日内涨3%至$77.71/盎司，贵金属受美元走弱提振。美元DXY跌破99（-0.33%），为今年以来低位区域。10年期美债收益率参考上周五4.558%，周末变化有限。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">日级影响</span>
+        <span class="tag tag-impact">日股</span>
+        <span class="tag tag-impact">油价</span>
+        <span class="tag tag-impact">黄金/白银</span>
+        <span class="tag tag-impact">美元</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.jinse2.com/lives/514224.html" target="_blank">金色财经（日经65K）</a> · <a href="https://www.jinse2.com/lives/514210.html" target="_blank">金色财经（黄金高开）</a> · <a href="https://www.jinse2.com/lives/514219.html" target="_blank">金色财经（白银+3%）</a> · <a href="https://www.jinse2.com/lives/514213.html" target="_blank">金色财经（美股期货）</a></div>
+    </div>
+  </div>
+
+  <!-- Section: 行业趋势 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">🔭</span>
+      <span class="section-title">行业趋势</span>
+      <span class="section-count">5</span>
+    </div>
+
+    <div class="news-item is-high">
+      <div class="item-top">
+        <span class="priority-badge high">高价值</span>
+        <div class="news-title">Vitalik：以太坊基金会将精简规模、减少ETH卖出，聚焦核心使命；本人约90%净资产为ETH（ETH供给端重大利好信号）</div>
+      </div>
+      <div class="news-desc">以太坊联合创始人Vitalik Buterin于北京时间08:54公开表示，以太坊基金会（EF）正处于重要转型期，将成为"一个规模更小、立场更鲜明的组织"。他指出EF面临资源限制，仅持有约0.16%的ETH，且缺乏持续收入来源，因此必须聚焦于"那些对以太坊实现抗审查、开放、私密和安全核心价值至关重要，且其他主体难以承担的工作"，并鼓励其他机构填补EF无法覆盖的领域。关键信息包括：（1）EF将大幅削减规模，减少ETH出售量（供给端利好）；（2）Vitalik透露本人约90%净资产仍为ETH，体现极高持仓坚守；（3）EF定位从"以太坊中心"转为"有明确使命的节点"，有助于降低外界对EF中心化风险的担忧。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">月级影响</span>
+        <span class="tag tag-impact">ETH</span>
+        <span class="tag tag-impact">供给端</span>
+        <span class="tag tag-impact">治理</span>
+        <span class="tag tag-impact">生态</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/347563" target="_blank">BlockBeats（EF精简/减少卖出）</a> · <a href="https://foresightnews.pro/news/detail/104956" target="_blank">Foresight News（详细内容）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/483784" target="_blank">Odaily（Vitalik 90% ETH）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge mid">中优级</span>
+        <div class="news-title">MoonPay在ChatGPT Apps正式上线加密货币购买应用；Coinbase CEO重申RWA与全球支付是金融体系下一主升级主战场</div>
+      </div>
+      <div class="news-desc">加密支付公司MoonPay宣布正式在ChatGPT的Apps平台上线加密货币购买应用，用户可直接在ChatGPT对话界面内完成BTC、ETH等主流资产的购买操作，标志着AI对话入口与Web3支付的深度融合。Coinbase CEO Brian Armstrong在同一时间段表示，金融体系仍需在"现实世界资产代币化（RWA）、新一代跨境支付及全球结算"等主要领域完成基础设施升级，并认为加密行业的核心竞争壁垒在于社区信任而非华尔街资本。上述两则消息共同强化了AI×DeFi的叙事融合预期。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">周级影响</span>
+        <span class="tag tag-impact">AI×Web3</span>
+        <span class="tag tag-impact">RWA</span>
+        <span class="tag tag-impact">支付</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/483762" target="_blank">Odaily（MoonPay ChatGPT）</a> · <a href="https://www.jinse2.com/lives/514208.html" target="_blank">金色财经（Coinbase CEO）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge mid">中优级</span>
+        <div class="news-title">StablR稳定币协议发现漏洞并积极遏制；Railgun隐私代币RAIL近一周涨超两倍（隐私赛道叙事升温）</div>
+      </div>
+      <div class="news-desc">欧洲稳定币协议StablR发布声明，称内部检测到一处潜在安全漏洞，目前已采取紧急措施积极遏制，暂未披露资金损失规模，用户资产状态待进一步确认。与此同时，Railgun——一款专注于以太坊链上隐私交易的协议——其治理代币RAIL在近一周内涨幅超过200%（+2倍），成为本轮隐私赛道的代表性异动标的。Railgun近期在机构用户群体中受到关注，与Anthropic政府AI协议带来的隐私需求共振叙事有关。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">周级影响</span>
+        <span class="tag tag-impact">链上安全</span>
+        <span class="tag tag-impact">隐私赛道</span>
+        <span class="tag tag-impact">稳定币</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/104952" target="_blank">Foresight News（StablR漏洞）</a> · <a href="https://foresightnews.pro/news/detail/104951" target="_blank">Foresight News（Railgun RAIL）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge low">情绪噪音</span>
+        <div class="news-title">本周大额代币解锁预警：XPL、HUMA、H等超3,000万美元将于本周解锁（潜在抛压提示）</div>
+      </div>
+      <div class="news-desc">BlockBeats和Foresight News发布本周代币解锁一览，主要解锁事件包括XPL、HUMA、H等多个项目，合计解锁市值超3,000万美元。大额代币解锁通常会给对应代币短期价格带来下行压力，尤其在市场情绪偏弱时，线性解锁计划易触发持有者提前套现。投资者需关注上述代币在解锁周期前后的价格走势及链上转账动向。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">日级影响</span>
+        <span class="tag tag-impact">代币解锁</span>
+        <span class="tag tag-impact">抛压</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/347562" target="_blank">BlockBeats</a> · <a href="https://foresightnews.pro/news/detail/104955" target="_blank">Foresight News</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge low">情绪噪音</span>
+        <div class="news-title">Oura智能戒指提交美股IPO（最近轮估值$110亿）；Polkadot OpenGov拟要求验证者最低自质押1万DOT（协议治理收紧）</div>
+      </div>
+      <div class="news-desc">芬兰智能戒指制造商Oura Health正式向美国证券交易委员会提交IPO申请，其最近一轮融资估值约110亿美元，主打健康追踪可穿戴设备，为2026年消费科技IPO潮新增重要标的。加密链上治理方面，Polkadot的OpenGov去中心化治理框架提出一项提案，拟要求网络验证者持有至少1万枚DOT（约$10万）的自质押量，以提升节点诚信性和网络安全性，该提案若获批将对验证者门槛产生实质性影响。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">日级影响</span>
+        <span class="tag tag-impact">IPO</span>
+        <span class="tag tag-impact">协议治理</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/347558" target="_blank">BlockBeats（Oura IPO）</a> · <a href="https://www.theblockbeats.info/flash/347564" target="_blank">BlockBeats（Polkadot治理）</a></div>
+    </div>
+  </div>
+
+  <!-- Section: 链上事件 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">⛓️</span>
+      <span class="section-title">链上事件</span>
+      <span class="section-count">3</span>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge mid">中优级</span>
+        <div class="news-title">HYPE多空博弈激烈：Loracle在$64挂出$7,500万空单；Garrett Jin四天买入14.5万枚；Arthur Hayes提走8.57万枚；HYPE市值已超越DOGE升至全球第9</div>
+      </div>
+      <div class="news-desc">HYPE链上动态呈现多空对立格局：（1）HYPE此前最大空头Loracle在$64处设置价值7,500万美元的合约空单挂单，押注价格回调；（2）"1011内幕巨鲸"代理人Garrett Jin四天内累计买入约14.5万枚HYPE（合计约905万美元），持续看多；（3）与Arthur Hayes关联的钱包再次从Bybit交易所提取8.57万枚HYPE，与上周Arthur Hayes向Bybit存入的操作方向相反，被解读为"从做市商提回自持"的布局信号；（4）HYPE市值在本波行情中超越DOGE，升至全球加密货币市值第9位。多空力量悬殊，短期内HYPE或面临剧烈波动。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">周级影响</span>
+        <span class="tag tag-impact">HYPE</span>
+        <span class="tag tag-impact">多空博弈</span>
+        <span class="tag tag-impact">链上动态</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/347557" target="_blank">BlockBeats（Loracle空单）</a> · <a href="https://foresightnews.pro/news/detail/104958" target="_blank">Foresight News（Garrett Jin）</a> · <a href="https://foresightnews.pro/news/detail/104959" target="_blank">Foresight News（Arthur Hayes）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/483779" target="_blank">Odaily（HYPE超DOGE）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge mid">中优级</span>
+        <div class="news-title">某"中本聪时代"BTC矿工钱包（沉寂逾1年）向FalconX/Cumberland做市商转入2650枚BTC（约$2亿）——古老BTC大规模流动信号</div>
+      </div>
+      <div class="news-desc">链上数据显示，一个疑似来自比特币早期（"中本聪时代"）的矿工地址在长期沉寂后突然活跃，向加密做市商FalconX和Cumberland转入约2650枚BTC（按当前价格约$2亿）。古老的BTC地址活跃通常被市场视为重要的潜在抛压信号，尤其当资金流向具备大规模场外交易能力的做市商时，可能预示着即将通过OTC渠道出售。Foresight News也报道了另一笔超过1年未活动的两个钱包向FalconX存入1650枚BTC的相关动向，两笔合计约4300枚BTC（约$3.3亿）在短时间内流向做市商，市场需警惕潜在的场外抛售压力。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">周级影响</span>
+        <span class="tag tag-impact">链上动态</span>
+        <span class="tag tag-impact">BTC供给</span>
+        <span class="tag tag-impact">做市商</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.theblockbeats.info/flash/347561" target="_blank">BlockBeats（2650枚BTC）</a> · <a href="https://foresightnews.pro/news/detail/104957" target="_blank">Foresight News（1650枚BTC补充）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge low">情绪噪音</span>
+        <div class="news-title">某HYPE巨鲸沉寂8个月后以$63.06均价出售10.11万枚HYPE（约$638万），主动获利了结信号</div>
+      </div>
+      <div class="news-desc">链上监控显示，一个约8个月未活跃的HYPE持有地址开始以$63.06的均价逐步出售约10.11万枚HYPE（合计约638万美元）。该地址在HYPE近期创新高行情中选择主动减仓获利，被市场解读为潜在的顶部出货信号之一。结合Loracle的巨额空单挂单，HYPE短期存在一定抛压，但仍有多头资金持续加仓对冲（Garrett Jin）。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">日级影响</span>
+        <span class="tag tag-impact">链上动态</span>
+        <span class="tag tag-impact">HYPE</span>
+      </div>
+      <div class="news-source">来源：<a href="https://www.odaily.news/zh-CN/newsflash/483785" target="_blank">Odaily</a></div>
+    </div>
+  </div>
+
+  <!-- Section: 加密数据 -->
+  <div class="section">
+    <div class="section-header">
+      <span class="section-icon">📊</span>
+      <span class="section-title">加密数据</span>
+      <span class="section-count">2</span>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge mid">中优级</span>
+        <div class="news-title">Michael Saylor：Strategy本周将回购债券而非购入BTC；10x Research：比特币趋势模型已转为看跌（机构信号分化）</div>
+      </div>
+      <div class="news-desc">MicroStrategy创始人Michael Saylor在X平台表示，Strategy（MicroStrategy更名后）本周计划回购部分高息债券（去杠杆操作），而非继续增持比特币，此举被市场解读为公司短期内暂停BTC累积的信号，有别于此前几乎每周买入的节奏。与此同时，加密分析机构10x Research发布报告指出，其内部比特币趋势跟踪模型已由看涨转为看跌信号，理由包括链上数据弱化和衍生品多头集中度过高。Saylor暂停购入与10x Research看跌转向同时出现，构成短期机构面信号偏弱的组合，投资者需关注后续买盘是否能维持当前价格支撑。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">周级影响</span>
+        <span class="tag tag-impact">机构信号</span>
+        <span class="tag tag-impact">BTC</span>
+        <span class="tag tag-impact">趋势模型</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/104953" target="_blank">Foresight News（Saylor回购债券）</a> · <a href="https://www.odaily.news/zh-CN/newsflash/483783" target="_blank">Odaily（10x Research看跌）</a></div>
+    </div>
+
+    <div class="news-item">
+      <div class="item-top">
+        <span class="priority-badge low">情绪噪音</span>
+        <div class="news-title">恐惧贪婪指数升至30（较昨日25略有回暖）；BTC报$77,012（+0.43%）；HYPE市值超DOGE升至加密全球第9</div>
+      </div>
+      <div class="news-desc">Foresight News数据显示，今日加密市场恐惧贪婪指数从昨日25升至30，从"极度恐慌"回升至"恐慌"区间，反映美伊协议乐观情绪对市场情绪有一定改善。BTC报$77,012（24小时+0.43%），稳守$77,000关口；ETH约$2,135；HYPE市值在近期持续上涨后正式超越DOGE，升至全球加密货币市值排名第9位（约$450亿+）。整体市场情绪仍处偏弱区间，但较周末有所修复。</div>
+      <div class="news-tags">
+        <span class="tag tag-period">日级影响</span>
+        <span class="tag tag-impact">市场情绪</span>
+        <span class="tag tag-impact">价格</span>
+      </div>
+      <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/104954" target="_blank">Foresight News（恐惧贪婪30）</a> · <a href="https://www.jinse2.com/lives/514211.html" target="_blank">金色财经（BTC $77K）</a></div>
+    </div>
+  </div>
+
+  <!-- Keywords -->
+  <div class="keywords-section">
+    <div class="keywords-title">TODAY'S KEYWORDS</div>
+    <div class="keywords-grid">
+      <span class="keyword-chip">Vitalik EF精简</span>
+      <span class="keyword-chip">减少ETH卖出</span>
+      <span class="keyword-chip">EF转型</span>
+      <span class="keyword-chip">日经225历史新高65K</span>
+      <span class="keyword-chip">布伦特跌破$96</span>
+      <span class="keyword-chip">DXY跌破99</span>
+      <span class="keyword-chip">美伊协议推进</span>
+      <span class="keyword-chip">CFTC政治清洗</span>
+      <span class="keyword-chip">监管政治化</span>
+      <span class="keyword-chip">HYPE超DOGE第9</span>
+      <span class="keyword-chip">Loracle$7500万空单</span>
+      <span class="keyword-chip">MoonPay ChatGPT</span>
+      <span class="keyword-chip">Coinbase CEO RWA</span>
+      <span class="keyword-chip">美联储6月不变97.3%</span>
+      <span class="keyword-chip">拉加德ECB上调通胀</span>
+      <span class="keyword-chip">Saylor回购债券</span>
+      <span class="keyword-chip">10xResearch看跌</span>
+      <span class="keyword-chip">中本聪时代矿工BTC流动</span>
+      <span class="keyword-chip">StablR漏洞</span>
+      <span class="keyword-chip">恐惧贪婪指数30</span>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div>OKX Research · 加密早报 · 5月25日（星期一）</div>
+    <div>时间窗口：2026年5月24日 20:00 — 5月25日 09:30（北京时间）</div>
+    <div style="margin-top:8px;">本早报仅供参考，不构成任何投资建议。加密资产存在高风险，请根据自身风险承受能力谨慎决策。</div>
+  </div>
+
+</div>
+</body>
+</html>
