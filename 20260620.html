@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密早报 · 2026年6月20日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif; padding: 20px; max-width: 780px; margin: 0 auto; }
+
+  /* Header */
+  .report-header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid #1e1e1e; margin-bottom: 28px; }
+  .date-badge { display: inline-block; background: #111; color: #777; font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid #2a2a2a; margin-bottom: 16px; letter-spacing: 1px; }
+  .report-title { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .report-title .highlight { color: #BCFF2F; }
+  .report-subtitle { font-size: 13px; color: #555; margin-bottom: 20px; }
+  .source-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .source-tag { font-size: 11px; color: #555; padding: 2px 10px; border: 1px solid #2a2a2a; border-radius: 12px; background: #0d0d0d; }
+
+  /* Event Banner */
+  .event-banner { background: #0d0d0d; border-left: 3px solid #ff4d4d; padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 24px; }
+  .event-banner-label { font-size: 11px; color: #ff4d4d; letter-spacing: 1px; margin-bottom: 6px; font-weight: 600; text-transform: uppercase; }
+  .event-banner-title { font-size: 14px; color: #e0e0e0; font-weight: 600; line-height: 1.5; }
+
+  /* Keywords */
+  .keywords-section { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 10px; padding: 16px; margin-bottom: 28px; }
+  .keywords-title { font-size: 11px; color: #444; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .keyword { background: #111; border: 1px solid #252525; color: #777; font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+  .keyword.hot { border-color: rgba(188,255,47,0.3); color: #BCFF2F; }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #1a1a1a; }
+  .section-icon { font-size: 17px; }
+  .section-title { font-size: 14px; font-weight: 700; color: #ddd; }
+  .section-count { background: #151515; color: #444; font-size: 11px; padding: 2px 8px; border-radius: 10px; border: 1px solid #222; }
+
+  /* News Item */
+  .news-item { background: #111; border-radius: 10px; padding: 16px; margin-bottom: 12px; border-left: 3px solid #1e1e1e; }
+  .news-item.is-high { border-left: 3px solid #BCFF2F; }
+  .item-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+  .priority-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.5px; }
+  .priority-badge.high { background: #BCFF2F; color: #000; }
+  .priority-badge.mid { background: #2a2a2a; color: #999; border: 1px solid #333; }
+  .priority-badge.low { background: #1a1a1a; color: #555; border: 1px solid #252525; }
+  .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; line-height: 1.55; }
+  .news-desc { font-size: 13px; color: #888; line-height: 1.65; margin-bottom: 10px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; }
+  .tag-period { background: #0f1a00; color: #BCFF2F; border: 1px solid #2a3a00; }
+  .tag-impact { background: #111; color: #555; border: 1px solid #1e1e1e; }
+  .news-source { font-size: 11px; color: #3a3a3a; }
+  .news-source a { color: #484848; text-decoration: none; }
+  .news-source a:hover { color: #BCFF2F; text-decoration: underline; }
+
+  /* Footer */
+  .report-footer { border-top: 1px solid #1a1a1a; margin-top: 32px; padding-top: 24px; text-align: center; }
+  .footer-logo { font-size: 16px; font-weight: 700; color: #BCFF2F; margin-bottom: 10px; }
+  .footer-meta { font-size: 12px; color: #333; line-height: 1.9; }
+  .disclaimer { font-size: 11px; color: #272727; margin-top: 14px; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<div class="report-header">
+  <div class="date-badge">2026年6月20日 · 周六</div>
+  <div class="report-title">OKX Research · 加密<span class="highlight">早报</span></div>
+  <div class="report-subtitle">时间窗口：06/19 20:00 — 06/20 09:30 · 北京时间</div>
+  <div class="source-tags">
+    <span class="source-tag">Odaily星球日报</span>
+    <span class="source-tag">BlockBeats律动</span>
+    <span class="source-tag">Foresight News</span>
+    <span class="source-tag">Yahoo Finance</span>
+    <span class="source-tag">CryptoQuant</span>
+    <span class="source-tag">ESPN / FIFA</span>
+  </div>
+</div>
+
+<!-- ─── EVENT BANNER ─── -->
+<div class="event-banner">
+  <div class="event-banner-label">⚡ 重大地缘事件</div>
+  <div class="event-banner-title">以色列—黎巴嫩停火协议生效 · 霍尔木兹海峡恢复通航 · 美伊谈判60天终局期限开启</div>
+</div>
+
+<!-- ─── KEYWORDS ─── -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords-grid">
+    <span class="keyword hot">以黎停火</span>
+    <span class="keyword hot">霍尔木兹通航</span>
+    <span class="keyword hot">9月加息定价</span>
+    <span class="keyword hot">BTC $62.5K</span>
+    <span class="keyword hot">恐慌指数23</span>
+    <span class="keyword">LINK $1.49亿解锁</span>
+    <span class="keyword">Sonic Labs权力交班</span>
+    <span class="keyword">ETH巨鲸建仓</span>
+    <span class="keyword">Axelar桥接攻击</span>
+    <span class="keyword">朱尼庆典美股休市</span>
+    <span class="keyword">嘉信理财预测市场</span>
+    <span class="keyword">美国2-0澳大利亚</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 1 · 全球事件            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">2 条</span>
+  </div>
+
+  <!-- H1 -->
+  <div class="news-item is-high">
+    <div class="item-top">
+      <span class="priority-badge high">高价值</span>
+      <div class="news-title">以色列-黎巴嫩停火生效，霍尔木兹海峡恢复通航，美伊谈判关键60天期限开启但核心条款悬而未决</div>
+    </div>
+    <div class="news-desc">美国宣布以色列与黎巴嫩真主党于北京时间6月19日21:00起停火生效；美伊初步协议落地后，霍尔木兹海峡内长期滞留的货船开始谨慎恢复通行，全球油价下行预期升温（WTI已降至$76.27/桶）。然而协议推进随即出现明显混乱：霍尔木兹是否全面无条件开放、核问题处置细节等核心条款美伊存在根本分歧；原定瑞士签署仪式被搁置，美国副总统万斯行程临时取消；特朗普最新声称"伊朗须在60天内达成最终协议，否则将采取令伊朗不愉快的行动"。伊朗外长阿拉格奇表示正筹划在未来数天举行新一轮会晤，谈判结局仍具较大不确定性。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">月级影响</span>
+      <span class="tag tag-impact">地缘政治</span>
+      <span class="tag tag-impact">能源供应</span>
+      <span class="tag tag-impact">风险情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352172" target="_blank">BlockBeats（停火宣布）</a> · <a href="https://m.theblockbeats.info/flash/352194" target="_blank">BlockBeats（霍尔木兹通航）</a> · <a href="https://m.theblockbeats.info/flash/352198" target="_blank">BlockBeats（协议推进混乱）</a> · <a href="https://m.theblockbeats.info/flash/352202" target="_blank">BlockBeats（特朗普60天）</a></div>
+  </div>
+
+  <!-- M8 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">德州兄弟持枪绑架认罪：强制受害者转移$800万加密资产，实物暴力威胁加密持有者警示升级</div>
+    </div>
+    <div class="news-desc">两名德克萨斯州兄弟在明尼苏达州持枪绑架一户家庭，威胁转移逾800万美元加密资产后在休斯顿落网，目前已认罪。此案是2026年以来加密领域最严重的暴力犯罪案例之一，折射出随着加密资产价值攀升，"实物胁迫转账"手法在全球范围内系统性上升，链上追踪技术虽强，但无法对抗线下人身威胁。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">加密犯罪</span>
+      <span class="tag tag-impact">安全警示</span>
+    </div>
+    <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/106965" target="_blank">Foresight News</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 2 · 货币政策            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🏛️</span>
+    <span class="section-title">货币政策</span>
+    <span class="section-count">1 条</span>
+  </div>
+
+  <!-- H2 -->
+  <div class="news-item is-high">
+    <div class="item-top">
+      <span class="priority-badge high">高价值</span>
+      <div class="news-title">美联储9月加息25bp已100%定价，BTC跌至$62,498，恐惧贪婪指数降至23（极度恐慌）</div>
+    </div>
+    <div class="news-desc">CME"美联储观察"最新数据：9月加息25bp的市场定价概率达到100%，7月加息概率已升至39.6%，显示市场彻底切换至"今年必加息"叙事。BTC在鹰派FOMC后遗症持续发酵下延续跌势——6月19日开盘$62,882跌至$62,498（日内-2.4%），以太坊跌至$1,688（日内-2.2%）；BTC自6月17日美联储会议以来累计跌幅超过5%。Foresight News最新数据：6月20日恐惧贪婪指数降至23（极度恐慌区间），为本轮调整以来最低读数。多空压力方面，BTC若突破$64,000则有$7.86亿空单面临清算，若跌破$62,000则$6.55亿多单承压。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">月级影响</span>
+      <span class="tag tag-impact">货币政策</span>
+      <span class="tag tag-impact">加密价格</span>
+      <span class="tag tag-impact">市场情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352180" target="_blank">BlockBeats（9月加息100%）</a> · <a href="https://m.theblockbeats.info/flash/352173" target="_blank">BlockBeats（CME 7月概率）</a> · <a href="https://m.theblockbeats.info/flash/352188" target="_blank">BlockBeats（多空清算压力）</a> · <a href="https://foresightnews.pro/news/detail/106967" target="_blank">Foresight News（恐慌指数23）</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 3 · 链上事件            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⛓️</span>
+    <span class="section-title">链上事件</span>
+    <span class="section-count">4 条</span>
+  </div>
+
+  <!-- H3 -->
+  <div class="news-item is-high">
+    <div class="item-top">
+      <span class="priority-badge high">高价值</span>
+      <div class="news-title">Chainlink非流通供应钱包向币安转入1837.5万枚LINK（约$1.49亿），本轮周期第8次大规模解锁抛压</div>
+    </div>
+    <div class="news-desc">链上监测：Chainlink官方非流通供应钱包向Binance转入1837.5万枚LINK，按当时价折合约1.4493亿美元。这是Chainlink自2022年8月以来定期执行的第8次同类"解锁→Binance"操作，历次单次规模在610万至1875万枚之间，此次属较大规模（接近历史最高）。该非流通地址目前仍持有3.915亿枚LINK（约54亿美元）待未来分批解锁。历史规律显示，此类大规模解锁事件后LINK价格均承受明显下行压力，结合当前整体市场已处极度恐慌区间，短期供应冲击风险需关注。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">链上事件</span>
+      <span class="tag tag-impact">供应压力</span>
+      <span class="tag tag-impact">机构行为</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352206" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <!-- M3 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">多地址集中建仓ETH：K3 Capital+F2Pool联创王纯+新建钱包合计建仓约2.6万枚ETH（约$4400万）</div>
+    </div>
+    <div class="news-desc">链上出现多路大额ETH增持信号：K3 Capital从Binance提取10,000枚ETH（约$1692万）；与F2Pool联创王纯相关联的钱包从Binance提取7,650枚ETH+124.18枚WBTC（总值约$2067万），存入Spark（DeFi利率协议）；同时一新建钱包从FalconX提取8,450枚ETH+10.8万枚HYPE（总值约$2170万）。三路合计约2.61万枚ETH，正值ETH价格跌至$1,688一线，呈现典型"下跌中建仓"特征，与同期巨鲸割肉出货形成鲜明分歧。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">日级影响</span>
+      <span class="tag tag-impact">链上事件</span>
+      <span class="tag tag-impact">巨鲸建仓</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352192" target="_blank">BlockBeats（K3 Capital）</a> · <a href="https://m.theblockbeats.info/flash/352184" target="_blank">BlockBeats（王纯）</a> · <a href="https://www.odaily.news/newsflash/492468" target="_blank">Odaily（新建钱包）</a></div>
+  </div>
+
+  <!-- M4 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">巨鲸集中割肉：1105枚BTC亏损$2690万清仓出局，5900枚ETH亏损$980万转入Kraken</div>
+    </div>
+    <div class="news-desc">链上分析师余烬监测：一巨鲸今日清仓持有约7个月的1105枚BTC（价值约$6943万），以约87,181美元均价买入后按当前约$62,800斩仓，亏损约$2690万；另一巨鲸将5,900枚ETH（约$1003万）转入Kraken，亏损约$980万出局（此前从Kraken提出22,951枚ETH，成本更高）。两路合计亏损近$3670万，印证当前"极度恐慌"指数处于真实恐慌水位，而非技术性超卖。多空分歧：同时段有多地址大举逢低买入ETH（见上条），市场情绪结构出现明显分化。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">日级影响</span>
+      <span class="tag tag-impact">链上事件</span>
+      <span class="tag tag-impact">市场情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352185" target="_blank">BlockBeats（BTC清仓）</a> · <a href="https://m.theblockbeats.info/flash/352207" target="_blank">BlockBeats（ETH入Kraken）</a> · <a href="https://www.odaily.news/newsflash/492491" target="_blank">Odaily</a></div>
+  </div>
+
+  <!-- M6 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">Axelar Network IBC桥接遭攻击，约$467万代币被盗，问题局限于Secret Network端ICS-20合约</div>
+    </div>
+    <div class="news-desc">Axelar Network官方确认发生IBC桥接安全事件，约467万美元代币被盗，攻击路径为Secret Network端的ICS-20智能合约漏洞，问题已被隔离，其他跨链通道不受影响。本次事件是继上月Ionic+THORChain双重停运后，近期跨链桥领域又一重大安全事故，跨链基础设施的系统性安全风险仍是行业未解的核心难题。规模虽不及上月rsETH危机（Aave承受$84.5亿提款潮），但持续性的跨链桥被攻击事件正侵蚀市场对多链互操作性叙事的信心。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">链上安全</span>
+      <span class="tag tag-impact">跨链桥</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/492469" target="_blank">Odaily</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 4 · 传统金融            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">2 条</span>
+  </div>
+
+  <!-- M1 传统金融快照 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">传统金融快照：6月19日朱尼庆典（Juneteenth）美股全天休市，BTC/ETH延续跌势与股市停盘背离</div>
+    </div>
+    <div class="news-desc">6月19日（朱尼庆典 / Juneteenth）为美国联邦法定假日，纽交所与纳斯达克全天休市，无新收盘数据。此前最后交易日（6月18日）：标普500 +1.08%，纳斯达克 +1.91%，道琼斯 +0.31%；WTI原油$76.27/桶（美伊协议后油价承压），黄金约$4,190/盎司。加密市场不休市：BTC $62,498（-2.4%），ETH $1,688（-2.2%），两者在美联储鹰派信号持续发酵下延续下行，与美股假日"暂停"形成背离——美股将于下周一（6月22日）重启，届时鹰派预期对股市的传导效果值得关注。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">传统金融</span>
+      <span class="tag tag-impact">宏观</span>
+    </div>
+    <div class="news-source">来源：<a href="https://finance.yahoo.com/personal-finance/investing/article/bitcoin-and-ethereum-prices-today-friday-june-19-2026-prices-keep-falling-post-fed-decision-123239380.html" target="_blank">Yahoo Finance</a></div>
+  </div>
+
+  <!-- M7 嘉信理财预测市场 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">嘉信理财联手Cboe推出标普500二元期权合约，传统金融巨头全面进入预测市场赛道</div>
+    </div>
+    <div class="news-desc">据《华尔街日报》报道，嘉信理财（Charles Schwab）正与Cboe合作推出全有或全无（All-or-Nothing）期权合约，允许客户以"是或否"方式押注标普500指数表现，产品逻辑与Kalshi或Polymarket的预测市场合约高度类似（区别仅在于期权vs期货结构）。传统金融巨头的入场标志着预测市场从"加密小众玩法"加速跃升为主流衍生品品类。此举还可能为肯塔基州起诉Kalshi的监管案件提供新参照：当嘉信理财也开始销售同类产品，监管机构的立场或需重新校准。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">月级影响</span>
+      <span class="tag tag-impact">传统金融</span>
+      <span class="tag tag-impact">预测市场</span>
+      <span class="tag tag-impact">监管趋势</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352205" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 5 · 行业趋势            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🔧</span>
+    <span class="section-title">行业趋势</span>
+    <span class="section-count">2 条</span>
+  </div>
+
+  <!-- M2 Sonic Labs -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">Sonic Labs三位联合创始人（含Andre Cronje）同时辞任董事会，Matt Visser接任CEO</div>
+    </div>
+    <div class="news-desc">Sonic Labs官方公告：Michael Kong、Andre Cronje和David Richardson将同时辞去Sonic Labs董事会职务，三人表示"仍关注项目成功"并将完整交接，此后不再参与业务决策；Matt Visser将出任新任CEO。Andre Cronje此前深度参与创立了YFI、Fantom（现Sonic）等多个DeFi旗舰协议，此次是其第三次从自己深度参与的核心项目退出，市场对Sonic链生态的持续性存在合理关切。Sonic Labs在Fantom主网升级为Sonic高性能EVM链后被视为下一代公链竞争者，此次权力交接是否影响路线图执行仍需观察。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">行业治理</span>
+      <span class="tag tag-impact">DeFi</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352208" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <!-- M5 BTC链上活跃度 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">BTC链上活跃度逼近历史高位：日均交易突破80万笔，距2024年峰值仅差7%，基本面与价格背离</div>
+    </div>
+    <div class="news-desc">CryptoQuant数据显示，比特币网络活跃度已升至距2024年9月历史峰值仅约7%的水平，并自2024年中以来首次突破长期趋势线；日均交易笔数超80万，较2025年低点翻逾一倍。分析指出，本轮上升主要由大量小额交易驱动（非经济支付活动），与铭文及链上应用活跃相关。值得注意的是，链上活跃度持续走强与BTC当前价格下行形成明显背离——历史上这种背离通常是价格底部区域形成前的先行信号，但并不构成做多的充分条件。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">加密数据</span>
+      <span class="tag tag-impact">链上指标</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352191" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 6 · 周期事件 · 世界杯  -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚽</span>
+    <span class="section-title">周期事件 · 2026世界杯</span>
+    <span class="section-count">1 条</span>
+  </div>
+
+  <!-- L1 美国2-0澳大利亚 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge low">情绪噪音</span>
+      <div class="news-title">FIFA世界杯D组：美国2-0澳大利亚率先晋级16强，Pulisic缺席仍稳赢，预测市场61%胜率兑现</div>
+    </div>
+    <div class="news-desc">北京时间6月20日凌晨3点，2026美加墨世界杯D组次轮，美国队在主场西雅图Lumen球场2-0击败澳大利亚（进球：Cameron Burgess乌龙球+Alex Freeman）。核心球员Pulisic因伤缺席，球队依然发挥稳健，凭借小组赛两轮全胜（6分）率先锁定淘汰赛资格。预测市场平台Predict.fun赛前给出美国61%胜率，与结果吻合。美国队下轮将对阵土耳其。主场东道主效应叠加多地区预测市场活跃，世界杯预测类资产正成为本届赛事的新热点。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">情绪噪音</span>
+      <span class="tag tag-impact">世界杯</span>
+      <span class="tag tag-impact">周期事件</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.espn.com/soccer/match/_/gameId/760442/australia-united-states" target="_blank">ESPN</a> · <a href="https://m.theblockbeats.info/flash/352177" target="_blank">BlockBeats（Predict.fun赔率）</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 7 · 情绪噪音            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌪️</span>
+    <span class="section-title">情绪噪音</span>
+    <span class="section-count">3 条</span>
+  </div>
+
+  <!-- L2 FLKR -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge low">情绪噪音</span>
+      <div class="news-title">SOL生态Meme代币FLKR日内涨幅480%，市值一度突破$300万</div>
+    </div>
+    <div class="news-desc">SOL应用代币FLKR市值一度突破300万美元（现报约$285万），24小时涨幅超480%。该代币基于Solana生态，市值体量极小，价格波动极大，高风险特征显著，Odaily已提示用户注意极端波动风险。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">情绪噪音</span>
+      <span class="tag tag-impact">Meme行情</span>
+      <span class="tag tag-impact">SOL生态</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.odaily.news/newsflash/492492" target="_blank">Odaily</a></div>
+  </div>
+
+  <!-- L3 SeeDAO -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge low">情绪噪音</span>
+      <div class="news-title">SeeDAO重启提案经第十二届节点共识大会全票通过，已全额退还所有投资人资金</div>
+    </div>
+    <div class="news-desc">SeeDAO官方宣布，重启提案经现存全体节点投票通过；截至公告时，SeeDAO已完全退还此前所有投资人的投资款，社区正式宣告重启。SeeDAO是国内最具代表性的早期华人加密DAO之一，此次重启或为DAO治理赛道带来阶段性关注。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">情绪噪音</span>
+      <span class="tag tag-impact">DAO治理</span>
+      <span class="tag tag-impact">行业趋势</span>
+    </div>
+    <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/106966" target="_blank">Foresight News</a></div>
+  </div>
+
+  <!-- L4 ZachXBT印度诈骗 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge low">情绪噪音</span>
+      <div class="news-title">ZachXBT曝光印度诈骗团伙"反向求助"：诈骗资金被Changelly冻结后竟联系ZachXBT请求帮助解冻</div>
+    </div>
+    <div class="news-desc">链上侦探ZachXBT披露一起印度诈骗嫌疑人"反向报案"事件：该诈骗嫌疑人因所骗比特币在Changelly平台被冻结，竟主动联系ZachXBT寻求帮助，自述前后矛盾，最终被ZachXBT公开曝光。事件折射出链上追踪技术威慑力提升，但也显示部分行骗者对区块链监控工具仍知之甚少。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">情绪噪音</span>
+      <span class="tag tag-impact">链上诈骗</span>
+      <span class="tag tag-impact">安全警示</span>
+    </div>
+    <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/106964" target="_blank">Foresight News</a></div>
+  </div>
+</div>
+
+<!-- ─── DATA SUMMARY ─── -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键数字</div>
+  <div class="keywords-grid">
+    <span class="keyword hot">BTC $62,498 (-2.4%)</span>
+    <span class="keyword hot">ETH $1,688 (-2.2%)</span>
+    <span class="keyword hot">恐慌指数 23 极度恐慌</span>
+    <span class="keyword hot">9月加息 100% 定价</span>
+    <span class="keyword">LINK 解锁 $1.49亿</span>
+    <span class="keyword">ETH 建仓 $4400万</span>
+    <span class="keyword">BTC 割肉亏损 $2690万</span>
+    <span class="keyword">Axelar 被盗 $467万</span>
+    <span class="keyword">WTI $76.27/桶</span>
+    <span class="keyword">黄金 ~$4,190/盎司</span>
+    <span class="keyword">美国 2-0 澳大利亚 晋级</span>
+    <span class="keyword">美伊 60天期限倒计时</span>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<div class="report-footer">
+  <div class="footer-logo">OKX Research</div>
+  <div class="footer-meta">
+    加密早报 · 2026年6月20日 周六<br>
+    时间窗口：06/19 20:00 — 06/20 09:30 北京时间<br>
+    数据来源：Odaily · BlockBeats · Foresight News · Yahoo Finance · CryptoQuant · ESPN / FIFA
+  </div>
+  <div class="disclaimer">
+    本报告仅供信息参考，不构成任何投资建议。加密货币市场波动剧烈，请根据自身风险承受能力审慎决策。<br>
+    OKX Research 保留对本报告内容的最终解释权。
+  </div>
+</div>
+
+</body>
+</html>
