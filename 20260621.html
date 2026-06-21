@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>加密早报 · 2026年6月21日</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #000; color: #fff; font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", Arial, sans-serif; padding: 20px; max-width: 780px; margin: 0 auto; }
+
+  /* Header */
+  .report-header { text-align: center; padding: 32px 0 24px; border-bottom: 1px solid #1e1e1e; margin-bottom: 28px; }
+  .date-badge { display: inline-block; background: #111; color: #777; font-size: 12px; padding: 4px 14px; border-radius: 20px; border: 1px solid #2a2a2a; margin-bottom: 16px; letter-spacing: 1px; }
+  .report-title { font-size: 28px; font-weight: 700; color: #fff; margin-bottom: 8px; }
+  .report-title .highlight { color: #BCFF2F; }
+  .report-subtitle { font-size: 13px; color: #555; margin-bottom: 20px; }
+  .source-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .source-tag { font-size: 11px; color: #555; padding: 2px 10px; border: 1px solid #2a2a2a; border-radius: 12px; background: #0d0d0d; }
+
+  /* Event Banner */
+  .event-banner { background: #0d0d0d; border-left: 3px solid #ff4d4d; padding: 14px 18px; border-radius: 0 8px 8px 0; margin-bottom: 24px; }
+  .event-banner-label { font-size: 11px; color: #ff4d4d; letter-spacing: 1px; margin-bottom: 6px; font-weight: 600; text-transform: uppercase; }
+  .event-banner-title { font-size: 14px; color: #e0e0e0; font-weight: 600; line-height: 1.5; }
+
+  /* Keywords */
+  .keywords-section { background: #0a0a0a; border: 1px solid #1e1e1e; border-radius: 10px; padding: 16px; margin-bottom: 28px; }
+  .keywords-title { font-size: 11px; color: #444; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; }
+  .keywords-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+  .keyword { background: #111; border: 1px solid #252525; color: #777; font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+  .keyword.hot { border-color: rgba(188,255,47,0.3); color: #BCFF2F; }
+
+  /* Section */
+  .section { margin-bottom: 32px; }
+  .section-header { display: flex; align-items: center; gap: 10px; margin-bottom: 16px; padding-bottom: 10px; border-bottom: 1px solid #1a1a1a; }
+  .section-icon { font-size: 17px; }
+  .section-title { font-size: 14px; font-weight: 700; color: #ddd; }
+  .section-count { background: #151515; color: #444; font-size: 11px; padding: 2px 8px; border-radius: 10px; border: 1px solid #222; }
+
+  /* News Item */
+  .news-item { background: #111; border-radius: 10px; padding: 16px; margin-bottom: 12px; border-left: 3px solid #1e1e1e; }
+  .news-item.is-high { border-left: 3px solid #BCFF2F; }
+  .item-top { display: flex; align-items: flex-start; gap: 8px; margin-bottom: 8px; }
+  .priority-badge { font-size: 10px; font-weight: 700; padding: 2px 8px; border-radius: 4px; white-space: nowrap; flex-shrink: 0; margin-top: 2px; letter-spacing: 0.5px; }
+  .priority-badge.high { background: #BCFF2F; color: #000; }
+  .priority-badge.mid { background: #2a2a2a; color: #999; border: 1px solid #333; }
+  .priority-badge.low { background: #1a1a1a; color: #555; border: 1px solid #252525; }
+  .news-title { font-size: 14px; font-weight: 600; color: #f0f0f0; line-height: 1.55; }
+  .news-desc { font-size: 13px; color: #888; line-height: 1.65; margin-bottom: 10px; }
+  .news-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 10px; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 4px; }
+  .tag-period { background: #0f1a00; color: #BCFF2F; border: 1px solid #2a3a00; }
+  .tag-impact { background: #111; color: #555; border: 1px solid #1e1e1e; }
+  .news-source { font-size: 11px; color: #3a3a3a; }
+  .news-source a { color: #484848; text-decoration: none; }
+  .news-source a:hover { color: #BCFF2F; text-decoration: underline; }
+
+  /* Footer */
+  .report-footer { border-top: 1px solid #1a1a1a; margin-top: 32px; padding-top: 24px; text-align: center; }
+  .footer-logo { font-size: 16px; font-weight: 700; color: #BCFF2F; margin-bottom: 10px; }
+  .footer-meta { font-size: 12px; color: #333; line-height: 1.9; }
+  .disclaimer { font-size: 11px; color: #272727; margin-top: 14px; line-height: 1.7; }
+</style>
+</head>
+<body>
+
+<!-- ─── HEADER ─── -->
+<div class="report-header">
+  <div class="date-badge">2026年6月21日 · 周日</div>
+  <div class="report-title">OKX Research · 加密<span class="highlight">早报</span></div>
+  <div class="report-subtitle">时间窗口：06/20 20:00 — 06/21 09:30 · 北京时间</div>
+  <div class="source-tags">
+    <span class="source-tag">Odaily星球日报</span>
+    <span class="source-tag">BlockBeats律动</span>
+    <span class="source-tag">Foresight News</span>
+    <span class="source-tag">CBS Sports</span>
+    <span class="source-tag">CoinGlass</span>
+    <span class="source-tag">Common Prefix</span>
+  </div>
+</div>
+
+<!-- ─── EVENT BANNER ─── -->
+<div class="event-banner">
+  <div class="event-banner-label">⚡ 局势骤变 · 高度关注</div>
+  <div class="event-banner-title">伊朗宣布关闭霍尔木兹海峡 · 美国否认观察到封锁 · 以色列下令黎巴嫩停火 · 美伊代表团定于今日赴瑞士谈判</div>
+</div>
+
+<!-- ─── KEYWORDS ─── -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键词</div>
+  <div class="keywords-grid">
+    <span class="keyword hot">霍尔木兹关闭争议</span>
+    <span class="keyword hot">美伊瑞士谈判</span>
+    <span class="keyword hot">以黎停火升级</span>
+    <span class="keyword hot">BTC $64K反弹</span>
+    <span class="keyword hot">空单爆仓$1.23亿</span>
+    <span class="keyword">MEV蜜罐攻击$750万</span>
+    <span class="keyword">SOL巨鲸建仓$1655万</span>
+    <span class="keyword">Hyperliquid 8.4%历史新高</span>
+    <span class="keyword">下周PCE+压力测试</span>
+    <span class="keyword">Saylor $480亿BTC净储备</span>
+    <span class="keyword">稳定币2.0收益分配</span>
+    <span class="keyword">德国荷兰晋级</span>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 1 · 全球事件            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌍</span>
+    <span class="section-title">全球事件</span>
+    <span class="section-count">1 条</span>
+  </div>
+
+  <!-- H1 -->
+  <div class="news-item is-high">
+    <div class="item-top">
+      <span class="priority-badge high">高价值</span>
+      <div class="news-title">霍尔木兹海峡骤然升级：伊朗宣布关闭并警告水雷威胁，美国否认观察到封锁，以色列下令黎巴嫩停火，美伊代表团定于6月21日赴瑞士谈判</div>
+    </div>
+    <div class="news-desc">昨夜今晨中东局势发生剧烈演变——伊朗军方以"美国及以色列涉嫌违反停火谅解备忘录"为由，宣布关闭霍尔木兹海峡对所有船只的通行；伊朗革命卫队海军通过无线电直接联系船只，警告"试图穿越海峡的船只可能遭遇水雷或被打击"。然而美国军方随即回应：美军暂未观察到伊朗关闭海峡的军事动向，当日（6月20日）实际有55艘商船通过，通行量较前日增加；副总统万斯亦表示"没有证据表明伊朗正在关闭海峡"。与此同时，以色列总理内塔尼亚胡正式下令黎巴嫩停火，但以军强调"安全区"内仍将继续行动打击真主党地道系统。外交层面，巴基斯坦证实美伊将于6月21日（今日）在瑞士布尔根施托克举行会谈；特朗普发文称停火60天内霍尔木兹不征通行费。总体来看，伊朗的"关闭声明"更多具有谈判筹码性质，实际封锁尚未发生，但言辞与行动的分裂令市场风险溢价保持高位。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">月级影响</span>
+      <span class="tag tag-impact">地缘政治</span>
+      <span class="tag tag-impact">能源供应</span>
+      <span class="tag tag-impact">风险情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352262" target="_blank">BlockBeats（伊朗宣布关闭）</a> · <a href="https://m.theblockbeats.info/flash/352267" target="_blank">BlockBeats（革命卫队确认）</a> · <a href="https://m.theblockbeats.info/flash/352268" target="_blank">BlockBeats（美军否认）</a> · <a href="https://m.theblockbeats.info/flash/352271" target="_blank">BlockBeats（以色列停火令）</a> · <a href="https://m.theblockbeats.info/flash/352277" target="_blank">BlockBeats（特朗普停火费）</a> · <a href="https://m.theblockbeats.info/flash/352283" target="_blank">BlockBeats（美伊赴瑞士谈判）</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 2 · 加密行情            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📊</span>
+    <span class="section-title">加密行情</span>
+    <span class="section-count">3 条</span>
+  </div>
+
+  <!-- H2 -->
+  <div class="news-item is-high">
+    <div class="item-top">
+      <span class="priority-badge high">高价值</span>
+      <div class="news-title">BTC反弹突破$64K（报$64,147，+0.95%），24H全网空单爆仓$1.23亿，极度恐慌信号开始修复</div>
+    </div>
+    <div class="news-desc">北京时间6月20日22:46，BTC升破64,000 USDT，报64,147.59 USDT，日内涨幅0.95%；这距昨日（6月19日）收于$62,498的近期低点已反弹约2.6%。驱动因素：① 全网做空仓位被大规模轧平——24H全网爆仓$1.8亿，其中空单爆仓$1.23亿（占比68%），多单爆仓仅$5718万，构成典型空头陷阱行情；② 霍尔木兹争议带来的地缘对冲买盘。BTC若能站稳$64K并推进至$64,000上方，则多空压力图中$64K以上尚有$7.86亿空单待清算，可能提供进一步上涨动能；但若回落破$62K，$6.55亿多单将承压。ETH同步反弹，大巨鲸逢低大规模增持SOL（见下条）也印证风险资产情绪开始改善。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">加密价格</span>
+      <span class="tag tag-impact">市场情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/106994" target="_blank">Foresight News（BTC $64K）</a> · <a href="https://m.theblockbeats.info/flash/352275" target="_blank">BlockBeats（全网爆仓$1.8亿）</a></div>
+  </div>
+
+  <!-- M2 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">巨鲸砸$1655万USDC建仓234,898枚SOL，SOL大额做多信号强烈</div>
+    </div>
+    <div class="news-desc">链上监测：某巨鲸地址花费约1655万枚USDC，一次性买入234,898枚SOL（均价约$70.46），操作发生在北京时间6月20日下午并于当晚披露。此举是近期最大规模的SOL单笔买入记录之一，叠加当日BTC反弹、ETH/SOL逐渐企稳，呈现出"大资金在极度恐慌阶段逢低重仓"的典型逆势做多特征。SOL此前曾因市场整体下行跌至$70附近，本次大额建仓是否构成近期底部值得持续关注。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">日级影响</span>
+      <span class="tag tag-impact">链上事件</span>
+      <span class="tag tag-impact">巨鲸建仓</span>
+    </div>
+    <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/106987" target="_blank">Foresight News</a></div>
+  </div>
+
+  <!-- M3 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">Hyperliquid永续合约全球市场份额突破8.4%历史新高，HYPE报$70.98（+3.09%），USDH结算完成</div>
+    </div>
+    <div class="news-desc">hypeflows数据显示，按未平仓合约规模计算，Hyperliquid现已占据全球永续合约市场8.4%的份额——这一比较基准涵盖所有中心化交易平台（含Binance、Bybit、OKX），是Hyperliquid历史新高。HYPE代币同步走强，报$70.98，24H涨幅3.09%。与此同时，Hyperliquid官方宣布HyperCore上以USDH计价的市场已完成结算，USDH退出计划实施，用户可通过多种方式处理剩余资产——这是Hyperliquid生态架构调整的重要里程碑。在其他头部DEX遭遇安全事件的背景下，Hyperliquid市场份额的创新高尤为引人注目。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">行业趋势</span>
+      <span class="tag tag-impact">DeFi</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352272" target="_blank">BlockBeats（Hyperliquid 8.4%）</a> · <a href="https://foresightnews.pro/news/detail/106993" target="_blank">Foresight News（USDH结算）</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 3 · 链上安全            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🔐</span>
+    <span class="section-title">链上安全</span>
+    <span class="section-count">4 条</span>
+  </div>
+
+  <!-- H3 -->
+  <div class="news-item is-high">
+    <div class="item-top">
+      <span class="priority-badge high">高价值</span>
+      <div class="news-title">知名MEV机器人Jaredfromsubway.eth遭"反MEV蜜罐攻击"，损失超$750万，以太坊链上出现新型攻击模式</div>
+    </div>
+    <div class="news-desc">曾长期主导以太坊三明治攻击的知名MEV机器人Jaredfromsubway.eth遭黑客精密打击，损失超过750万美元。安全公司Blockaid分析：此次事件并非传统钓鱼或智能合约漏洞，而是一种专门针对MEV机器人决策逻辑的"反MEV蜜罐攻击"——攻击者在数周内预先部署了66个伪造代币合约和虚假流动性池，模仿真实的MEV获利机会诱导机器人自动执行吃单，随后在机器人完成操作后反转清算。这是以太坊MEV生态首次遭遇如此规模的专项反制攻击，标志着MEV攻防格局进入新阶段：MEV机器人自身正在成为被捕猎的猎手。对以太坊链上协议和MEV搜索者而言，这一新型攻击模式带来的系统性风险需要重新评估防御策略。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">链上安全</span>
+      <span class="tag tag-impact">以太坊生态</span>
+      <span class="tag tag-impact">MEV</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352284" target="_blank">BlockBeats</a> · <a href="https://www.odaily.news/newsflash/492670" target="_blank">Odaily</a></div>
+  </div>
+
+  <!-- M4 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">Secret Network/Axelar攻击深度复盘：6月10日发起，七天未被察觉，根源为合约托管→铸造模型迁移时遗漏关键验证</div>
+    </div>
+    <div class="news-desc">区块链研究机构Common Prefix发布完整攻击复盘：黑客于6月10日利用Secret Network与Axelar跨链桥合约漏洞，伪造托管存款并铸造无抵押代币，随后套现约467万美元。这一攻击从发起到暴露历时整整7天，直至6月17日一笔正常跨链转账因托管账户资金不足失败才被发现。漏洞根源：该合约在将托管模型改为铸造模型时，删除了验证存款真实性的关键安全检查——一个技术改写中的遗漏足以让数百万美元的跨链资产暴露在风险之中。结合昨日披露的OLPC攻击事件，DeFi跨链基础设施的代码质量和安全审计规范问题仍是行业最大隐患之一。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">链上安全</span>
+      <span class="tag tag-impact">跨链桥</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352285" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <!-- M8 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">BSC链OLPC/LABUBU流动性池遭攻击，$110万损失后633枚ETH存入Tornado Cash</div>
+    </div>
+    <div class="news-desc">派盾（PeckShield）监测：BNB Chain上PancakeSwap的OLPC/LABUBU流动性池遭攻击，约110万美元损失。攻击者随后将资金跨链转移至以太坊，将633.4枚ETH存入Tornado Cash完成洗钱。同一时期，慢雾余弦对另一起LABUBU代币"被盗"事件提出质疑：合约中decimals值被改为天文数字（7326680472586200649），可能导致代币余额显示异常，并非真实的黑客盗币行为——两个事件相互独立但同日发生，折射出BSC链上围绕热门代币LABUBU的攻击频次正在上升。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">链上安全</span>
+      <span class="tag tag-impact">BNB Chain</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352259" target="_blank">BlockBeats（OLPC攻击）</a> · <a href="https://foresightnews.pro/news/detail/106989" target="_blank">Foresight News（OLPC）</a> · <a href="https://foresightnews.pro/news/detail/106992" target="_blank">Foresight News（余弦质疑）</a></div>
+  </div>
+
+  <!-- L3 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge low">情绪噪音</span>
+      <div class="news-title">慢雾余弦揭秘BNB Chain LABUBU"被盗"事件：decimals被篡改为超大值，非真实黑客盗币</div>
+    </div>
+    <div class="news-desc">慢雾安全研究员余弦（@evilcos）发文质疑BNB Chain上LABUBU代币"被盗"事件的真实性：技术分析显示合约的decimalsValue被改为极大值（7326680472586200649），这会导致代币余额显示的数字大幅膨胀，所谓"被盗"实际上可能是利用参数异常制造假象。余弦提醒用户注意此类"假被盗"手法，并提示需要核查逻辑连贯性与合约代码。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">情绪噪音</span>
+      <span class="tag tag-impact">安全分析</span>
+      <span class="tag tag-impact">链上调查</span>
+    </div>
+    <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/106992" target="_blank">Foresight News</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 4 · 传统金融            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">📈</span>
+    <span class="section-title">传统金融</span>
+    <span class="section-count">3 条</span>
+  </div>
+
+  <!-- M1 传统金融快照 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">传统金融快照：整个周末美股休市，霍尔木兹争议对原油形成脉冲扰动，美联储PCE等三大催化剂将于下周集中落地</div>
+    </div>
+    <div class="news-desc">6月20日（周六）和6月21日（周日）美股全天休市。霍尔木兹海峡争议已对原油期货市场形成脉冲性扰动（6月20日周五收盘：WTI $76.27/桶，伊朗宣布关闭后亚盘原油期货一度冲高）；黄金受地缘避险需求支撑维持$4,190附近。加密市场不休市：BTC重返$64K，ETH同步修复。值得关注的是，本轮周末的最大悬念是"霍尔木兹是否真实封锁"——若6月21日美伊瑞士谈判取得进展，周一开盘将形成重大去风险信号；反之则油价大幅上行，加密市场将再度承压。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">传统金融</span>
+      <span class="tag tag-impact">宏观</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352255" target="_blank">BlockBeats（下周宏观展望）</a></div>
+  </div>
+
+  <!-- M5 下周宏观前瞻 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">下周三大宏观催化剂：5月核心PCE（周四）、美联储年度银行压力测试（周四）、美光财报（周三盘后）</div>
+    </div>
+    <div class="news-desc">市场焦点下周将集中在三大事件：① 周四20:30，美国5月核心PCE物价指数年率（最受美联储重视的通胀指标），前次数据已推动市场全面定价9月加息，本次若PCE超预期则加息预期进一步强化；② 同日（周四04:00），美联储公布年度银行压力测试结果，将影响大型银行股息分配能力及资本市场信心；③ 周三盘后，半导体/AI存储龙头美光科技（Micron）发布季报，是科技板块情绪的重要风向标。此外，初请失业金人数和Q1 GDP终值也将同时公布。这些数据集中落地将主导下周美股及加密市场的走向。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">宏观前瞻</span>
+      <span class="tag tag-impact">货币政策</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352255" target="_blank">BlockBeats</a></div>
+  </div>
+
+  <!-- M6 Saylor -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">Michael Saylor：Strategy BTC储备相较债务高出约$480亿，已累计融资超$600亿持续增持BTC</div>
+    </div>
+    <div class="news-desc">Strategy（原MicroStrategy）创始人Michael Saylor表示，公司比特币持有量与美元储备合计较全部债务高出约480亿美元，净持仓大幅领先。公司迄今已通过各类融资工具累计筹资超600亿美元用于增持比特币。这一声明发出在BTC反弹突破$64K背景下，策略层面传递出机构持仓信心不减的信号；对市场而言，Strategy庞大的BTC净储备同时意味着其不会成为近期价格下行的被动抛售方，具有一定的价格托底意义。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">周级影响</span>
+      <span class="tag tag-impact">机构动态</span>
+      <span class="tag tag-impact">BTC叙事</span>
+    </div>
+    <div class="news-source">来源：<a href="https://foresightnews.pro/news/detail/106990" target="_blank">Foresight News</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 5 · 行业观点            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">💡</span>
+    <span class="section-title">行业观点</span>
+    <span class="section-count">1 条</span>
+  </div>
+
+  <!-- M7 Tether -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge mid">中优级</span>
+      <div class="news-title">Tether联创倡议稳定币2.0：用户美元存款应分享国债收益，当前Tether独占3-4%年化利率结构存在争议</div>
+    </div>
+    <div class="news-desc">Tether联合创始人Reeve Collins发文指出：Tether当前模式是将用户存入的美元全部投资于美国国债（年化约3%-4%），并将所有收益留存自身——用户获得了全球化即时流动性，但其资产产生的收益被平台完全独占。Collins将这一结构定义为稳定币1.0的内嵌缺陷，并呼吁稳定币2.0时代应重构用户收益分配机制，让持有者分享底层资产的孳息。这一观点与GENIUS Act稳定币法案的讨论形成呼应——美国监管框架正在厘清稳定币收益分配规则，若法案推动yield-bearing稳定币合法化，将对Tether的商业模式构成重大挑战。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">月级影响</span>
+      <span class="tag tag-impact">行业趋势</span>
+      <span class="tag tag-impact">稳定币</span>
+      <span class="tag tag-impact">监管</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352256" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 6 · 周期事件 · 世界杯  -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">⚽</span>
+    <span class="section-title">周期事件 · 2026世界杯</span>
+    <span class="section-count">2 条</span>
+  </div>
+
+  <!-- L1 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge low">情绪噪音</span>
+      <div class="news-title">FIFA世界杯周六赛程：德国2-1象牙海岸率先晋级，荷兰5-1瑞典大胜展示统治力（北京时间周日清晨结束）</div>
+    </div>
+    <div class="news-desc">北美当地时间6月20日（周六），2026美加墨世界杯多场关键小组赛收官：德国队凭借末轮绝杀2-1击败象牙海岸，率先确保晋级淘汰赛；荷兰队以5-1大胜瑞典，展示出本届强队中最具统治力的场面表现（利物浦当家球星Gakpo梅开二度）。以上赛事均于北京时间6月21日清晨结束，属本窗口内容。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">情绪噪音</span>
+      <span class="tag tag-impact">世界杯</span>
+      <span class="tag tag-impact">周期事件</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cbssports.com/soccer/news/world-cup-group-standings-table-results/" target="_blank">CBS Sports</a></div>
+  </div>
+
+  <!-- L2 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge low">情绪噪音</span>
+      <div class="news-title">FIFA世界杯D组：土耳其0-1巴拉圭爆冷落败，两战未胜积分告急，D组格局趋于明朗</div>
+    </div>
+    <div class="news-desc">2026美加墨世界杯D组次轮，土耳其0-1不敌巴拉圭，遭遇爆冷出局危机（此前首轮已告负，目前积分为0）。美国已凭借连胜（2场6分）率先锁定淘汰赛名额；巴拉圭凭借此役拿到3分；土耳其第三轮面对美国，形势极为被动。预测市场平台Predict.fun此前对D组走势判断（美国61%胜率）与最终结果高度吻合。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">情绪噪音</span>
+      <span class="tag tag-impact">世界杯</span>
+      <span class="tag tag-impact">周期事件</span>
+    </div>
+    <div class="news-source">来源：<a href="https://www.cbssports.com/soccer/news/world-cup-group-standings-table-results/" target="_blank">CBS Sports</a></div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════ -->
+<!-- SECTION 7 · 情绪噪音            -->
+<!-- ════════════════════════════════ -->
+<div class="section">
+  <div class="section-header">
+    <span class="section-icon">🌪️</span>
+    <span class="section-title">情绪噪音</span>
+    <span class="section-count">1 条</span>
+  </div>
+
+  <!-- L4 -->
+  <div class="news-item">
+    <div class="item-top">
+      <span class="priority-badge low">情绪噪音</span>
+      <div class="news-title">某鲸鱼坚守两月终割肉：112.86枚WBTC均价$71,655买入，以$64,723清仓，亏损$78.2万出局</div>
+    </div>
+    <div class="news-desc">链上分析师Ai姨监测：某鲸鱼于4月14日行情上涨起点以均价71,655美元买入112.86枚WBTC（价值808万美元），一度在五月中旬浮盈超百万美元，却坚持未卖；最终在6月16日和此后分批清仓，卖出均价64,723美元，持仓两月资产缩水约10%，亏损78.2万美元。典型的"拿住了也逃不掉"高位坚守心态，与同期其他巨鲸的割肉故事共同构成本轮$86K→$62.5K回调周期中的代表性情绪样本。</div>
+    <div class="news-tags">
+      <span class="tag tag-period">情绪噪音</span>
+      <span class="tag tag-impact">链上事件</span>
+      <span class="tag tag-impact">市场情绪</span>
+    </div>
+    <div class="news-source">来源：<a href="https://m.theblockbeats.info/flash/352265" target="_blank">BlockBeats</a></div>
+  </div>
+</div>
+
+<!-- ─── DATA SUMMARY ─── -->
+<div class="keywords-section">
+  <div class="keywords-title">今日关键数字</div>
+  <div class="keywords-grid">
+    <span class="keyword hot">BTC $64,147 (+0.95%)</span>
+    <span class="keyword hot">空单爆仓 $1.23亿 / 全网 $1.8亿</span>
+    <span class="keyword hot">霍尔木兹 55艘船通过（实际未封锁）</span>
+    <span class="keyword">Hyperliquid 永续合约 8.4%</span>
+    <span class="keyword">HYPE $70.98 (+3.09%)</span>
+    <span class="keyword">SOL建仓 $1655万</span>
+    <span class="keyword">MEV蜜罐攻击 $750万</span>
+    <span class="keyword">Strategy BTC净储备超债务 $480亿</span>
+    <span class="keyword">下周PCE 周四20:30</span>
+    <span class="keyword">德国晋级 / 荷兰5-1大胜</span>
+    <span class="keyword">土耳其 0分 出局边缘</span>
+    <span class="keyword">美伊瑞士谈判 今日举行</span>
+  </div>
+</div>
+
+<!-- ─── FOOTER ─── -->
+<div class="report-footer">
+  <div class="footer-logo">OKX Research</div>
+  <div class="footer-meta">
+    加密早报 · 2026年6月21日 周日<br>
+    时间窗口：06/20 20:00 — 06/21 09:30 北京时间<br>
+    数据来源：Odaily · BlockBeats · Foresight News · CBS Sports · CoinGlass · Common Prefix
+  </div>
+  <div class="disclaimer">
+    本报告仅供信息参考，不构成任何投资建议。加密货币市场波动剧烈，请根据自身风险承受能力审慎决策。<br>
+    OKX Research 保留对本报告内容的最终解释权。
+  </div>
+</div>
+
+</body>
+</html>
